@@ -65,7 +65,7 @@ INCLUDES= -I$(TOP) -I$(DEST) -I. $(JAVAINCLUDE) $(JAVANATINC)
 JARTARGET=RXTXcomm.jar
 CLASSDIR=javax.comm
 CLASSTOP=javax
-CLASSDEST=javax.comm
+CLASSDEST=javax/comm
 ####################### tools
 LIBTOOLC=$(GLIBTOOL) --mode=compile $(CC) $(INCLUDES) $(CPPFLAGS) $(CFLAGS) $(VERBOSE_IOEXCEPTIONS) -c
 LIBTOOL_INST=$(GLIBTOOL) --mode=install $(INSTALL_PROGRAM)
@@ -73,9 +73,9 @@ LIBTOOL_INST=$(GLIBTOOL) --mode=install $(INSTALL_PROGRAM)
 SPATH = $(abs_srcdir)/src
 DEST=$(target_triplet)
 ####################### rules
-CLASSES = $(patsubst $(SPATH)/javax.comm/%.java,$(TOP)/$(CLASSDEST)/%.class,$(wildcard $(SPATH)/javax.comm/*.java))
-javafiles = $(wildcard $(SPATH)/javax.comm/*.java)
-javahfiles = $(patsubst $(SPATH)/javax.comm/%.java,%,$(wildcard $(SPATH)/javax.comm/*.java))
+CLASSES = $(patsubst $(SPATH)/javax/comm/%.java,$(TOP)/$(CLASSDEST)/%.class,$(wildcard $(SPATH)/javax/comm/*.java))
+javafiles = $(wildcard $(SPATH)/javax/comm/*.java)
+javahfiles = $(patsubst $(SPATH)/javax/comm/%.java,%,$(wildcard $(SPATH)/javax/comm/*.java))
 
 #######################
 CLEANFILES = $(TOP)/*.class $(TOP)/$(CLASSDEST)/*.class $(TOP)/$(JARTARGET)
@@ -112,7 +112,7 @@ $(CLASSES): $(javafiles) $(TOP)/Makefile
 	$(JAVAH_FIX)
 	$(JAVAC) $(javafiles)
 	$(JAVAH) `(for i in $(javahfiles);do \
-		if grep > /dev/null native.*\( $(SPATH)/javax.comm/$$i.java; then \
+		if grep > /dev/null native.*\( $(SPATH)/javax/comm/$$i.java; then \
 			echo $(CLASSDIR).$$i; \
 		fi; \
 	done)`
