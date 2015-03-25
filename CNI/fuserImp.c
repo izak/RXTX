@@ -6,7 +6,7 @@
 #endif//dima
 
 /* Yikes... how do we do this? */
-jstring gnu::io::CommPortIdentifier::native_psmisc_report_owner (jstring arg)
+jstring javax::comm::CommPortIdentifier::native_psmisc_report_owner (jstring arg)
 {
 	return ( JvNewStringUTF("Unknown Application") );
 	//return("Unknown Application\n");
@@ -300,7 +300,7 @@ void parse_args(const char *argv)
 }
 
 
-jstring Java::gnu::io::CommPortIdentifier::native_1psmisc_1report_1owner (
+jstring Java::javax::comm::CommPortIdentifier::native_1psmisc_1report_1owner (
 	jstring arg
 )
 {

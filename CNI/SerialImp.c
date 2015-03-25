@@ -234,7 +234,7 @@ RXTXPort.Initialize
 		It also allows for some sanity checks on linux boxes if DEBUG
 		is enabled.
 ----------------------------------------------------------*/
-void gnu::io::RXTXPort::Initialize(
+void javax::comm::RXTXPort::Initialize(
 )
 {
 #if defined DEBUG && defined(__linux__)
@@ -450,7 +450,7 @@ set_java_vars
 		been configured before the Java open() has been called.
 ----------------------------------------------------------*/
 		
-void set_java_vars( gnu::io::RXTXPort *p,
+void set_java_vars( javax::comm::RXTXPort *p,
 	int fd
 )
 {
@@ -528,7 +528,7 @@ RXTXPort.open
                 this function and it turns out to be permissions on the
                 device file or bios has the device disabled.
 ----------------------------------------------------------*/
-jint gnu::io::RXTXPort::open(
+jint javax::comm::RXTXPort::open(
 	java::lang::String *jstr
 )
 {
@@ -588,7 +588,7 @@ jint gnu::io::RXTXPort::open(
 fail:
 	LEAVE( "RXTXPort:open" );
 	snprintf(message, 79, "%s %s",strerror(errno)," in open");
-	throw new gnu::io::PortInUseException( JvNewStringUTF( message ) );
+	throw new javax::comm::PortInUseException( JvNewStringUTF( message ) );
 	//throw new PortInUseException;
 	return -1;
 }
@@ -601,7 +601,7 @@ RXTXPort.nativeClose
    return:      none
    exceptions:  none
 ----------------------------------------------------------*/
-void gnu::io::RXTXPort::nativeClose(
+void javax::comm::RXTXPort::nativeClose(
 	java::lang::String *jstr
 )
 {
@@ -762,7 +762,7 @@ int set_port_params(
    return:     jboolean 1 on error
    exceptions: UnsupportedCommOperationException
 ----------------------------------------------------------*/
-jboolean gnu::io::RXTXPort::nativeSetSerialPortParams(
+jboolean javax::comm::RXTXPort::nativeSetSerialPortParams(
 	jint speed,
 	jint dataBits,
 	jint stopBits,
@@ -956,7 +956,7 @@ int translate_stop_bits(
 */
 	return 1;
 }
-jint gnu::io::RXTXPort::nativeGetFlowControlMode(
+jint javax::comm::RXTXPort::nativeGetFlowControlMode(
       	jint fd
 )
 {
@@ -979,7 +979,7 @@ jint gnu::io::RXTXPort::nativeGetFlowControlMode(
 	}
 	return( (jint) ret );
 }
-jint gnu::io::RXTXPort::nativeGetParity(
+jint javax::comm::RXTXPort::nativeGetParity(
 	jint fd
 )
 {
@@ -1189,7 +1189,7 @@ init_threads( )
    exceptions:  none
    comments:	
 ----------------------------------------------------------*/
-int init_threads( gnu::io::RXTXPort *p, struct event_info_struct *eis )
+int init_threads( javax::comm::RXTXPort *p, struct event_info_struct *eis )
 {
 #if !defined(TIOCSERGETLSR) & !defined(WIN32)
 	sigset_t newmask, oldmask;
@@ -1247,7 +1247,7 @@ RXTXPort.writeByte
    return:      none
    exceptions:  IOException
 ----------------------------------------------------------*/
-void gnu::io::RXTXPort::writeByte(
+void javax::comm::RXTXPort::writeByte(
 	jint ji,
 	jboolean interrupted
 )
@@ -1322,7 +1322,7 @@ RXTXPort.writeArray
    return:      none
    exceptions:  IOException
 ----------------------------------------------------------*/
-void gnu::io::RXTXPort::writeArray(
+void javax::comm::RXTXPort::writeArray(
 	jbyteArray jbarray,
 	jint offset,
 	jint count,
@@ -1423,7 +1423,7 @@ RXTXPort.nativeDrain
                 count logic added to avoid infinite loops when EINTR is
                 true...  Thread.yeild() was suggested.
 ----------------------------------------------------------*/
-jboolean gnu::io::RXTXPort::nativeDrain(
+jboolean javax::comm::RXTXPort::nativeDrain(
 	jboolean interrupted
 )
 {
@@ -1477,7 +1477,7 @@ RXTXPort.sendBreak
    exceptions: none
    comments:   not very precise
 ----------------------------------------------------------*/
-void gnu::io::RXTXPort::sendBreak(
+void javax::comm::RXTXPort::sendBreak(
 	jint duration
 )
 {
@@ -1497,7 +1497,7 @@ RXTXPort.NativegetReceiveTimeout
    return:     VTIME
    comments:   see  NativeEnableReceiveTimeoutThreshold
 ----------------------------------------------------------*/
-jint gnu::io::RXTXPort::NativegetReceiveTimeout(
+jint javax::comm::RXTXPort::NativegetReceiveTimeout(
 )
 {
 	int fd = this->fd;
@@ -1523,7 +1523,7 @@ RXTXPort.NativeisReceiveTimeoutEnabled
    return:     true if VTIME > 0 else false
    comments:   see  NativeEnableReceiveTimeoutThreshold
 ----------------------------------------------------------*/
-jboolean gnu::io::RXTXPort::NativeisReceiveTimeoutEnabled(
+jboolean javax::comm::RXTXPort::NativeisReceiveTimeoutEnabled(
 )
 {
 	int fd = this->fd;
@@ -1550,7 +1550,7 @@ RXTXPort.isDSR
    exceptions:  none
    comments:    DSR stands for Data Set Ready
 ----------------------------------------------------------*/
-jboolean gnu::io::RXTXPort::isDSR(
+jboolean javax::comm::RXTXPort::isDSR(
 )
 {
 	unsigned int result = 0;
@@ -1580,7 +1580,7 @@ RXTXPort.isCD
                 permanently on fixed it for me so I don't care"
 
 ----------------------------------------------------------*/
-jboolean gnu::io::RXTXPort::isCD(
+jboolean javax::comm::RXTXPort::isCD(
 )
 {
 	unsigned int result = 0;
@@ -1605,7 +1605,7 @@ RXTXPort.isCTS
    exceptions:  none
    comments:    CTS stands for Clear To Send.
 ----------------------------------------------------------*/
-jboolean gnu::io::RXTXPort::isCTS(
+jboolean javax::comm::RXTXPort::isCTS(
 )
 {
 	unsigned int result = 0;
@@ -1631,7 +1631,7 @@ RXTXPort.isRI
    exceptions:  none
    comments:    RI stands for Ring Indicator
 ----------------------------------------------------------*/
-jboolean gnu::io::RXTXPort::isRI(
+jboolean javax::comm::RXTXPort::isRI(
 )
 {
 	unsigned int result = 0;
@@ -1657,7 +1657,7 @@ RXTXPort.isRTS
    exceptions:  none
    comments:    tcgetattr with c_cflag CRTS_IFLOW
 ----------------------------------------------------------*/
-jboolean gnu::io::RXTXPort::isRTS(
+jboolean javax::comm::RXTXPort::isRTS(
 )
 {
 	unsigned int result = 0;
@@ -1684,7 +1684,7 @@ RXTXPort.setRTS
    exceptions:  none
    comments:    tcsetattr with c_cflag CRTS_IFLOW
 ----------------------------------------------------------*/
-void gnu::io::RXTXPort::setRTS(
+void javax::comm::RXTXPort::setRTS(
 	jboolean state
 )
 {
@@ -1714,7 +1714,7 @@ RXTXPort.setDSR
    exceptions:  none
    comments:    tcsetattr with c_cflag CRTS_IFLOW
 ----------------------------------------------------------*/
-void gnu::io::RXTXPort::setDSR(
+void javax::comm::RXTXPort::setDSR(
 	jboolean state
 )
 {
@@ -1745,7 +1745,7 @@ RXTXPort.isDTR
    exceptions:  none
    comments:    DTR stands for Data Terminal Ready
 ----------------------------------------------------------*/
-jboolean gnu::io::RXTXPort::isDTR(
+jboolean javax::comm::RXTXPort::isDTR(
 )
 {
 	unsigned int result = 0;
@@ -1771,7 +1771,7 @@ RXTXPort.setDTR
    exceptions:  none
    comments:    DTR stands for Data Terminal Ready
 ----------------------------------------------------------*/
-void gnu::io::RXTXPort::setDTR(
+void javax::comm::RXTXPort::setDTR(
 	jboolean state
 )
 {
@@ -1856,7 +1856,7 @@ RXTXPort.nativeSetBaudBase
 		Set baud rate to 38400 before using this
 		First introduced in rxtx-2.1-3
 ----------------------------------------------------------*/
-jboolean gnu::io::RXTXPort::nativeSetBaudBase(
+jboolean javax::comm::RXTXPort::nativeSetBaudBase(
 	jint BaudBase
 )
 {
@@ -1874,7 +1874,7 @@ jboolean gnu::io::RXTXPort::nativeSetBaudBase(
 	return( false );
 #else
 	snprintf( msg, 79, "%s%s", strerror( errno ), " in nativeSetBaudBase" );
-	throw new gnu::io::UnsupportedCommOperationException( JvNewStringUTF( msg ) );
+	throw new javax::comm::UnsupportedCommOperationException( JvNewStringUTF( msg ) );
 	return( true );
 #endif /* TIOCGSERIAL */
 }
@@ -1890,7 +1890,7 @@ RXTXPort.nativeGetBaudBase
    comments:    
 		First introduced in rxtx-2.1-3
 ----------------------------------------------------------*/
-jint gnu::io::RXTXPort::nativeGetBaudBase(
+jint javax::comm::RXTXPort::nativeGetBaudBase(
 )
 {
 
@@ -1906,7 +1906,7 @@ jint gnu::io::RXTXPort::nativeGetBaudBase(
 	return( ( jint ) ( sstruct.baud_base ) );
 #else
 	snprintf( msg, 79, "%s%s", strerror( errno ), " in nativeGetBaudBase" );
-	throw new gnu::io::UnsupportedCommOperationException( JvNewStringUTF( msg ) );
+	throw new javax::comm::UnsupportedCommOperationException( JvNewStringUTF( msg ) );
 	return( ( jint ) -1 );
 #endif /* TIOCGSERIAL */
 }
@@ -1923,7 +1923,7 @@ RXTXPort.nativeSetDivisor
 		Set baud rate to 38400 before using this
 		First introduced in rxtx-2.1-3
 ----------------------------------------------------------*/
-jboolean gnu::io::RXTXPort::nativeSetDivisor(
+jboolean javax::comm::RXTXPort::nativeSetDivisor(
 	jint Divisor
 )
 {
@@ -1946,7 +1946,7 @@ jboolean gnu::io::RXTXPort::nativeSetDivisor(
 	return( false );
 #else
 	snprintf( msg, 79, "%s%s", strerror( errno ), " in nativeSetDivisor" );
-	throw new gnu::io::UnsupportedCommOperationException( JvNewStringUTF( msg ) );
+	throw new javax::comm::UnsupportedCommOperationException( JvNewStringUTF( msg ) );
 	return( true );
 #endif /* TIOCGSERIAL */
 }
@@ -1962,7 +1962,7 @@ RXTXPort.nativeGetDivisor
    comments:    
 		First introduced in rxtx-2.1-3
 ----------------------------------------------------------*/
-jint gnu::io::RXTXPort::nativeGetDivisor(
+jint javax::comm::RXTXPort::nativeGetDivisor(
 )
 {
 
@@ -1979,7 +1979,7 @@ jint gnu::io::RXTXPort::nativeGetDivisor(
 	return( ( jint ) sstruct.custom_divisor );
 #else
 	snprintf( msg, 79, "%s%s", strerror( errno ), " in nativeGetDivisor" );
-	throw new gnu::io::UnsupportedCommOperationException( JvNewStringUTF( msg ) );
+	throw new javax::comm::UnsupportedCommOperationException( JvNewStringUTF( msg ) );
 	return( ( jint ) -1 );
 #endif /* TIOCGSERIAL */
 }
@@ -2000,7 +2000,7 @@ RXTXPort.nativeStaticSetDSR
 
 		First introduced in rxtx-1.5-9
 ----------------------------------------------------------*/
-jboolean gnu::io::RXTXPort::nativeStaticSetDSR (
+jboolean javax::comm::RXTXPort::nativeStaticSetDSR (
 	jstring jstr,
 	jboolean flag
 )
@@ -2068,7 +2068,7 @@ RXTXPort.nativeStaticSetRTS
 
 		First introduced in rxtx-1.5-9
 ----------------------------------------------------------*/
-jboolean gnu::io::RXTXPort::nativeStaticSetRTS (
+jboolean javax::comm::RXTXPort::nativeStaticSetRTS (
 	jstring jstr,
 	jboolean flag
 )
@@ -2136,7 +2136,7 @@ RXTXPort.nativeStaticSetSerialPortParams
 
 		First introduced in rxtx-1.5-9
 ----------------------------------------------------------*/
-void gnu::io::RXTXPort::nativeStaticSetSerialPortParams (
+void javax::comm::RXTXPort::nativeStaticSetSerialPortParams (
 	jstring jstr,
 	jint baudrate,
 	jint dataBits,
@@ -2174,7 +2174,7 @@ void gnu::io::RXTXPort::nativeStaticSetSerialPortParams (
 	{
 		LEAVE( "RXTXPort:nativeStaticSetSerialPortParams" );
 		snprintf( msg, 79, "%s%s", strerror( errno ), " in nativeStaticSetSerialPortParams" );
-		throw new gnu::io::UnsupportedCommOperationException( JvNewStringUTF( msg ) );
+		throw new javax::comm::UnsupportedCommOperationException( JvNewStringUTF( msg ) );
 		return;
 	}
 
@@ -2182,7 +2182,7 @@ void gnu::io::RXTXPort::nativeStaticSetSerialPortParams (
 	{
 		LEAVE( "RXTXPort:nativeStaticSetSerialPortParams" );
 		snprintf( msg, 79, "%s%s", "BaudRate could not be set to the specified value", " in nativeStaticSetSerialPortParams" );
-		throw new gnu::io::UnsupportedCommOperationException( JvNewStringUTF( msg ) );
+		throw new javax::comm::UnsupportedCommOperationException( JvNewStringUTF( msg ) );
 		return;
 	}
 
@@ -2223,7 +2223,7 @@ RXTXPort.nativeStaticSetDTR
 
 		First introduced in rxtx-1.5-9
 ----------------------------------------------------------*/
-jboolean gnu::io::RXTXPort::nativeStaticSetDTR (
+jboolean javax::comm::RXTXPort::nativeStaticSetDTR (
 	jstring jstr,
 	jboolean flag
 )
@@ -2286,7 +2286,7 @@ RXTXPort.nativeStaticIsRTS
    exceptions:  none
    comments:    RTS stands for Request to Send
 ----------------------------------------------------------*/
-jboolean gnu::io::RXTXPort::nativeStaticIsRTS(
+jboolean javax::comm::RXTXPort::nativeStaticIsRTS(
 	jstring jstr
 )
 {
@@ -2324,7 +2324,7 @@ RXTXPort.nativeStaticIsDSR
    exceptions:  none
    comments:    
 ----------------------------------------------------------*/
-jboolean gnu::io::RXTXPort::nativeStaticIsDSR(
+jboolean javax::comm::RXTXPort::nativeStaticIsDSR(
 	jstring jstr
 )
 {
@@ -2362,7 +2362,7 @@ RXTXPort.nativeStaticIsDTR
    exceptions:  none
    comments:    DTR stands for Data Terminal Ready
 ----------------------------------------------------------*/
-jboolean gnu::io::RXTXPort::nativeStaticIsDTR(
+jboolean javax::comm::RXTXPort::nativeStaticIsDTR(
 	jstring jstr
 )
 {
@@ -2400,7 +2400,7 @@ RXTXPort.nativeStaticIsCD
    exceptions:  none
    comments:    CD stands for carrier detect
 ----------------------------------------------------------*/
-jboolean gnu::io::RXTXPort::nativeStaticIsCD(
+jboolean javax::comm::RXTXPort::nativeStaticIsCD(
 	jstring jstr
 )
 {
@@ -2438,7 +2438,7 @@ RXTXPort.nativeStaticIsCTS
    exceptions:  none
    comments:    CTS stands for Clear To Send
 ----------------------------------------------------------*/
-jboolean gnu::io::RXTXPort::nativeStaticIsCTS(
+jboolean javax::comm::RXTXPort::nativeStaticIsCTS(
 	jstring jstr
 )
 {
@@ -2476,7 +2476,7 @@ RXTXPort.nativeStaticIsRI
    exceptions:  none
    comments:    RI stands for carrier detect
 ----------------------------------------------------------*/
-jboolean gnu::io::RXTXPort::nativeStaticIsRI(
+jboolean javax::comm::RXTXPort::nativeStaticIsRI(
 	jstring jstr
 )
 {
@@ -2513,7 +2513,7 @@ RXTXPort.nativeStaticGetBaudRate
    exceptions:  
    comments:    simple test for preopened ports
 ----------------------------------------------------------*/
-jint gnu::io::RXTXPort::nativeStaticGetBaudRate(
+jint javax::comm::RXTXPort::nativeStaticGetBaudRate(
 	jstring jstr
 )
 {
@@ -2571,7 +2571,7 @@ RXTXPort.nativeStaticGetDataBits
    exceptions:  
    comments:    simple test for preopened ports
 ----------------------------------------------------------*/
-jint gnu::io::RXTXPort::nativeStaticGetDataBits(
+jint javax::comm::RXTXPort::nativeStaticGetDataBits(
 	jstring jstr
 )
 {
@@ -2612,7 +2612,7 @@ RXTXPort.nativeStaticGetParity
    exceptions:  
    comments:    simple test for preopened ports
 ----------------------------------------------------------*/
-jint gnu::io::RXTXPort::nativeStaticGetParity(
+jint javax::comm::RXTXPort::nativeStaticGetParity(
 	jstring jstr
 )
 {
@@ -2660,7 +2660,7 @@ RXTXPort.nativeStaticGetStopBits
    exceptions:  
    comments:    simple test for preopened ports
 ----------------------------------------------------------*/
-jint gnu::io::RXTXPort::nativeStaticGetStopBits(
+jint javax::comm::RXTXPort::nativeStaticGetStopBits(
 	jstring jstr
 )
 {
@@ -2705,7 +2705,7 @@ RXTXPort.nativeGetParityErrorChar
 		Use a direct call to the termios file until we find a
 		solution.
 ----------------------------------------------------------*/
-jbyte gnu::io::RXTXPort::nativeGetParityErrorChar(
+jbyte javax::comm::RXTXPort::nativeGetParityErrorChar(
 )
 {
 	unsigned int result = 0;
@@ -2735,7 +2735,7 @@ RXTXPort.nativeGetEndOfInputChar
    exceptions:  UnsupportedCommOperationException if not implemented
    comments:    
 ----------------------------------------------------------*/
-jbyte gnu::io::RXTXPort::nativeGetEndOfInputChar(
+jbyte javax::comm::RXTXPort::nativeGetEndOfInputChar(
 )
 {
 	int fd = ( int ) this->fd;
@@ -2765,7 +2765,7 @@ RXTXPort.nativeSetParityErrorChar
 		Use a direct call to the termios file until we find a
 		solution.
 ----------------------------------------------------------*/
-jboolean gnu::io::RXTXPort::nativeSetParityErrorChar(
+jboolean javax::comm::RXTXPort::nativeSetParityErrorChar(
 	jbyte value
 )
 {
@@ -2785,7 +2785,7 @@ jboolean gnu::io::RXTXPort::nativeSetParityErrorChar(
 	*/
 
 	snprintf( msg, 79, "%s%s", strerror( errno ), " in setParityErrorChar()" );
-	throw new gnu::io::UnsupportedCommOperationException( JvNewStringUTF( msg ) );
+	throw new javax::comm::UnsupportedCommOperationException( JvNewStringUTF( msg ) );
 	LEAVE( "nativeSetParityErrorChar" );
 	return( false );
 #endif /* WIN32 */
@@ -2806,7 +2806,7 @@ RXTXPort.nativeSetEndOfInputChar
 		EofChar = val;
 		fBinary = false;  winapi docs say always use true. ?
 ----------------------------------------------------------*/
-jboolean gnu::io::RXTXPort::nativeSetEndOfInputChar(
+jboolean javax::comm::RXTXPort::nativeSetEndOfInputChar(
 	jbyte value
 )
 {
@@ -2822,7 +2822,7 @@ jboolean gnu::io::RXTXPort::nativeSetEndOfInputChar(
 	return( true );
 fail:
 	snprintf( msg, 79, "%s%s", strerror( errno ), " in nativeSetEndOfInputChar" );
-	throw new gnu::io::UnsupportedCommOperationException( JvNewStringUTF( msg ) );
+	throw new javax::comm::UnsupportedCommOperationException( JvNewStringUTF( msg ) );
 	report( "nativeSetEndOfInputChar failed\n" );
 	LEAVE( "nativeSetEndOfInputChar" );
 	return( false );
@@ -2979,7 +2979,7 @@ NativeEnableReceiveTimeoutThreshold
    comments:    This is actually all handled in read with select in
                 canonical input mode.
 ----------------------------------------------------------*/
-void gnu::io::RXTXPort::NativeEnableReceiveTimeoutThreshold(
+void javax::comm::RXTXPort::NativeEnableReceiveTimeoutThreshold(
 	jint vtime,
 	jint threshold,
 	jint buffer
@@ -3150,7 +3150,7 @@ until min(m,n) bytes are available
 
 
 ----------------------------------------------------------*/
-jint gnu::io::RXTXPort::readByte(
+jint javax::comm::RXTXPort::readByte(
 )
 {
 	int bytes;
@@ -3187,7 +3187,7 @@ RXTXPort.readArray
    comments:     throws ArrayIndexOutOfBoundsException if asked to
                  read more than SSIZE_MAX bytes
 ----------------------------------------------------------*/
-jint gnu::io::RXTXPort::readArray(
+jint javax::comm::RXTXPort::readArray(
 	jbyteArray jbarray,
 	jint offset,
 	jint length
@@ -3233,7 +3233,7 @@ RXTXPort.nativeavailable
                 -1 on error
    exceptions:  none
 ----------------------------------------------------------*/
-jint gnu::io::RXTXPort::nativeavailable(
+jint javax::comm::RXTXPort::nativeavailable(
 )
 {
 	int fd = ( int ) this->fd;
@@ -3298,7 +3298,7 @@ RXTXPort.setflowcontrol
    comments:  there is no differentiation between input and output hardware
               flow control
 ----------------------------------------------------------*/
-void gnu::io::RXTXPort::setflowcontrol(
+void javax::comm::RXTXPort::setflowcontrol(
 	jint flowmode
 )
 {
@@ -3350,7 +3350,7 @@ unlock_monitor_thread
    comments:    Events can be missed otherwise.
 ----------------------------------------------------------*/
 
-void unlock_monitor_thread(  gnu::io::RXTXPort *p, struct event_info_struct *eis )
+void unlock_monitor_thread(  javax::comm::RXTXPort *p, struct event_info_struct *eis )
 {
 	p->MonitorThreadLock = false;
 }
@@ -3364,7 +3364,7 @@ check_line_status_register
    exceptions:  none
    comments:    not supported on all devices/drivers.
 ----------------------------------------------------------*/
-int check_line_status_register( gnu::io::RXTXPort *p, struct event_info_struct *eis )
+int check_line_status_register( javax::comm::RXTXPort *p, struct event_info_struct *eis )
 {
 #ifdef TIOCSERGETLSR
 	struct stat fstatbuf;
@@ -3446,7 +3446,7 @@ check_cgi_count
 	 *      be notified of data available or errors.
 	 *	ret=ioctl(fd,TIOCMIWAIT);
 ----------------------------------------------------------*/
-void check_cgi_count( gnu::io::RXTXPort *p, struct event_info_struct *eis )
+void check_cgi_count( javax::comm::RXTXPort *p, struct event_info_struct *eis )
 {
 #if defined(TIOCGICOUNT)
 
@@ -3524,7 +3524,7 @@ check_tiocmget_changes
    exceptions:  none
    comments:    not supported on all devices/drivers.
 ----------------------------------------------------------*/
-void check_tiocmget_changes( gnu::io::RXTXPort *p, struct event_info_struct * eis )
+void check_tiocmget_changes( javax::comm::RXTXPort *p, struct event_info_struct * eis )
 {
 	unsigned int mflags = 0;
 	int change;
@@ -3633,7 +3633,7 @@ report_serial_events
    exceptions:  none
    comments:    not supported on all devices/drivers.
 ----------------------------------------------------------*/
-void report_serial_events( gnu::io::RXTXPort *p, struct event_info_struct *eis )
+void report_serial_events( javax::comm::RXTXPort *p, struct event_info_struct *eis )
 {
 	/* JK00: work around for Multi IO cards without TIOCSERGETLSR */
 	/* if( eis->has_tiocsergetlsr ) we have a fix for output empty */
@@ -3685,7 +3685,7 @@ initialise_event_info_struct
    exceptions:  none
    comments:    
 ----------------------------------------------------------*/
-int initialise_event_info_struct(  gnu::io::RXTXPort *p, struct event_info_struct *eis )
+int initialise_event_info_struct(  javax::comm::RXTXPort *p, struct event_info_struct *eis )
 {
 	int i;
 	struct event_info_struct *index = master_index;
@@ -3774,7 +3774,7 @@ RXTXPort.eventLoop
    exceptions:  none
    comments:	please keep this function clean.
 ----------------------------------------------------------*/
-void gnu::io::RXTXPort::eventLoop(
+void javax::comm::RXTXPort::eventLoop(
 )
 {
 	struct event_info_struct eis;
@@ -3827,7 +3827,7 @@ RXTXCommDriver.nativeGetVersion
 		First introduced in rxtx-1.5-9
 		
 ----------------------------------------------------------*/
-jstring gnu::io::RXTXCommDriver::nativeGetVersion (
+jstring javax::comm::RXTXCommDriver::nativeGetVersion (
 )
 {
 	return JvNewStringUTF( "RXTX-2.1-7" );
@@ -3845,7 +3845,7 @@ RXTXCommDriver.testRead
 		support for non serial ports Trent
 ----------------------------------------------------------*/
 
-jboolean  gnu::io::RXTXCommDriver::testRead(
+jboolean  javax::comm::RXTXCommDriver::testRead(
 	jstring jstr,
 	jint port_type
 )
@@ -4158,11 +4158,11 @@ registerKnownSerialPorts(
  /* begin dima  taj got this close for gcj */
             	jstring	tempJstring;
 		tempJstring = JvNewStringUTF(getRegistryString(theObject, kIODialinDeviceKey));
-		gnu::io::ComPortIdentifier->addPortName(tempJstring,portType,this);/* dima */
+		javax::comm::ComPortIdentifier->addPortName(tempJstring,portType,this);/* dima */
                 numPorts++;
 
  		tempJstring = JvNewStringUTF(getRegistryString(theObject, kIOCalloutDeviceKey));
-		gnu::io::ComPortIdentifier->addPortName(tempJstring,portType,this);/* dima */
+		javax::comm::ComPortIdentifier->addPortName(tempJstring,portType,this);/* dima */
                 numPorts++;
 /* end dima  taj got this close for gcj */
             }
@@ -4182,7 +4182,7 @@ registerKnownSerialPorts(
    exceptions:  none
    comments:
 ----------------------------------------------------------*/
-jboolean gnu::io::RXTXCommDriver::registerKnownPorts(
+jboolean javax::comm::RXTXCommDriver::registerKnownPorts(
 	jint portType
 )
 {
@@ -4227,7 +4227,7 @@ jboolean gnu::io::RXTXCommDriver::registerKnownPorts(
    exceptions:  none
    comments:
 ----------------------------------------------------------*/
-jboolean  gnu::io::RXTXCommDriver::isPortPrefixValid(
+jboolean  javax::comm::RXTXCommDriver::isPortPrefixValid(
 	jstring jstr
 )
 {
@@ -4302,7 +4302,7 @@ jboolean  gnu::io::RXTXCommDriver::isPortPrefixValid(
    		values are in SerialImp.h
 ----------------------------------------------------------*/
 
-jstring gnu::io::RXTXCommDriver::getDeviceDirectory(
+jstring javax::comm::RXTXCommDriver::getDeviceDirectory(
 )
 {
 	ENTER( "RXTXCommDriver:getDeviceDirectory" );
@@ -4320,7 +4320,7 @@ jstring gnu::io::RXTXCommDriver::getDeviceDirectory(
    exceptions:  none
    comments:    see fopen/fclose/fwrite/fread man pages.
 ----------------------------------------------------------*/
-void gnu::io::RXTXPort::setInputBufferSize(
+void javax::comm::RXTXPort::setInputBufferSize(
 	jint size
 )
 {
@@ -4336,7 +4336,7 @@ void gnu::io::RXTXPort::setInputBufferSize(
    exceptions:  none
    comments:    see fopen/fclose/fwrite/fread man pages.
 ----------------------------------------------------------*/
-jint gnu::io::RXTXPort::getInputBufferSize(
+jint javax::comm::RXTXPort::getInputBufferSize(
 )
 {
 	report( "getInputBufferSize is not implemented\n" );
@@ -4353,7 +4353,7 @@ jint gnu::io::RXTXPort::getInputBufferSize(
    exceptions:  none
    comments:    see fopen/fclose/fwrite/fread man pages.
 ----------------------------------------------------------*/
-void gnu::io::RXTXPort::setOutputBufferSize(
+void javax::comm::RXTXPort::setOutputBufferSize(
 	jint size
 )
 {
@@ -4369,7 +4369,7 @@ void gnu::io::RXTXPort::setOutputBufferSize(
    exceptions:  none
    comments:    see fopen/fclose/fwrite/fread man pages.
 ----------------------------------------------------------*/
-jint gnu::io::RXTXPort::getOutputBufferSize()
+jint javax::comm::RXTXPort::getOutputBufferSize()
 {
 	report( "getOutputBufferSize is not implemented\n" );
 	return(1);
@@ -4389,7 +4389,7 @@ jint gnu::io::RXTXPort::getOutputBufferSize()
 		they will decrement the var leaving it 0.
 		the remaining threads will continue.
 ----------------------------------------------------------*/
-void gnu::io::RXTXPort::interruptEventLoop(
+void javax::comm::RXTXPort::interruptEventLoop(
 )
 {
 	struct event_info_struct *index = master_index;
@@ -4441,7 +4441,7 @@ void gnu::io::RXTXPort::interruptEventLoop(
    exceptions:  none
    comments:
 ----------------------------------------------------------*/
-jboolean is_interrupted( gnu::io::RXTXPort *p, struct event_info_struct *eis )
+jboolean is_interrupted( javax::comm::RXTXPort *p, struct event_info_struct *eis )
 {
 	int result;
 
@@ -4467,7 +4467,7 @@ jboolean is_interrupted( gnu::io::RXTXPort *p, struct event_info_struct *eis )
    exceptions:  none
    comments:	all the logic used to be done in Java but its too noisy
 ----------------------------------------------------------*/
-void gnu::io::RXTXPort::nativeSetEventFlag(
+void javax::comm::RXTXPort::nativeSetEventFlag(
 	jint fd,
 	jint event,
 	jboolean flag
@@ -4505,7 +4505,7 @@ void gnu::io::RXTXPort::nativeSetEventFlag(
    exceptions:  none
    comments:
 ----------------------------------------------------------*/
-int send_event( gnu::io::RXTXPort *p, struct event_info_struct *eis, jint type, int flag )
+int send_event( javax::comm::RXTXPort *p, struct event_info_struct *eis, jint type, int flag )
 {
 	int result;
 
@@ -5418,27 +5418,27 @@ int printj(
 }
 /* for gcj compiles */
 
-jboolean gnu::io::RXTXPort::nativeSetCallOutHangup( jboolean NoHup )
+jboolean javax::comm::RXTXPort::nativeSetCallOutHangup( jboolean NoHup )
 {
 	return( true );
 }
-jboolean gnu::io::RXTXPort::nativeGetCallOutHangup( )
+jboolean javax::comm::RXTXPort::nativeGetCallOutHangup( )
 {
 	return( true );
 }
-jboolean gnu::io::RXTXPort::nativeSetLowLatency( )
+jboolean javax::comm::RXTXPort::nativeSetLowLatency( )
 {
 	return( true );
 }
-jboolean gnu::io::RXTXPort::nativeGetLowLatency( )
+jboolean javax::comm::RXTXPort::nativeGetLowLatency( )
 {
 	return( true );
 }
-jboolean gnu::io::RXTXPort::nativeSetUartType( jstring ty, jboolean te )
+jboolean javax::comm::RXTXPort::nativeSetUartType( jstring ty, jboolean te )
 {
 	return( true );
 }
-jstring  gnu::io::RXTXPort::nativeGetUartType( )
+jstring  javax::comm::RXTXPort::nativeGetUartType( )
 {
 	return JvNewStringUTF( "RXTX-2.1-7pre13 SAM I AM" );
 }

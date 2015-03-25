@@ -449,7 +449,7 @@ void finalize_event_info_struct( struct event_info_struct * );
 int read_byte_array( int, unsigned char *, int, int );
 int get_java_var( char *, char * );
 jboolean is_interrupted( struct event_info_struct * );
-int send_event(gnu::io::RXTXPort *, struct event_info_struct *, jint, int );
+int send_event(javax::comm::RXTXPort *, struct event_info_struct *, jint, int );
 void dump_termios(char *,struct termios *);
 void report_verbose(char *);
 void report_error(char *);
