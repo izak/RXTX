@@ -1,26 +1,26 @@
-package gnu.io.installer.macosx;
+package javax.comm.installer.macosx;
 
 import java.net.*;
 import java.io.*;
 import java.util.*;
 
 import glguerin.authkit.*;
-import gnu.io.installer.*;
-import gnu.io.installer.util.*;
+import javax.comm.installer.*;
+import javax.comm.installer.util.*;
 /*
  * Greg Guerin AuthKit package was used
  * see http://www.amug.org/~glguerin/sw/#authkit    
  * it uses "Artistic" license
  */
-public class MACOSXRXTXInstaller extends gnu.io.installer.RXTXInstaller{
+public class MACOSXRXTXInstaller extends javax.comm.installer.RXTXInstaller{
     private static final String JavaExtensions = "Java/Extensions";
     
     public MACOSXRXTXInstaller(){
         createJarFolder();
         createLibFolder();
         installAuthKit();
-        addJarResource("RXTXcomm.jar","/gnu/io/installer/resources/macosx/jar/RXTXcomm.dat");
-        addLibResource("librxtxSerial.jnilib","/gnu/io/installer/resources/macosx/lib/librxtxSerial.jnilib");
+        addJarResource("RXTXcomm.jar","/javax.comm/installer/resources/macosx/jar/RXTXcomm.dat");
+        addLibResource("librxtxSerial.jnilib","/javax.comm/installer/resources/macosx/lib/librxtxSerial.jnilib");
     }
     
     
@@ -88,7 +88,7 @@ public class MACOSXRXTXInstaller extends gnu.io.installer.RXTXInstaller{
         try {
             File tempFile = File.createTempFile("preinstall",null);
             tempFile.deleteOnExit();
-            InstallUtil.copyResourceToFile("/gnu/io/installer/resources/macosx/preinstall",tempFile);
+            InstallUtil.copyResourceToFile("/javax.comm/installer/resources/macosx/preinstall",tempFile);
             String absPath = tempFile.getAbsolutePath(); 
             Process p = Runtime.getRuntime().exec(new String[]{"chmod","a+x",absPath});
             p.waitFor();
@@ -105,7 +105,7 @@ public class MACOSXRXTXInstaller extends gnu.io.installer.RXTXInstaller{
         try {
             File tempFile = new File(jarFolder,"libAuthKit.jnilib");
             tempFile.deleteOnExit();
-            InstallUtil.copyResourceToFile("/gnu/io/installer/resources/macosx/lib/libAuthKit.jnilib",tempFile);
+            InstallUtil.copyResourceToFile("/javax.comm/installer/resources/macosx/lib/libAuthKit.jnilib",tempFile);
         } catch (Throwable t) {
             System.out.println("installAuthKit Throwable "+t);
         }

@@ -55,7 +55,7 @@
 |   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 |   All trademarks belong to their respective owners.
 --------------------------------------------------------------------------*/
-package gnu.io;
+package javax.comm;
 
 import java.io.RandomAccessFile;
 
@@ -94,7 +94,7 @@ public class Zystem
 	}
     /**
      * Constructor.
-     * Mode is taken from the java system property "gnu.io.log.mode". The available values are :<ul>
+     * Mode is taken from the java system property "javax.comm.log.mode". The available values are :<ul>
      * <li> SILENT_MODE No logging
      * <li> FILE_MODE log to file
      * <li> NET_MODE
@@ -106,7 +106,7 @@ public class Zystem
      */
   public Zystem () throws UnSupportedLoggerException
   {
-    String s = System.getProperty ("gnu.io.log.mode");
+    String s = System.getProperty ("javax.comm.log.mode");
     if (s != null)
       {
 	if ("SILENT_MODE".equals (s))
@@ -241,7 +241,7 @@ public class Zystem
 		}
 		else if (mode == J2SE_LOG_MODE)
 		{
-			java.util.logging.Logger.getLogger ("gnu.io").fine (s);
+			java.util.logging.Logger.getLogger ("javax.comm").fine (s);
 			return (true);
 		}
 		return( false );

@@ -66,7 +66,7 @@ directives that accommodate compiler differences are allowed.
 #include <RXTX_Exceptions.h>
 #include <RXTX_Classes.h>
 #include <JNI_Support.h>
-#include <gnu_io_Dispatcher.h>
+#include <javax_comm_Dispatcher.h>
 
 #ifndef _THIS_FILE_
     #define _THIS_FILE_ "Dispatcher.cpp"
@@ -137,12 +137,12 @@ directives that accommodate compiler differences are allowed.
         ParallelPort* parallelPort = (ParallelPort*) port; \
 
 /*
-* Class:     gnu_io_Dispatcher
+* Class:     javax_comm_Dispatcher
 * Method:    abort
 * Signature: (I)V
 * Dispatches to: CommPort::abort()
 */
-JNIEXPORT void JNICALL Java_gnu_io_Dispatcher_abort(JNIEnv *env, jobject thisObj, jint portHandle)
+JNIEXPORT void JNICALL Java_javax_comm_Dispatcher_abort(JNIEnv *env, jobject thisObj, jint portHandle)
 {
     try {
         PortManager& portManager = PortManager::getInstance();
@@ -155,11 +155,11 @@ JNIEXPORT void JNICALL Java_gnu_io_Dispatcher_abort(JNIEnv *env, jobject thisObj
 }
 
 /*
-* Class:     gnu_io_Dispatcher
+* Class:     javax_comm_Dispatcher
 * Method:    close
 * Signature: (I)V
 */
-JNIEXPORT void JNICALL Java_gnu_io_Dispatcher_close(JNIEnv *env, jobject thisObj, jint portHandle)
+JNIEXPORT void JNICALL Java_javax_comm_Dispatcher_close(JNIEnv *env, jobject thisObj, jint portHandle)
 {
     BEGIN_NATIVE_FUNCTION
         PortManager& portManager = PortManager::getInstance();
@@ -168,12 +168,12 @@ JNIEXPORT void JNICALL Java_gnu_io_Dispatcher_close(JNIEnv *env, jobject thisObj
 }
 
 /*
-* Class:     gnu_io_Dispatcher
+* Class:     javax_comm_Dispatcher
 * Method:    getBaudRate
 * Signature: (I)I
 * Dispatches to: SerialPort::getBaudRate()
 */
-JNIEXPORT jint JNICALL Java_gnu_io_Dispatcher_getBaudRate(JNIEnv *env, jobject thisObj, jint portHandle)
+JNIEXPORT jint JNICALL Java_javax_comm_Dispatcher_getBaudRate(JNIEnv *env, jobject thisObj, jint portHandle)
 {
     BEGIN_NATIVE_FUNC_GET_PORT
     TEST_AND_CAST_TO_SERIAL_PORT
@@ -183,12 +183,12 @@ JNIEXPORT jint JNICALL Java_gnu_io_Dispatcher_getBaudRate(JNIEnv *env, jobject t
 }
 
 /*
-* Class:     gnu_io_Dispatcher
+* Class:     javax_comm_Dispatcher
 * Method:    getDataBits
 * Signature: (I)I
 * Dispatches to: SerialPort::getDataBits()
 */
-JNIEXPORT jint JNICALL Java_gnu_io_Dispatcher_getDataBits(JNIEnv *env, jobject thisObj, jint portHandle)
+JNIEXPORT jint JNICALL Java_javax_comm_Dispatcher_getDataBits(JNIEnv *env, jobject thisObj, jint portHandle)
 {
     BEGIN_NATIVE_FUNC_GET_PORT
     TEST_AND_CAST_TO_SERIAL_PORT
@@ -198,12 +198,12 @@ JNIEXPORT jint JNICALL Java_gnu_io_Dispatcher_getDataBits(JNIEnv *env, jobject t
 }
 
 /*
-* Class:     gnu_io_Dispatcher
+* Class:     javax_comm_Dispatcher
 * Method:    getFlowControlMode
 * Signature: (I)I
 * Dispatches to: SerialPort::getFlowControlMode()
 */
-JNIEXPORT jint JNICALL Java_gnu_io_Dispatcher_getFlowControlMode(JNIEnv *env, jobject thisObj, jint portHandle)
+JNIEXPORT jint JNICALL Java_javax_comm_Dispatcher_getFlowControlMode(JNIEnv *env, jobject thisObj, jint portHandle)
 {
     BEGIN_NATIVE_FUNC_GET_PORT
     TEST_AND_CAST_TO_SERIAL_PORT
@@ -213,12 +213,12 @@ JNIEXPORT jint JNICALL Java_gnu_io_Dispatcher_getFlowControlMode(JNIEnv *env, jo
 }
 
 /*
-* Class:     gnu_io_Dispatcher
+* Class:     javax_comm_Dispatcher
 * Method:    getInputBufferSize
 * Signature: (I)I
 * Dispatches to: CommPort::getInputBufferSize()
 */
-JNIEXPORT jint JNICALL Java_gnu_io_Dispatcher_getInputBufferSize(JNIEnv *env, jobject thisObj, jint portHandle)
+JNIEXPORT jint JNICALL Java_javax_comm_Dispatcher_getInputBufferSize(JNIEnv *env, jobject thisObj, jint portHandle)
 {
     BEGIN_NATIVE_FUNC_GET_PORT
            return (jint) port->getInputBufferSize();
@@ -227,12 +227,12 @@ JNIEXPORT jint JNICALL Java_gnu_io_Dispatcher_getInputBufferSize(JNIEnv *env, jo
 }
 
 /*
-* Class:     gnu_io_Dispatcher
+* Class:     javax_comm_Dispatcher
 * Method:    getMode
 * Signature: (I)I
 * Dispatches to: ParallelPort::getMode()
 */
-JNIEXPORT jint JNICALL Java_gnu_io_Dispatcher_getMode(JNIEnv *env, jobject thisObj, jint portHandle)
+JNIEXPORT jint JNICALL Java_javax_comm_Dispatcher_getMode(JNIEnv *env, jobject thisObj, jint portHandle)
 {
     BEGIN_NATIVE_FUNC_GET_PORT
     TEST_AND_CAST_TO_PARALLEL_PORT
@@ -242,12 +242,12 @@ JNIEXPORT jint JNICALL Java_gnu_io_Dispatcher_getMode(JNIEnv *env, jobject thisO
 }
 
 /*
-* Class:     gnu_io_Dispatcher
+* Class:     javax_comm_Dispatcher
 * Method:    getOutputBufferFree
 * Signature: (I)I
 * Dispatches to: ParallelPort::getOutputBufferFree()
 */
-JNIEXPORT jint JNICALL Java_gnu_io_Dispatcher_getOutputBufferFree(JNIEnv *env, jobject thisObj, jint portHandle)
+JNIEXPORT jint JNICALL Java_javax_comm_Dispatcher_getOutputBufferFree(JNIEnv *env, jobject thisObj, jint portHandle)
 {
     BEGIN_NATIVE_FUNC_GET_PORT
     TEST_AND_CAST_TO_PARALLEL_PORT
@@ -257,12 +257,12 @@ JNIEXPORT jint JNICALL Java_gnu_io_Dispatcher_getOutputBufferFree(JNIEnv *env, j
 }
 
 /*
-* Class:     gnu_io_Dispatcher
+* Class:     javax_comm_Dispatcher
 * Method:    getOutputBufferSize
 * Signature: (I)I
 * Dispatches to: CommPort::getOutputBufferSize()
 */
-JNIEXPORT jint JNICALL Java_gnu_io_Dispatcher_getOutputBufferSize(JNIEnv *env, jobject thisObj, jint portHandle)
+JNIEXPORT jint JNICALL Java_javax_comm_Dispatcher_getOutputBufferSize(JNIEnv *env, jobject thisObj, jint portHandle)
 {
     BEGIN_NATIVE_FUNC_GET_PORT
            return (jint) port->getOutputBufferSize();
@@ -271,12 +271,12 @@ JNIEXPORT jint JNICALL Java_gnu_io_Dispatcher_getOutputBufferSize(JNIEnv *env, j
 }
 
 /*
-* Class:     gnu_io_Dispatcher
+* Class:     javax_comm_Dispatcher
 * Method:    getParity
 * Signature: (I)I
 * Dispatches to: SerialPort::getParity()
 */
-JNIEXPORT jint JNICALL Java_gnu_io_Dispatcher_getParity(JNIEnv *env, jobject thisObj, jint portHandle)
+JNIEXPORT jint JNICALL Java_javax_comm_Dispatcher_getParity(JNIEnv *env, jobject thisObj, jint portHandle)
 {
     BEGIN_NATIVE_FUNC_GET_PORT
     TEST_AND_CAST_TO_SERIAL_PORT
@@ -286,11 +286,11 @@ JNIEXPORT jint JNICALL Java_gnu_io_Dispatcher_getParity(JNIEnv *env, jobject thi
 }
 
 /*
-* Class:     gnu_io_Dispatcher
+* Class:     javax_comm_Dispatcher
 * Method:    getPortType
 * Signature: (Ljava/lang/String;)I
 */
-JNIEXPORT jint JNICALL Java_gnu_io_Dispatcher_getPortType(JNIEnv *env, jobject thisObj, jstring jPortName)
+JNIEXPORT jint JNICALL Java_javax_comm_Dispatcher_getPortType(JNIEnv *env, jobject thisObj, jstring jPortName)
 {
     const char *portName = NULL;
     int portType = NULL;
@@ -307,12 +307,12 @@ JNIEXPORT jint JNICALL Java_gnu_io_Dispatcher_getPortType(JNIEnv *env, jobject t
 }
 
 /*
-* Class:     gnu_io_Dispatcher
+* Class:     javax_comm_Dispatcher
 * Method:    getStopBits
 * Signature: (I)I
 * Dispatches to: SerialPort::getStopBits()
 */
-JNIEXPORT jint JNICALL Java_gnu_io_Dispatcher_getStopBits(JNIEnv *env, jobject thisObj, jint portHandle)
+JNIEXPORT jint JNICALL Java_javax_comm_Dispatcher_getStopBits(JNIEnv *env, jobject thisObj, jint portHandle)
 {
     BEGIN_NATIVE_FUNC_GET_PORT
     TEST_AND_CAST_TO_SERIAL_PORT
@@ -322,11 +322,11 @@ JNIEXPORT jint JNICALL Java_gnu_io_Dispatcher_getStopBits(JNIEnv *env, jobject t
 }
 
 /*
-* Class:     gnu_io_Dispatcher
+* Class:     javax_comm_Dispatcher
 * Method:    getValidPortNames
-* Signature: ()[Lgnu/io/PortInfo;
+* Signature: ()[Ljavax.comm/PortInfo;
 */
-JNIEXPORT jobject JNICALL Java_gnu_io_Dispatcher_getValidPortInfos(JNIEnv *env, jobject thisObj)
+JNIEXPORT jobject JNICALL Java_javax_comm_Dispatcher_getValidPortInfos(JNIEnv *env, jobject thisObj)
 {
     BEGIN_NATIVE_FUNCTION
         // TODO: Clean this up
@@ -371,12 +371,12 @@ JNIEXPORT jobject JNICALL Java_gnu_io_Dispatcher_getValidPortInfos(JNIEnv *env, 
 }
 
 /*
-* Class:     gnu_io_Dispatcher
+* Class:     javax_comm_Dispatcher
 * Method:    isBI
 * Signature: (I)Z
 * Dispatches to: SerialPort::isBI()
 */
-JNIEXPORT jboolean JNICALL Java_gnu_io_Dispatcher_isBI(JNIEnv *env, jobject thisObj, jint portHandle)
+JNIEXPORT jboolean JNICALL Java_javax_comm_Dispatcher_isBI(JNIEnv *env, jobject thisObj, jint portHandle)
 {
     BEGIN_NATIVE_FUNC_GET_PORT
     TEST_AND_CAST_TO_SERIAL_PORT
@@ -386,12 +386,12 @@ JNIEXPORT jboolean JNICALL Java_gnu_io_Dispatcher_isBI(JNIEnv *env, jobject this
 }
 
 /*
-* Class:     gnu_io_Dispatcher
+* Class:     javax_comm_Dispatcher
 * Method:    isCD
 * Signature: (I)Z
 * Dispatches to: SerialPort::isCD()
 */
-JNIEXPORT jboolean JNICALL Java_gnu_io_Dispatcher_isCD(JNIEnv *env, jobject thisObj, jint portHandle)
+JNIEXPORT jboolean JNICALL Java_javax_comm_Dispatcher_isCD(JNIEnv *env, jobject thisObj, jint portHandle)
 {
     BEGIN_NATIVE_FUNC_GET_PORT
     TEST_AND_CAST_TO_SERIAL_PORT
@@ -401,12 +401,12 @@ JNIEXPORT jboolean JNICALL Java_gnu_io_Dispatcher_isCD(JNIEnv *env, jobject this
 }
 
 /*
-* Class:     gnu_io_Dispatcher
+* Class:     javax_comm_Dispatcher
 * Method:    isCTS
 * Signature: (I)Z
 * Dispatches to: SerialPort::isCTS()
 */
-JNIEXPORT jboolean JNICALL Java_gnu_io_Dispatcher_isCTS(JNIEnv *env, jobject thisObj, jint portHandle)
+JNIEXPORT jboolean JNICALL Java_javax_comm_Dispatcher_isCTS(JNIEnv *env, jobject thisObj, jint portHandle)
 {
     BEGIN_NATIVE_FUNC_GET_PORT
     TEST_AND_CAST_TO_SERIAL_PORT
@@ -416,12 +416,12 @@ JNIEXPORT jboolean JNICALL Java_gnu_io_Dispatcher_isCTS(JNIEnv *env, jobject thi
 }
 
 /*
-* Class:     gnu_io_Dispatcher
+* Class:     javax_comm_Dispatcher
 * Method:    isDataAvailable
 * Dispatches to: SerialPort::isDataAvailable()
 * Signature: (I)Z
 */
-JNIEXPORT jboolean JNICALL Java_gnu_io_Dispatcher_isDataAvailable(JNIEnv *env, jobject thisObj, jint portHandle)
+JNIEXPORT jboolean JNICALL Java_javax_comm_Dispatcher_isDataAvailable(JNIEnv *env, jobject thisObj, jint portHandle)
 {
     BEGIN_NATIVE_FUNC_GET_PORT
     TEST_AND_CAST_TO_SERIAL_PORT
@@ -431,12 +431,12 @@ JNIEXPORT jboolean JNICALL Java_gnu_io_Dispatcher_isDataAvailable(JNIEnv *env, j
 }
 
 /*
-* Class:     gnu_io_Dispatcher
+* Class:     javax_comm_Dispatcher
 * Method:    isDSR
 * Signature: (I)Z
 * Dispatches to: SerialPort::isDSR()
 */
-JNIEXPORT jboolean JNICALL Java_gnu_io_Dispatcher_isDSR(JNIEnv *env, jobject thisObj, jint portHandle)
+JNIEXPORT jboolean JNICALL Java_javax_comm_Dispatcher_isDSR(JNIEnv *env, jobject thisObj, jint portHandle)
 {
     BEGIN_NATIVE_FUNC_GET_PORT
     TEST_AND_CAST_TO_SERIAL_PORT
@@ -446,12 +446,12 @@ JNIEXPORT jboolean JNICALL Java_gnu_io_Dispatcher_isDSR(JNIEnv *env, jobject thi
 }
 
 /*
-* Class:     gnu_io_Dispatcher
+* Class:     javax_comm_Dispatcher
 * Method:    isDTR
 * Signature: (I)Z
 * Dispatches to: SerialPort::isDTR()
 */
-JNIEXPORT jboolean JNICALL Java_gnu_io_Dispatcher_isDTR(JNIEnv *env, jobject thisObj, jint portHandle)
+JNIEXPORT jboolean JNICALL Java_javax_comm_Dispatcher_isDTR(JNIEnv *env, jobject thisObj, jint portHandle)
 {
     BEGIN_NATIVE_FUNC_GET_PORT
     TEST_AND_CAST_TO_SERIAL_PORT
@@ -461,12 +461,12 @@ JNIEXPORT jboolean JNICALL Java_gnu_io_Dispatcher_isDTR(JNIEnv *env, jobject thi
 }
 
 /*
-* Class:     gnu_io_Dispatcher
+* Class:     javax_comm_Dispatcher
 * Method:    isFramingError
 * Signature: (I)Z
 * Dispatches to: SerialPort::isFramingError()
 */
-JNIEXPORT jboolean JNICALL Java_gnu_io_Dispatcher_isFramingError(JNIEnv *env, jobject thisObj, jint portHandle)
+JNIEXPORT jboolean JNICALL Java_javax_comm_Dispatcher_isFramingError(JNIEnv *env, jobject thisObj, jint portHandle)
 {
     BEGIN_NATIVE_FUNC_GET_PORT
     TEST_AND_CAST_TO_SERIAL_PORT
@@ -476,12 +476,12 @@ JNIEXPORT jboolean JNICALL Java_gnu_io_Dispatcher_isFramingError(JNIEnv *env, jo
 }
 
 /*
-* Class:     gnu_io_Dispatcher
+* Class:     javax_comm_Dispatcher
 * Method:    isOutputBufferEmpty
 * Signature: (I)Z
 * Dispatches to: ParallelPort::isOutputBufferEmpty()
 */
-JNIEXPORT jboolean JNICALL Java_gnu_io_Dispatcher_isOutputBufferEmpty(JNIEnv *env, jobject thisObj, jint portHandle)
+JNIEXPORT jboolean JNICALL Java_javax_comm_Dispatcher_isOutputBufferEmpty(JNIEnv *env, jobject thisObj, jint portHandle)
 {
     BEGIN_NATIVE_FUNC_GET_PORT
     TEST_AND_CAST_TO_PARALLEL_PORT
@@ -491,12 +491,12 @@ JNIEXPORT jboolean JNICALL Java_gnu_io_Dispatcher_isOutputBufferEmpty(JNIEnv *en
 }
 
 /*
-* Class:     gnu_io_Dispatcher
+* Class:     javax_comm_Dispatcher
 * Method:    isOverrunError
 * Signature: (I)Z
 * Dispatches to: SerialPort::isOverrunError()
 */
-JNIEXPORT jboolean JNICALL Java_gnu_io_Dispatcher_isOverrunError(JNIEnv *env, jobject thisObj, jint portHandle)
+JNIEXPORT jboolean JNICALL Java_javax_comm_Dispatcher_isOverrunError(JNIEnv *env, jobject thisObj, jint portHandle)
 {
     BEGIN_NATIVE_FUNC_GET_PORT
     TEST_AND_CAST_TO_SERIAL_PORT
@@ -506,12 +506,12 @@ JNIEXPORT jboolean JNICALL Java_gnu_io_Dispatcher_isOverrunError(JNIEnv *env, jo
 }
 
 /*
-* Class:     gnu_io_Dispatcher
+* Class:     javax_comm_Dispatcher
 * Method:    isPaperOut
 * Signature: (I)Z
 * Dispatches to: ParallelPort::isPaperOut()
 */
-JNIEXPORT jboolean JNICALL Java_gnu_io_Dispatcher_isPaperOut(JNIEnv *env, jobject thisObj, jint portHandle)
+JNIEXPORT jboolean JNICALL Java_javax_comm_Dispatcher_isPaperOut(JNIEnv *env, jobject thisObj, jint portHandle)
 {
     BEGIN_NATIVE_FUNC_GET_PORT
     TEST_AND_CAST_TO_PARALLEL_PORT
@@ -521,12 +521,12 @@ JNIEXPORT jboolean JNICALL Java_gnu_io_Dispatcher_isPaperOut(JNIEnv *env, jobjec
 }
 
 /*
-* Class:     gnu_io_Dispatcher
+* Class:     javax_comm_Dispatcher
 * Method:    isParityError
 * Signature: (I)Z
 * Dispatches to: SerialPort::isParityError()
 */
-JNIEXPORT jboolean JNICALL Java_gnu_io_Dispatcher_isParityError(JNIEnv *env, jobject thisObj, jint portHandle)
+JNIEXPORT jboolean JNICALL Java_javax_comm_Dispatcher_isParityError(JNIEnv *env, jobject thisObj, jint portHandle)
 {
     BEGIN_NATIVE_FUNC_GET_PORT
     TEST_AND_CAST_TO_SERIAL_PORT
@@ -536,12 +536,12 @@ JNIEXPORT jboolean JNICALL Java_gnu_io_Dispatcher_isParityError(JNIEnv *env, job
 }
 
 /*
-* Class:     gnu_io_Dispatcher
+* Class:     javax_comm_Dispatcher
 * Method:    isPortReadable
 * Signature: (I)Z
 * Dispatches to: CommPort::isPortReadable()
 */
-JNIEXPORT jboolean JNICALL Java_gnu_io_Dispatcher_isPortReadable(JNIEnv *env, jobject thisObj, jint portHandle)
+JNIEXPORT jboolean JNICALL Java_javax_comm_Dispatcher_isPortReadable(JNIEnv *env, jobject thisObj, jint portHandle)
 {
     BEGIN_NATIVE_FUNC_GET_PORT
            return port->isPortReadable() ? JNI_TRUE : JNI_FALSE;
@@ -550,12 +550,12 @@ JNIEXPORT jboolean JNICALL Java_gnu_io_Dispatcher_isPortReadable(JNIEnv *env, jo
 }
 
 /*
-* Class:     gnu_io_Dispatcher
+* Class:     javax_comm_Dispatcher
 * Method:    isPortWritable
 * Signature: (I)Z
 * Dispatches to: CommPort::isPortWritable()
 */
-JNIEXPORT jboolean JNICALL Java_gnu_io_Dispatcher_isPortWritable(JNIEnv *env, jobject thisObj, jint portHandle)
+JNIEXPORT jboolean JNICALL Java_javax_comm_Dispatcher_isPortWritable(JNIEnv *env, jobject thisObj, jint portHandle)
 {
     BEGIN_NATIVE_FUNC_GET_PORT
            return port->isPortWritable() ? JNI_TRUE : JNI_FALSE;
@@ -564,12 +564,12 @@ JNIEXPORT jboolean JNICALL Java_gnu_io_Dispatcher_isPortWritable(JNIEnv *env, jo
 }
 
 /*
-* Class:     gnu_io_Dispatcher
+* Class:     javax_comm_Dispatcher
 * Method:    isPrinterBusy
 * Signature: (I)Z
 * Dispatches to: ParallelPort::isPrinterBusy()
 */
-JNIEXPORT jboolean JNICALL Java_gnu_io_Dispatcher_isPrinterBusy(JNIEnv *env, jobject thisObj, jint portHandle)
+JNIEXPORT jboolean JNICALL Java_javax_comm_Dispatcher_isPrinterBusy(JNIEnv *env, jobject thisObj, jint portHandle)
 {
     BEGIN_NATIVE_FUNC_GET_PORT
     TEST_AND_CAST_TO_PARALLEL_PORT
@@ -579,12 +579,12 @@ JNIEXPORT jboolean JNICALL Java_gnu_io_Dispatcher_isPrinterBusy(JNIEnv *env, job
 }
 
 /*
-* Class:     gnu_io_Dispatcher
+* Class:     javax_comm_Dispatcher
 * Method:    isPrinterError
 * Signature: (I)Z
 * Dispatches to: ParallelPort::isPrinterError()
 */
-JNIEXPORT jboolean JNICALL Java_gnu_io_Dispatcher_isPrinterError(JNIEnv *env, jobject thisObj, jint portHandle)
+JNIEXPORT jboolean JNICALL Java_javax_comm_Dispatcher_isPrinterError(JNIEnv *env, jobject thisObj, jint portHandle)
 {
     BEGIN_NATIVE_FUNC_GET_PORT
     TEST_AND_CAST_TO_PARALLEL_PORT
@@ -594,12 +594,12 @@ JNIEXPORT jboolean JNICALL Java_gnu_io_Dispatcher_isPrinterError(JNIEnv *env, jo
 }
 
 /*
-* Class:     gnu_io_Dispatcher
+* Class:     javax_comm_Dispatcher
 * Method:    isPrinterSelected
 * Signature: (I)Z
 * Dispatches to: ParallelPort::isPrinterSelected()
 */
-JNIEXPORT jboolean JNICALL Java_gnu_io_Dispatcher_isPrinterSelected(JNIEnv *env, jobject thisObj, jint portHandle)
+JNIEXPORT jboolean JNICALL Java_javax_comm_Dispatcher_isPrinterSelected(JNIEnv *env, jobject thisObj, jint portHandle)
 {
     BEGIN_NATIVE_FUNC_GET_PORT
     TEST_AND_CAST_TO_PARALLEL_PORT
@@ -609,12 +609,12 @@ JNIEXPORT jboolean JNICALL Java_gnu_io_Dispatcher_isPrinterSelected(JNIEnv *env,
 }
 
 /*
-* Class:     gnu_io_Dispatcher
+* Class:     javax_comm_Dispatcher
 * Method:    isPrinterTimedOut
 * Signature: (I)Z
 * Dispatches to: ParallelPort::isPrinterTimedOut()
 */
-JNIEXPORT jboolean JNICALL Java_gnu_io_Dispatcher_isPrinterTimedOut(JNIEnv *env, jobject thisObj, jint portHandle)
+JNIEXPORT jboolean JNICALL Java_javax_comm_Dispatcher_isPrinterTimedOut(JNIEnv *env, jobject thisObj, jint portHandle)
 {
     BEGIN_NATIVE_FUNC_GET_PORT
     TEST_AND_CAST_TO_PARALLEL_PORT
@@ -624,12 +624,12 @@ JNIEXPORT jboolean JNICALL Java_gnu_io_Dispatcher_isPrinterTimedOut(JNIEnv *env,
 }
 
 /*
-* Class:     gnu_io_Dispatcher
+* Class:     javax_comm_Dispatcher
 * Method:    isRI
 * Signature: (I)Z
 * Dispatches to: SerialPort::isRI()
 */
-JNIEXPORT jboolean JNICALL Java_gnu_io_Dispatcher_isRI(JNIEnv *env, jobject thisObj, jint portHandle)
+JNIEXPORT jboolean JNICALL Java_javax_comm_Dispatcher_isRI(JNIEnv *env, jobject thisObj, jint portHandle)
 {
     BEGIN_NATIVE_FUNC_GET_PORT
     TEST_AND_CAST_TO_SERIAL_PORT
@@ -639,12 +639,12 @@ JNIEXPORT jboolean JNICALL Java_gnu_io_Dispatcher_isRI(JNIEnv *env, jobject this
 }
 
 /*
-* Class:     gnu_io_Dispatcher
+* Class:     javax_comm_Dispatcher
 * Method:    isRTS
 * Signature: (I)Z
 * Dispatches to: SerialPort::isRTS()
 */
-JNIEXPORT jboolean JNICALL Java_gnu_io_Dispatcher_isRTS(JNIEnv *env, jobject thisObj, jint portHandle)
+JNIEXPORT jboolean JNICALL Java_javax_comm_Dispatcher_isRTS(JNIEnv *env, jobject thisObj, jint portHandle)
 {
     BEGIN_NATIVE_FUNC_GET_PORT
     TEST_AND_CAST_TO_SERIAL_PORT
@@ -654,11 +654,11 @@ JNIEXPORT jboolean JNICALL Java_gnu_io_Dispatcher_isRTS(JNIEnv *env, jobject thi
 }
 
 /*
-* Class:     gnu_io_Dispatcher
+* Class:     javax_comm_Dispatcher
 * Method:    open
 * Signature: (Ljava/lang/String;I)I
 */
-JNIEXPORT jint JNICALL Java_gnu_io_Dispatcher_open(JNIEnv *env, jobject thisObj, jstring jPortName, jint portType)
+JNIEXPORT jint JNICALL Java_javax_comm_Dispatcher_open(JNIEnv *env, jobject thisObj, jstring jPortName, jint portType)
 {
     int result = 0;
     const char *portName = NULL;
@@ -677,12 +677,12 @@ JNIEXPORT jint JNICALL Java_gnu_io_Dispatcher_open(JNIEnv *env, jobject thisObj,
 }
 
 /*
-* Class:     gnu_io_Dispatcher
+* Class:     javax_comm_Dispatcher
 * Method:    readBytes
 * Signature: (I[BII)I
 * Dispatches to: CommPort::readBytes(int)
 */
-JNIEXPORT jint JNICALL Java_gnu_io_Dispatcher_readBytes(JNIEnv *env, jobject thisObj, jint portHandle, jbyteArray byteArray, jint offset, jint length)
+JNIEXPORT jint JNICALL Java_javax_comm_Dispatcher_readBytes(JNIEnv *env, jobject thisObj, jint portHandle, jbyteArray byteArray, jint offset, jint length)
 {
     Buffer *readBuffer = NULL;
     BEGIN_NATIVE_FUNC_GET_PORT
@@ -702,12 +702,12 @@ JNIEXPORT jint JNICALL Java_gnu_io_Dispatcher_readBytes(JNIEnv *env, jobject thi
 }
 
 /*
-* Class:     gnu_io_Dispatcher
+* Class:     javax_comm_Dispatcher
 * Method:    restart
 * Signature: (I)V
 * Dispatches to: ParallelPort::restart()
 */
-JNIEXPORT void JNICALL Java_gnu_io_Dispatcher_restart(JNIEnv *env, jobject thisObj, jint portHandle)
+JNIEXPORT void JNICALL Java_javax_comm_Dispatcher_restart(JNIEnv *env, jobject thisObj, jint portHandle)
 {
     BEGIN_NATIVE_FUNC_GET_PORT
     TEST_AND_CAST_TO_PARALLEL_PORT
@@ -716,12 +716,12 @@ JNIEXPORT void JNICALL Java_gnu_io_Dispatcher_restart(JNIEnv *env, jobject thisO
 }
 
 /*
-* Class:     gnu_io_Dispatcher
+* Class:     javax_comm_Dispatcher
 * Method:    sendBreak
 * Signature: (II)V
 * Dispatches to: SerialPort::sendBreak(int)
 */
-JNIEXPORT void JNICALL Java_gnu_io_Dispatcher_sendBreak(JNIEnv *env, jobject thisObj, jint portHandle, jint duration)
+JNIEXPORT void JNICALL Java_javax_comm_Dispatcher_sendBreak(JNIEnv *env, jobject thisObj, jint portHandle, jint duration)
 {
     BEGIN_NATIVE_FUNC_GET_PORT
     TEST_AND_CAST_TO_SERIAL_PORT
@@ -731,12 +731,12 @@ JNIEXPORT void JNICALL Java_gnu_io_Dispatcher_sendBreak(JNIEnv *env, jobject thi
 
 
 /*
-* Class:     gnu_io_Dispatcher
+* Class:     javax_comm_Dispatcher
 * Method:    setDTR
 * Signature: (IZ)V
 * Dispatches to: SerialPort::setDTR(bool)
 */
-JNIEXPORT void JNICALL Java_gnu_io_Dispatcher_setDTR(JNIEnv *env, jobject thisObj, jint portHandle, jboolean enable)
+JNIEXPORT void JNICALL Java_javax_comm_Dispatcher_setDTR(JNIEnv *env, jobject thisObj, jint portHandle, jboolean enable)
 {
     BEGIN_NATIVE_FUNC_GET_PORT
     TEST_AND_CAST_TO_SERIAL_PORT
@@ -745,12 +745,12 @@ JNIEXPORT void JNICALL Java_gnu_io_Dispatcher_setDTR(JNIEnv *env, jobject thisOb
 }
 
 /*
-* Class:     gnu_io_Dispatcher
+* Class:     javax_comm_Dispatcher
 * Method:    setFlowControlMode
 * Signature: (II)V
 * Dispatches to: SerialPort::setFlowControlMode(int)
 */
-JNIEXPORT void JNICALL Java_gnu_io_Dispatcher_setFlowControlMode(JNIEnv *env, jobject thisObj, jint portHandle, jint flowControlMode)
+JNIEXPORT void JNICALL Java_javax_comm_Dispatcher_setFlowControlMode(JNIEnv *env, jobject thisObj, jint portHandle, jint flowControlMode)
 {
     BEGIN_NATIVE_FUNC_GET_PORT
     TEST_AND_CAST_TO_SERIAL_PORT
@@ -762,12 +762,12 @@ JNIEXPORT void JNICALL Java_gnu_io_Dispatcher_setFlowControlMode(JNIEnv *env, jo
 }
 
 /*
-* Class:     gnu_io_Dispatcher
+* Class:     javax_comm_Dispatcher
 * Method:    setInputBufferSize
 * Signature: (II)V
 * Dispatches to: CommPort::setInputBufferSize(int)
 */
-JNIEXPORT void JNICALL Java_gnu_io_Dispatcher_setInputBufferSize(JNIEnv *env, jobject thisObj, jint portHandle, jint size)
+JNIEXPORT void JNICALL Java_javax_comm_Dispatcher_setInputBufferSize(JNIEnv *env, jobject thisObj, jint portHandle, jint size)
 {
     BEGIN_NATIVE_FUNC_GET_PORT
         if (size < 0)
@@ -777,12 +777,12 @@ JNIEXPORT void JNICALL Java_gnu_io_Dispatcher_setInputBufferSize(JNIEnv *env, jo
 }
 
 /*
-* Class:     gnu_io_Dispatcher
+* Class:     javax_comm_Dispatcher
 * Method:    setMode
 * Signature: (II)I
 * Dispatches to: ParallelPort::setMode(int)
 */
-JNIEXPORT jint JNICALL Java_gnu_io_Dispatcher_setMode(JNIEnv *env, jobject thisObj, jint portHandle, jint mode)
+JNIEXPORT jint JNICALL Java_javax_comm_Dispatcher_setMode(JNIEnv *env, jobject thisObj, jint portHandle, jint mode)
 {
     BEGIN_NATIVE_FUNC_GET_PORT
     TEST_AND_CAST_TO_PARALLEL_PORT
@@ -794,12 +794,12 @@ JNIEXPORT jint JNICALL Java_gnu_io_Dispatcher_setMode(JNIEnv *env, jobject thisO
 }
 
 /*
-* Class:     gnu_io_Dispatcher
+* Class:     javax_comm_Dispatcher
 * Method:    setOutputBufferSize
 * Signature: (II)V
 * Dispatches to: CommPort::setOutputBufferSize(int)
 */
-JNIEXPORT void JNICALL Java_gnu_io_Dispatcher_setOutputBufferSize(JNIEnv *env, jobject thisObj, jint portHandle, jint size)
+JNIEXPORT void JNICALL Java_javax_comm_Dispatcher_setOutputBufferSize(JNIEnv *env, jobject thisObj, jint portHandle, jint size)
 {
     BEGIN_NATIVE_FUNC_GET_PORT
         if (size < 0)
@@ -809,12 +809,12 @@ JNIEXPORT void JNICALL Java_gnu_io_Dispatcher_setOutputBufferSize(JNIEnv *env, j
 }
 
 /*
-* Class:     gnu_io_Dispatcher
+* Class:     javax_comm_Dispatcher
 * Method:    setRTS
 * Signature: (IZ)V
 * Dispatches to: SerialPort::setRTS(bool)
 */
-JNIEXPORT void JNICALL Java_gnu_io_Dispatcher_setRTS(JNIEnv *env, jobject thisObj, jint portHandle, jboolean rts)
+JNIEXPORT void JNICALL Java_javax_comm_Dispatcher_setRTS(JNIEnv *env, jobject thisObj, jint portHandle, jboolean rts)
 {
     BEGIN_NATIVE_FUNC_GET_PORT
     TEST_AND_CAST_TO_SERIAL_PORT
@@ -823,12 +823,12 @@ JNIEXPORT void JNICALL Java_gnu_io_Dispatcher_setRTS(JNIEnv *env, jobject thisOb
 }
 
 /*
-* Class:     gnu_io_Dispatcher
+* Class:     javax_comm_Dispatcher
 * Method:    setSerialPortParams
 * Signature: (IIIII)V
 * Dispatches to: SerialPort::setSerialPortParams(int, int, int, int)
 */
-JNIEXPORT void JNICALL Java_gnu_io_Dispatcher_setSerialPortParams(JNIEnv *env, jobject thisObj, jint portHandle, jint baudRate, jint dataBits, jint stopBits, jint parity)
+JNIEXPORT void JNICALL Java_javax_comm_Dispatcher_setSerialPortParams(JNIEnv *env, jobject thisObj, jint portHandle, jint baudRate, jint dataBits, jint stopBits, jint parity)
 {
     BEGIN_NATIVE_FUNC_GET_PORT
     TEST_AND_CAST_TO_SERIAL_PORT
@@ -845,12 +845,12 @@ JNIEXPORT void JNICALL Java_gnu_io_Dispatcher_setSerialPortParams(JNIEnv *env, j
 }
 
 /*
-* Class:     gnu_io_Dispatcher
+* Class:     javax_comm_Dispatcher
 * Method:    suspend
 * Signature: (I)V
 * Dispatches to: ParallelPort::suspend()
 */
-JNIEXPORT void JNICALL Java_gnu_io_Dispatcher_suspend(JNIEnv *env, jobject thisObj, jint portHandle)
+JNIEXPORT void JNICALL Java_javax_comm_Dispatcher_suspend(JNIEnv *env, jobject thisObj, jint portHandle)
 {
     BEGIN_NATIVE_FUNC_GET_PORT
     TEST_AND_CAST_TO_PARALLEL_PORT
@@ -859,11 +859,11 @@ JNIEXPORT void JNICALL Java_gnu_io_Dispatcher_suspend(JNIEnv *env, jobject thisO
 }
 
 /*
-* Class:     gnu_io_Dispatcher
+* Class:     javax_comm_Dispatcher
 * Method:    version
 * Signature: ()Ljava/lang/String;
 */
-JNIEXPORT jstring JNICALL Java_gnu_io_Dispatcher_version(JNIEnv *env, jobject thisObj)
+JNIEXPORT jstring JNICALL Java_javax_comm_Dispatcher_version(JNIEnv *env, jobject thisObj)
 {
     try
     {
@@ -875,12 +875,12 @@ JNIEXPORT jstring JNICALL Java_gnu_io_Dispatcher_version(JNIEnv *env, jobject th
 }
 
 /*
-* Class:     gnu_io_Dispatcher
+* Class:     javax_comm_Dispatcher
 * Method:    writeBytes
 * Signature: (I[BII)I
 * Dispatches to: CommPort::writeBytes(char*, int)
 */
-JNIEXPORT jint JNICALL Java_gnu_io_Dispatcher_writeBytes(JNIEnv *env, jobject thisObj, jint portHandle, jbyteArray byteArray, jint offset, jint length)
+JNIEXPORT jint JNICALL Java_javax_comm_Dispatcher_writeBytes(JNIEnv *env, jobject thisObj, jint portHandle, jbyteArray byteArray, jint offset, jint length)
 {
     jbyte *writeBuff = NULL;
     BEGIN_NATIVE_FUNC_GET_PORT

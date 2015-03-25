@@ -55,7 +55,7 @@
 |   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 |   All trademarks belong to their respective owners.
 --------------------------------------------------------------------------*/
-package  gnu.io;
+package  javax.comm;
 
 import  java.io.FileDescriptor;
 import java.util.HashMap;
@@ -104,12 +104,12 @@ public class CommPortIdentifier extends Object /* extends Vector? */
 		Sync = new Object();
 		try 
 		{
-			CommDriver RXTXDriver = (CommDriver) Class.forName("gnu.io.RXTXCommDriver").newInstance();
+			CommDriver RXTXDriver = (CommDriver) Class.forName("javax.comm.RXTXCommDriver").newInstance();
 			RXTXDriver.initialize();
 		} 
 		catch (Throwable e) 
 		{
-			System.err.println(e + " thrown while loading " + "gnu.io.RXTXCommDriver");
+			System.err.println(e + " thrown while loading " + "javax.comm.RXTXCommDriver");
 		}
 
 		String OS;
@@ -120,7 +120,7 @@ public class CommPortIdentifier extends Object /* extends Vector? */
 			if (debug)
 				System.out.println("Have not implemented native_psmisc_report_owner(PortName)); in CommPortIdentifier");
 		}
-		if("true".equals( System.getProperty( "gnu.io.rxtx.LibraryLoader"))) {
+		if("true".equals( System.getProperty( "javax.comm.rxtx.LibraryLoader"))) {
 			LibraryLoader.loadLibrary( "rxtxSerial" );
 		} else {
 			System.loadLibrary( "rxtxSerial" );
@@ -326,9 +326,9 @@ public class CommPortIdentifier extends Object /* extends Vector? */
 			{
 				//Initialize RXTX: This leads to detecting all ports
 				//and writing them into our CommPortIndex through our method
-				//{@link #addPortName(java.lang.String, int, gnu.io.CommDriver)}
+				//{@link #addPortName(java.lang.String, int, javax.comm.CommDriver)}
 				//This works while lock on Sync is held
-				CommDriver RXTXDriver = (CommDriver) Class.forName("gnu.io.RXTXCommDriver").newInstance();
+				CommDriver RXTXDriver = (CommDriver) Class.forName("javax.comm.RXTXCommDriver").newInstance();
 				RXTXDriver.initialize();
 				//Restore old CommPortIdentifier objects where possible, 
 				//in order to support proper ownership event handling.
@@ -355,7 +355,7 @@ public class CommPortIdentifier extends Object /* extends Vector? */
 			} 
 			catch (Throwable e) 
 			{
-				System.err.println(e + " thrown while loading " + "gnu.io.RXTXCommDriver");
+				System.err.println(e + " thrown while loading " + "javax.comm.RXTXCommDriver");
 				System.err.flush();
 			}
 		}
@@ -414,7 +414,7 @@ public class CommPortIdentifier extends Object /* extends Vector? */
 	private boolean HideOwnerEvents;
 
 	public CommPort open(String TheOwner, int i) 
-		throws gnu.io.PortInUseException 
+		throws javax.comm.PortInUseException 
 	{ 
 		if(debug) System.out.println("CommPortIdentifier:open("+TheOwner + ", " +i+")");
 		boolean isAvailable;
@@ -454,7 +454,7 @@ public class CommPortIdentifier extends Object /* extends Vector? */
 		}
 		if (!isAvailable)
 		{
-			throw new gnu.io.PortInUseException(getCurrentOwner());
+			throw new javax.comm.PortInUseException(getCurrentOwner());
 		}
 		//At this point, the CommPortIdentifier is owned by us.
 		try {
@@ -476,7 +476,7 @@ public class CommPortIdentifier extends Object /* extends Vector? */
 				{
 					err_msg = "Port " + PortName + " already owned... unable to open.";
 				}
-				throw new gnu.io.PortInUseException( err_msg );
+				throw new javax.comm.PortInUseException( err_msg );
 			}
 		} finally {
 			if(commport == null) {

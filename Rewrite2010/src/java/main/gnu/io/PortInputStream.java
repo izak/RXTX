@@ -55,7 +55,7 @@
 |   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 |   All trademarks belong to their respective owners.
 --------------------------------------------------------------------------*/
-package gnu.io;
+package javax.comm;
 
 import java.io.IOException;
 import java.io.InterruptedIOException;
@@ -65,7 +65,7 @@ import java.io.InputStream;
  * A port <code>InputStream</code> object.
  * <p>
  * Note that the read behavior of the input stream is controlled by settings in the
- * <code>CommPort</code> instance - see {@link gnu.io.CommPort#getInputStream()}.
+ * <code>CommPort</code> instance - see {@link javax.comm.CommPort#getInputStream()}.
  * </p>
  * <p>
  * <strong>This implementation is not synchronized.</strong> If multiple threads access a

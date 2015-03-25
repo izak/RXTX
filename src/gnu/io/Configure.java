@@ -55,7 +55,7 @@
 |   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 |   All trademarks belong to their respective owners.
 --------------------------------------------------------------------------*/
-package gnu.io;
+package javax.comm;
 
 import java.awt.*;
 import java.awt.event.*;
@@ -81,10 +81,10 @@ class Configure extends Frame
 		if( PortType == PORT_SERIAL )
 			filename = javaHome +
 				fileSep + "lib" + fileSep +
-				"gnu.io.rxtx.SerialPorts";
+				"javax.comm.rxtx.SerialPorts";
 		else if ( PortType == PORT_PARALLEL )
 			filename = javaHome +
-				"gnu.io.rxtx.ParallelPorts";
+				"javax.comm.rxtx.ParallelPorts";
 		else
 		{
 			System.out.println( "Bad Port Type!" );
@@ -131,7 +131,7 @@ class Configure extends Frame
 		int Height= 480;
 		cb = new Checkbox[128];
 		final Frame f = new Frame(
-			"Configure gnu.io.rxtx.properties");
+			"Configure javax.comm.rxtx.properties");
 		String fileSep = System.getProperty( "file.separator", "/" );
 		String devPath;
 		if( fileSep.compareTo( "/" ) != 0 )
@@ -214,6 +214,6 @@ class Configure extends Frame
 	{
 		new Configure();
 	}
-	String EnumMessage = "gnu.io.rxtx.properties has not been detected.\n\nThere is no consistant means of detecting ports on this operating System.  It is necessary to indicate which ports are valid on this system before proper port enumeration can happen.  Please check the ports that are valid on this system and select Save";
+	String EnumMessage = "javax.comm.rxtx.properties has not been detected.\n\nThere is no consistant means of detecting ports on this operating System.  It is necessary to indicate which ports are valid on this system before proper port enumeration can happen.  Please check the ports that are valid on this system and select Save";
 }
 

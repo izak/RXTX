@@ -8,10 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		327084F6072C838F000D953F /* Configure.java in Sources */ = {isa = PBXBuildFile; fileRef = 327084F5072C838F000D953F /* Configure.java */; };
-		328404D905949D8800D94A3F /* gnu_io_RXTXPort.h in Headers */ = {isa = PBXBuildFile; fileRef = F516EA0A016690CA01000107 /* gnu_io_RXTXPort.h */; };
-		328404DA05949D8800D94A3F /* gnu_io_RXTXCommDriver.h in Headers */ = {isa = PBXBuildFile; fileRef = F516EA0B016690CA01000107 /* gnu_io_RXTXCommDriver.h */; };
+		328404D905949D8800D94A3F /* javax_comm_RXTXPort.h in Headers */ = {isa = PBXBuildFile; fileRef = F516EA0A016690CA01000107 /* javax_comm_RXTXPort.h */; };
+		328404DA05949D8800D94A3F /* javax_comm_RXTXCommDriver.h in Headers */ = {isa = PBXBuildFile; fileRef = F516EA0B016690CA01000107 /* javax_comm_RXTXCommDriver.h */; };
 		328404DB05949D8800D94A3F /* config.h in Headers */ = {isa = PBXBuildFile; fileRef = F516EA130166918B01000107 /* config.h */; };
-		328404DC05949D8800D94A3F /* gnu_io_CommPortIdentifier.h in Headers */ = {isa = PBXBuildFile; fileRef = 66BFC58B017A2DF100A80101 /* gnu_io_CommPortIdentifier.h */; };
+		328404DC05949D8800D94A3F /* javax_comm_CommPortIdentifier.h in Headers */ = {isa = PBXBuildFile; fileRef = 66BFC58B017A2DF100A80101 /* javax_comm_CommPortIdentifier.h */; };
 		328404DE05949D8800D94A3F /* SerialImp.c in Sources */ = {isa = PBXBuildFile; fileRef = F5F7F6D8016E40A60113EAB9 /* SerialImp.c */; };
 		328404DF05949D8800D94A3F /* fuserImp.c in Sources */ = {isa = PBXBuildFile; fileRef = 66BFC583017A2D9000A80101 /* fuserImp.c */; };
 		328404E105949D8800D94A3F /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F516EA17016694DF01000107 /* CoreFoundation.framework */; };
@@ -92,16 +92,16 @@
 		667EEE8B0179E22700A80101 /* SerialPortEventListener.java */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.java; name = SerialPortEventListener.java; path = ../../src/SerialPortEventListener.java; sourceTree = SOURCE_ROOT; };
 		667EEE8C0179E22700A80101 /* UnsupportedCommOperationException.java */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.java; name = UnsupportedCommOperationException.java; path = ../../src/UnsupportedCommOperationException.java; sourceTree = SOURCE_ROOT; };
 		66BFC583017A2D9000A80101 /* fuserImp.c */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.c; name = fuserImp.c; path = ../../src/fuserImp.c; sourceTree = SOURCE_ROOT; };
-		66BFC58B017A2DF100A80101 /* gnu_io_CommPortIdentifier.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = gnu_io_CommPortIdentifier.h; path = Headers/gnu_io_CommPortIdentifier.h; sourceTree = "<group>"; };
+		66BFC58B017A2DF100A80101 /* javax_comm_CommPortIdentifier.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = javax_comm_CommPortIdentifier.h; path = Headers/javax_comm_CommPortIdentifier.h; sourceTree = "<group>"; };
 		66BFC596017A2F3100A80101 /* ParallelImp.c */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.c; name = ParallelImp.c; path = ../../src/ParallelImp.c; sourceTree = SOURCE_ROOT; };
-		66BFC599017A2F5400A80101 /* gnu_io_LPRPort.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = gnu_io_LPRPort.h; path = Headers/gnu_io_LPRPort.h; sourceTree = "<group>"; };
-		66BFC5AC017A356E00A80101 /* gnu_io_I2C.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = gnu_io_I2C.h; path = Headers/gnu_io_I2C.h; sourceTree = "<group>"; };
+		66BFC599017A2F5400A80101 /* javax_comm_LPRPort.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = javax_comm_LPRPort.h; path = Headers/javax_comm_LPRPort.h; sourceTree = "<group>"; };
+		66BFC5AC017A356E00A80101 /* javax_comm_I2C.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = javax_comm_I2C.h; path = Headers/javax_comm_I2C.h; sourceTree = "<group>"; };
 		66BFC5AF017A35AF00A80101 /* I2CImp.c */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.c; name = I2CImp.c; path = ../../src/I2CImp.c; sourceTree = SOURCE_ROOT; };
 		66BFC5C0017A368A00A80101 /* RS485Imp.c */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.c; name = RS485Imp.c; path = ../../src/RS485Imp.c; sourceTree = SOURCE_ROOT; };
-		66BFC5C2017A36A500A80101 /* gnu_io_RS485.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = gnu_io_RS485.h; path = Headers/gnu_io_RS485.h; sourceTree = "<group>"; };
+		66BFC5C2017A36A500A80101 /* javax_comm_RS485.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = javax_comm_RS485.h; path = Headers/javax_comm_RS485.h; sourceTree = "<group>"; };
 		F5098B2602B43E52011E1076 /* RXTXcomm.jar */ = {isa = PBXFileReference; explicitFileType = archive.jar; includeInIndex = 0; path = RXTXcomm.jar; sourceTree = BUILT_PRODUCTS_DIR; };
-		F516EA0A016690CA01000107 /* gnu_io_RXTXPort.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = gnu_io_RXTXPort.h; path = Headers/gnu_io_RXTXPort.h; sourceTree = "<group>"; };
-		F516EA0B016690CA01000107 /* gnu_io_RXTXCommDriver.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = gnu_io_RXTXCommDriver.h; path = Headers/gnu_io_RXTXCommDriver.h; sourceTree = "<group>"; };
+		F516EA0A016690CA01000107 /* javax_comm_RXTXPort.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = javax_comm_RXTXPort.h; path = Headers/javax_comm_RXTXPort.h; sourceTree = "<group>"; };
+		F516EA0B016690CA01000107 /* javax_comm_RXTXCommDriver.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = javax_comm_RXTXCommDriver.h; path = Headers/javax_comm_RXTXCommDriver.h; sourceTree = "<group>"; };
 		F516EA130166918B01000107 /* config.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = config.h; sourceTree = "<group>"; };
 		F516EA17016694DF01000107 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = /System/Library/Frameworks/CoreFoundation.framework; sourceTree = "<absolute>"; };
 		F516EA19016694EF01000107 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = /System/Library/Frameworks/IOKit.framework; sourceTree = "<absolute>"; };
@@ -153,16 +153,16 @@
 			isa = PBXGroup;
 			children = (
 				F516EA130166918B01000107 /* config.h */,
-				F516EA0A016690CA01000107 /* gnu_io_RXTXPort.h */,
-				F516EA0B016690CA01000107 /* gnu_io_RXTXCommDriver.h */,
-				66BFC58B017A2DF100A80101 /* gnu_io_CommPortIdentifier.h */,
+				F516EA0A016690CA01000107 /* javax_comm_RXTXPort.h */,
+				F516EA0B016690CA01000107 /* javax_comm_RXTXCommDriver.h */,
+				66BFC58B017A2DF100A80101 /* javax_comm_CommPortIdentifier.h */,
 				F5F7F6D8016E40A60113EAB9 /* SerialImp.c */,
 				66BFC596017A2F3100A80101 /* ParallelImp.c */,
 				66BFC5AF017A35AF00A80101 /* I2CImp.c */,
 				66BFC5C0017A368A00A80101 /* RS485Imp.c */,
-				66BFC599017A2F5400A80101 /* gnu_io_LPRPort.h */,
-				66BFC5AC017A356E00A80101 /* gnu_io_I2C.h */,
-				66BFC5C2017A36A500A80101 /* gnu_io_RS485.h */,
+				66BFC599017A2F5400A80101 /* javax_comm_LPRPort.h */,
+				66BFC5AC017A356E00A80101 /* javax_comm_I2C.h */,
+				66BFC5C2017A36A500A80101 /* javax_comm_RS485.h */,
 				66BFC583017A2D9000A80101 /* fuserImp.c */,
 			);
 			name = jnilib;
@@ -242,9 +242,9 @@
 			comments = "Copies C headers generated with javah (while building the RXTXComm target) into the source directory.\nCopies the compile configuration file config.h form the project directory.";
 			files = (
 				328404DB05949D8800D94A3F /* config.h in Headers */,
-				328404D905949D8800D94A3F /* gnu_io_RXTXPort.h in Headers */,
-				328404DA05949D8800D94A3F /* gnu_io_RXTXCommDriver.h in Headers */,
-				328404DC05949D8800D94A3F /* gnu_io_CommPortIdentifier.h in Headers */,
+				328404D905949D8800D94A3F /* javax_comm_RXTXPort.h in Headers */,
+				328404DA05949D8800D94A3F /* javax_comm_RXTXCommDriver.h in Headers */,
+				328404DC05949D8800D94A3F /* javax_comm_CommPortIdentifier.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -313,7 +313,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/bash;
-			shellScript = "javah -jni -d Headers/ -classpath ${BUILT_PRODUCTS_DIR}/RXTXcomm.jar:${TEMP_FILES_DIR}/JavaClasses/ gnu.io.CommPortIdentifier gnu.io.I2C gnu.io.LPRPort gnu.io.Raw gnu.io.RS485 gnu.io.RXTXCommDriver gnu.io.RXTXPort\n";
+			shellScript = "javah -jni -d Headers/ -classpath ${BUILT_PRODUCTS_DIR}/RXTXcomm.jar:${TEMP_FILES_DIR}/JavaClasses/ javax.comm.CommPortIdentifier javax.comm.I2C javax.comm.LPRPort javax.comm.Raw javax.comm.RS485 javax.comm.RXTXCommDriver javax.comm.RXTXPort\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 

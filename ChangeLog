@@ -18,7 +18,7 @@ you downloaded.
 
 		LibraryLoader class for adding a suffix to library names.
 		Jeff Benjamin <jeff@ivertex.com>
-		https://bitbucket.org/ivertex/rxtx/src/aea6634cbeb5/src/gnu/io/LibraryLoader.java
+		https://bitbucket.org/ivertex/rxtx/src/aea6634cbeb5/src/javax.comm/LibraryLoader.java
 
 		created Java threads are not marked as daemon
 		http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=674975
@@ -73,7 +73,7 @@ you downloaded.
 		http://bugzilla.qbang.org/show_bug.cgi?id=187	
 		Martin Oberhuber <martin.oberhuber@windriver.com>
 
-		Fixed the gnu.io.rxtx.properties code that didn't work. 
+		Fixed the javax.comm.rxtx.properties code that didn't work. 
 		Fixed unsafe code in the registerSpecifiedPorts method. 
 		Adrian Crum <adrian.crum@yahoo.com>
 
@@ -85,7 +85,7 @@ you downloaded.
 		Nathan A. Sweet <nate@n4te.com>
 
 		http://mailman.qbang.org/pipermail/rxtx/2009-November/5482004.html
-		regenerated gnu_io_RXTXPort.h and gnu_io_RXTXCommDriver.h;
+		regenerated javax_comm_RXTXPort.h and javax_comm_RXTXCommDriver.h;
 		changed version string returned nativeGetVersion();
 		moved nativeGetVersion() to RXTXVersion;
 		added native_psmisc_report_owner() (same as for Win32);
@@ -114,7 +114,7 @@ you downloaded.
 		added new JAVAXCOMM_FRONTEND macro for convenience (if defined
 		then PortInUseException and UnsupportedCommOperationException
 		are used "javax.comm" package (old behavior) else from
-		"gnu.io." one (default));
+		"javax.comm." one (default));
 		commented out DllMain() definition (since it does no action,
 		only consumes resources);
 		updated Readme.
@@ -320,8 +320,8 @@ you downloaded.
 		Philip Gladstone <philip@gladstonefamily.net>
 		Don't look for unexpected lockfiles in expected places
 		Philip Gladstone <philip@gladstonefamily.net>
-		adding the new properties gnu.io.rxtx.SerialPorts and
-		gnu.io.rxtx.ParallelPorts insead of overriding the system
+		adding the new properties javax.comm.rxtx.SerialPorts and
+		javax.comm.rxtx.ParallelPorts insead of overriding the system
 		properties and uses them only as default values
 		Klaus Kierer <klaus.kierer@tiscover.com>
 2.1-7pre18 Oct 11 2004
@@ -509,7 +509,7 @@ you downloaded.
 		      initial Mac OS X port
 		      Joseph Goldstone <joseph@lp.com>
                       Paul Tokarchuk <ptokarchuk@sympatico.ca>
-		      package renamed to gnu.io
+		      package renamed to javax.comm
 		      Memory leak Cleanups
 		      cross-compile fixes
 		      more windows fixes.

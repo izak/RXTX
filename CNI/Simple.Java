@@ -1,4 +1,4 @@
-import gnu.io.*;
+import javax.comm.*;
 import java.util.*;
 import java.io.InputStream;
 import java.io.OutputStream;

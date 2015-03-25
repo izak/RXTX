@@ -61,7 +61,7 @@
 #ifndef WIN32
 #	include "config.h"
 #endif
-#include "gnu_io_RXTXPort.h"
+#include "javax_comm_RXTXPort.h"
 #endif /* dima */
 #ifdef __LCC__ /* windows lcc compiler for fd_set. probably wrong */
 #   include<winsock.h>
@@ -171,9 +171,9 @@ struct preopened *preopened_port = NULL;
 /* this is so diff will not generate noise when merging 1.4 and 1.5 changes
  * It will eventually be removed.
  * */
-#define RXTXPort(foo) Java_gnu_io_RXTXPort_ ## foo
-#define RXTXVersion(foo) Java_gnu_io_RXTXVersion_ ## foo
-#define RXTXCommDriver(foo) Java_gnu_io_RXTXCommDriver_ ## foo
+#define RXTXPort(foo) Java_javax_comm_RXTXPort_ ## foo
+#define RXTXVersion(foo) Java_javax_comm_RXTXVersion_ ## foo
+#define RXTXCommDriver(foo) Java_javax_comm_RXTXCommDriver_ ## foo
 
 #if defined(__sun__) || defined(__hpux__)
 /*----------------------------------------------------------
@@ -1076,7 +1076,7 @@ int translate_speed( JNIEnv *env, jint speed )
 /*----------------------------------------------------------
  translate_data_bits
 
-   accept:     gnu.io.SerialPort.DATABITS_* constant
+   accept:     javax.comm.SerialPort.DATABITS_* constant
    perform:    set proper termios c_cflag bits
    return:     1 on error
    exceptions: UnsupportedCommOperationException
@@ -1114,7 +1114,7 @@ int translate_data_bits( JNIEnv *env, tcflag_t *cflag, jint dataBits )
 /*----------------------------------------------------------
  translate_stop_bits
 
-   accept:     gnu.io.SerialPort.STOPBITS_* constant
+   accept:     javax.comm.SerialPort.STOPBITS_* constant
    perform:    set proper termios c_cflag bits
    return:     1 on error
    exceptions: UnsupportedCommOperationException
@@ -4625,12 +4625,12 @@ registerKnownSerialPorts(JNIEnv *env, jobject jobj, jint portType) /* dima */
     } else {
 	jclass cls; /* dima */
 	jmethodID mid; /* dima */
-        cls = (*env)->FindClass(env,"gnu/io/CommPortIdentifier" ); /* dima */
+        cls = (*env)->FindClass(env,"javax.comm/CommPortIdentifier" ); /* dima */
         if (cls == 0) { /* dima */
-            report( "can't find class of gnu/io/CommPortIdentifier\n" ); /* dima */
+            report( "can't find class of javax.comm/CommPortIdentifier\n" ); /* dima */
             return numPorts; /* dima */
         } /* dima */
-        mid = (*env)->GetStaticMethodID(env, cls, "addPortName", "(Ljava/lang/String;ILgnu/io/CommDriver;)V" ); /* dima */
+        mid = (*env)->GetStaticMethodID(env, cls, "addPortName", "(Ljava/lang/String;ILjavax.comm/CommDriver;)V" ); /* dima */
 
         if (mid == 0) {
             printf( "getMethodID of CommDriver.addPortName failed\n" );

@@ -64,8 +64,8 @@ A note about rxtx 2.1 and later:
 
 rxtx 2.1 replaces the entire CommAPI.  Every effort is made to conform to
 CommAPI but out of respect for our friends at Sun the package name of 2.1 has
-been moved to gnu.io.  A script is offered in contrib/ChangePackage.sh that
-will switch source tree's between javax.comm and gnu.io.
+been moved to javax.comm.  A script is offered in contrib/ChangePackage.sh that
+will switch source tree's between javax.comm and javax.comm.
 
 See Sun's CommAPI license for more details on why this decision was made.
 
@@ -92,11 +92,11 @@ A note on Mac OS X:
 3.  COMMON PROBLEMS
 
 	A.  java.lang.UnsatisfiedLinkError: nSetOwner while loading driver
-	    gnu.io.RXTXCommDriver
+	    javax.comm.RXTXCommDriver
 	B.  Exception in thread "main" java.lang.UnsatisfiedLinkError: 
 	    no rxtxSerial in java.library.path
 	C.  I Can Not Open the Port.
-	D.  java.lang.NoClassDefFoundError: gnu/io/CommPort
+	D.  java.lang.NoClassDefFoundError: javax.comm/CommPort
 	E.  The Compiler Cannot Find Java Include Files
 	F.  Configure says 'unterminated sed command' and stops 
 	G.  Java Can Not Find libstdc++-libc6.0-1.so.2 
@@ -367,7 +367,7 @@ A.  Japanese
 3.  COMMON PROBLEMS
 
 A.  I get java.lang.UnsatisfiedLinkError: nSetOwner while loading driver
-    gnu.io.RXTXCommDriver when using rxtx.
+    javax.comm.RXTXCommDriver when using rxtx.
 
 	SetOwner appears to be some win32 call.
 	Do not use Sun's win32 CommAPI files.  Get the Solaris version.
@@ -387,10 +387,10 @@ B.  Exception in thread "main" java.lang.UnsatisfiedLinkError: no rxtxSerial in
 		at java.lang.ClassLoader.loadLibrary(Compiled Code)
 		at java.lang.Runtime.loadLibrary0(Compiled Code)
 		at java.lang.System.loadLibrary(Compiled Code)
-		at gnu.io.NativePort.<clinit>(NativePort.java:32)
-		at gnu.io.RXTXPort.<init>(Compiled Code)
-		at gnu.io.RXTXCommDriver.getCommPort(Compiled Code)
-		at gnu.io.CommPortIdentifier.open(Compiled Code)
+		at javax.comm.NativePort.<clinit>(NativePort.java:32)
+		at javax.comm.RXTXPort.<init>(Compiled Code)
+		at javax.comm.RXTXCommDriver.getCommPort(Compiled Code)
+		at javax.comm.CommPortIdentifier.open(Compiled Code)
 		at SerialPortDisplay.openBBPort(Compiled Code)
 		at SerialPortDisplay.<init>(Compiled Code)
 		at BlackBox.addPort(Compiled Code)
@@ -427,7 +427,7 @@ C.  I Can Not Open the Port.
 
 	Make sure that the user can create lock files see R.
 
-D.  java.lang.NoClassDefFoundError: gnu/io/CommPort
+D.  java.lang.NoClassDefFoundError: javax.comm/CommPort
 
 	RXTXcomm.jar is probably not in your classpath or not located in
 	the proper directory.
@@ -436,7 +436,7 @@ D.  java.lang.NoClassDefFoundError: gnu/io/CommPort
 
 	export CLASSPATH=../java/lib/classes.zip
 	$ java BlackBoxException in thread "main"
-	java.lang.NoClassDefFoundError: gnu/io/CommPort
+	java.lang.NoClassDefFoundError: javax.comm/CommPort
 
 E.  The Compiler Cannot Find Java Include Files
 
@@ -480,10 +480,10 @@ H.  BlackBox Can Not Handle all the ports!
 I.  Illegal use of nonvirtal function call!
 
 	Exception in thread "main" java.lang.VerifyError: (class: 
-	gnu/io/RXTXPort$SerialOutputStream, method: flush signature: ()V) 
+	javax.comm/RXTXPort$SerialOutputStream, method: flush signature: ()V) 
 	Illegal use of nonvirtual function call
-		at gnu.io.RXTXCommDriver.getCommPort(Compiled Code)
-		at gnu.io.CommPortIdentifier.open(Compiled Code)
+		at javax.comm.RXTXCommDriver.getCommPort(Compiled Code)
+		at javax.comm.CommPortIdentifier.open(Compiled Code)
 		at SerialPortDisplay.openBBPort(Compiled Code)
 		at SerialPortDisplay.<init>(Compiled Code)
 		at BlackBox.addPort(Compiled Code)
@@ -610,14 +610,14 @@ system, and that can be read and written are offered back from
 CommPortIdentifier.getPortIdentifiers(), and only these can be used as
 ports.
 
-If you wish, you can set the system properties gnu.io.rxtx.SerialPorts
-and gnu.io.rxtx.ParallelPorts.  If either of these is set, then no
+If you wish, you can set the system properties javax.comm.rxtx.SerialPorts
+and javax.comm.rxtx.ParallelPorts.  If either of these is set, then no
 scanning will be carried out and only the specified ports will be
 available.  You can use this to make one platform look like another,
 to restrict Java access to ports, or possibly for other reasons.  For
 example
 
-	java -Dgnu.io.rxtx.SerialPorts=/dev/cua/a:/dev/cua/b com.foo.MyApp
+	java -Djavax.comm.rxtx.SerialPorts=/dev/cua/a:/dev/cua/b com.foo.MyApp
 
 will look kind of like Solaris, if you have created the appropriate
 device nodes.

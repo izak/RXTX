@@ -55,7 +55,7 @@
 |   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 |   All trademarks belong to their respective owners.
 --------------------------------------------------------------------------*/
-package gnu.io;
+package javax.comm;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.IOException;
@@ -63,8 +63,8 @@ import java.util.TooManyListenersException;
 import java.lang.Math;
 
 /**
-* An extension of gnu.io.SerialPort
-* @see gnu.io.SerialPort
+* An extension of javax.comm.SerialPort
+* @see javax.comm.SerialPort
 */
 
 final public class RXTXPort extends SerialPort
@@ -104,7 +104,7 @@ final public class RXTXPort extends SerialPort
 	*  Open the named port
 	*  @param name the name of the device to open
 	*  @throws  PortInUseException
-	*  @see gnu.io.SerialPort
+	*  @see javax.comm.SerialPort
 	*/
 	public RXTXPort( String name ) throws PortInUseException
 	{
@@ -195,7 +195,7 @@ final public class RXTXPort extends SerialPort
 	*  @param  s stopbits
 	*  @param  p parity
 	*  @throws UnsupportedCommOperationException
-	*  @see gnu.io.UnsupportedCommOperationException
+	*  @see javax.comm.UnsupportedCommOperationException
 
 	*  If speed is not a predifined speed it is assumed to be
 	*  the actual speed desired.
@@ -285,7 +285,7 @@ final public class RXTXPort extends SerialPort
 	private int flowmode = SerialPort.FLOWCONTROL_NONE;
 	/** 
 	*  @param  flowcontrol FLOWCONTROL_NONE is default
-	*  @see gnu.io.SerialPort#FLOWCONTROL_NONE
+	*  @see javax.comm.SerialPort#FLOWCONTROL_NONE
 	*/
 	public void setFlowControlMode( int flowcontrol )
 	{
@@ -1819,7 +1819,7 @@ Documentation is at http://java.sun.com/products/jdk/1.2/docs/api/java/io/InputS
 	*  @param  p parity
 	*
 	*  @throws UnsupportedCommOperationException
-	*  @see gnu.io.UnsupportedCommOperationException
+	*  @see javax.comm.UnsupportedCommOperationException
 	*/
 
 	public static void staticSetSerialPortParams( String f, int b, int d,

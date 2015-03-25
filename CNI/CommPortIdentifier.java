@@ -55,7 +55,7 @@
 |   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 |   All trademarks belong to their respective owners.
 --------------------------------------------------------------------------*/
-package  gnu.io;
+package  javax.comm;
 
 import  java.io.FileDescriptor;
 import  java.util.Vector;
@@ -103,12 +103,12 @@ public class CommPortIdentifier extends Object /* extends Vector? */
 		Sync = new Object();
 		try 
 		{
-			CommDriver RXTXDriver = (CommDriver) Class.forName("gnu.io.RXTXCommDriver").newInstance();
+			CommDriver RXTXDriver = (CommDriver) Class.forName("javax.comm.RXTXCommDriver").newInstance();
 			RXTXDriver.initialize();
 		} 
 		catch (Throwable e) 
 		{
-			System.err.println(e + " thrown while loading " + "gnu.io.RXTXCommDriver");
+			System.err.println(e + " thrown while loading " + "javax.comm.RXTXCommDriver");
 		}
 
 		String OS;
@@ -350,7 +350,7 @@ public class CommPortIdentifier extends Object /* extends Vector? */
 	private boolean HideOwnerEvents;
 
 	public synchronized CommPort open(String TheOwner, int i) 
-		throws gnu.io.PortInUseException 
+		throws javax.comm.PortInUseException 
 	{ 
 		if(debug) System.out.println("CommPortIdentifier:open("+TheOwner + ", " +i+")");
 		if (Available == false)
@@ -367,7 +367,7 @@ public class CommPortIdentifier extends Object /* extends Vector? */
 		}
 		if (Available == false)
 		{
-			throw new gnu.io.PortInUseException(getCurrentOwner());
+			throw new javax.comm.PortInUseException(getCurrentOwner());
 		}
 		if(commport == null)
 		{
@@ -382,7 +382,7 @@ public class CommPortIdentifier extends Object /* extends Vector? */
 		}
 		else
 		{
-			throw new gnu.io.PortInUseException(
+			throw new javax.comm.PortInUseException(
 					native_psmisc_report_owner(PortName));
 		}
 	}

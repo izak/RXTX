@@ -56,15 +56,15 @@
 |   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 |   All trademarks belong to their respective owners.
 --------------------------------------------------------------------------*/
-package gnu.io;
+package javax.comm;
 
 import java.io.IOException;
 import java.util.List;
 
 /**
- * Native library dispatcher object. The <code>gnu.io.*</code> classes delegate
+ * Native library dispatcher object. The <code>javax.comm.*</code> classes delegate
  * their native calls to this object. It is the central dispatcher for all
- * interactions between the <code>gnu.io</code> API and the underlying
+ * interactions between the <code>javax.comm</code> API and the underlying
  * platform.
  * 
  * <p>This object is a singleton - a reference to it is obtained
@@ -328,8 +328,8 @@ public final class Dispatcher {
      * </p>
      * @param portName A port name.
      * @return The type of the port:
-     * {@link gnu.io.CommPortIdentifier#PORT_PARALLEL} or
-     * {@link gnu.io.CommPortIdentifier#PORT_SERIAL}.
+     * {@link javax.comm.CommPortIdentifier#PORT_PARALLEL} or
+     * {@link javax.comm.CommPortIdentifier#PORT_SERIAL}.
      * @throws NoSuchPortException If <code>portName</code> is not a valid port.
      */
     public native int getPortType(String portName) throws NoSuchPortException;
@@ -757,8 +757,8 @@ public final class Dispatcher {
      * method.
      * </p>
      * @param portName The name of the port.
-     * @param portType The port type - {@link gnu.io.CommPortIdentifier#PORT_PARALLEL}
-     * or {@link gnu.io.CommPortIdentifier#PORT_SERIAL}.
+     * @param portType The port type - {@link javax.comm.CommPortIdentifier#PORT_PARALLEL}
+     * or {@link javax.comm.CommPortIdentifier#PORT_SERIAL}.
      * @return A port handle or token. Java code will use this handle in native
      * method calls to indicate which port is being referenced in the call.
      * @throws IOException If there was an error while opening the port.

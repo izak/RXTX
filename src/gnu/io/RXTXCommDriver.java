@@ -61,7 +61,7 @@
 /* Joseph Goldstone <joseph@lp.com> reorganized to support registered ports,
  * known ports, and scanned ports, July 2001 */
 
-package gnu.io;
+package javax.comm;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -79,7 +79,7 @@ public class RXTXCommDriver implements CommDriver
 
 	private final static boolean debug = false;
 	private final static boolean devel = false;
-	private final static boolean noVersionOutput = "true".equals( System.getProperty( "gnu.io.rxtx.NoVersionOutput" ) );
+	private final static boolean noVersionOutput = "true".equals( System.getProperty( "javax.comm.rxtx.NoVersionOutput" ) );
 
 	static
 	{
@@ -395,21 +395,21 @@ public class RXTXCommDriver implements CommDriver
 	}
 
    /*
-    * Register ports specified in the file "gnu.io.rxtx.properties"
+    * Register ports specified in the file "javax.comm.rxtx.properties"
     * Key system properties:
-    *                   gnu.io.rxtx.SerialPorts
-    * 			gnu.io.rxtx.ParallelPorts
+    *                   javax.comm.rxtx.SerialPorts
+    * 			javax.comm.rxtx.ParallelPorts
     *
     * Tested only with sun jdk1.3
-    * The file gnu.io.rxtx.properties may reside in the java extension dir,
+    * The file javax.comm.rxtx.properties may reside in the java extension dir,
     * or it can be anywhere in the classpath.
     *
-    * Example: /usr/local/java/jre/lib/ext/gnu.io.rxtx.properties
+    * Example: /usr/local/java/jre/lib/ext/javax.comm.rxtx.properties
     *
     * The file contains the following key properties:
     *
-    *  gnu.io.rxtx.SerialPorts=/dev/ttyS0:/dev/ttyS1:
-    *  gnu.io.rxtx.ParallelPorts=/dev/lp0:
+    *  javax.comm.rxtx.SerialPorts=/dev/ttyS0:/dev/ttyS1:
+    *  javax.comm.rxtx.ParallelPorts=/dev/lp0:
     *
     */
 	private boolean registerSpecifiedPorts(int PortType)
@@ -422,11 +422,11 @@ public class RXTXCommDriver implements CommDriver
 		switch (PortType)
 		{
 			case CommPortIdentifier.PORT_SERIAL:
-				val = getSpecifiedPorts("gnu.io.rxtx.SerialPorts", "gnu.io.SerialPorts");
+				val = getSpecifiedPorts("javax.comm.rxtx.SerialPorts", "javax.comm.SerialPorts");
 				break;
 
 			case CommPortIdentifier.PORT_PARALLEL:
-				val = getSpecifiedPorts("gnu.io.rxtx.ParallelPorts", "gnu.io.ParallelPorts");
+				val = getSpecifiedPorts("javax.comm.rxtx.ParallelPorts", "javax.comm.ParallelPorts");
 				break;
 			default:
 				if (debug)
@@ -440,8 +440,8 @@ public class RXTXCommDriver implements CommDriver
 	}
 	
    /*
-    * Load the "gnu.io.rxtx.properties" file.
-    * The file gnu.io.rxtx.properties may reside in the java extension dir,
+    * Load the "javax.comm.rxtx.properties" file.
+    * The file javax.comm.rxtx.properties may reside in the java extension dir,
     * or it can be anywhere in the classpath.
     */
 	private Properties loadRxtxProperties()
@@ -454,7 +454,7 @@ public class RXTXCommDriver implements CommDriver
 
 		for (int i = 0; i < ext_dirs.length; i++)
 		{
-			String ext_file = ext_dirs[i] + fs + "gnu.io.rxtx.properties";
+			String ext_file = ext_dirs[i] + fs + "javax.comm.rxtx.properties";
 			File file = new File(ext_file);
 			if (file.exists())
 			{
@@ -491,7 +491,7 @@ public class RXTXCommDriver implements CommDriver
 			ClassLoader loader = Thread.currentThread().getContextClassLoader();
 			try
 			{
-				Enumeration resources = loader.getResources("gnu.io.rxtx.properties");
+				Enumeration resources = loader.getResources("javax.comm.rxtx.properties");
 				while (resources.hasMoreElements())
 				{
 					URL propertyURL = (URL) resources.nextElement();
@@ -502,13 +502,13 @@ public class RXTXCommDriver implements CommDriver
 			} catch (IOException e)
 			{
 				if (debug)
-					System.out.println("Error encountered while getting gnu.io.rxtx.properties from the classpath: " + e);
+					System.out.println("Error encountered while getting javax.comm.rxtx.properties from the classpath: " + e);
 			}
 		}
 		if (props == null)
 		{
 			if(debug)
-				System.out.println("The file: gnu.io.rxtx.properties doesn't exist.");
+				System.out.println("The file: javax.comm.rxtx.properties doesn't exist.");
 		}
 		return props;
 	}
@@ -516,7 +516,7 @@ public class RXTXCommDriver implements CommDriver
 	/*
 	 * Return list of specified ports from System Property or Property File.
 	 * 
-	 * System Properties take precedence over the gnu.io.rxtx.properties file.
+	 * System Properties take precedence over the javax.comm.rxtx.properties file.
 	 * Data from the properties file is cached in System Properties to avoid 
 	 * re-loading the file at a later time.
 	 * 
@@ -532,7 +532,7 @@ public class RXTXCommDriver implements CommDriver
 			val = System.getProperty(key2);
 		}
 		if (val == null) {
-			//Not specified: Try loading from gnu.io.rxtx.properties file
+			//Not specified: Try loading from javax.comm.rxtx.properties file
 			Properties props = loadRxtxProperties();
 			if (props != null) {
 				val = props.getProperty(key1);

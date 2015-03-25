@@ -426,7 +426,7 @@ setEventFlags
   jobject jobj;
   jclass clsPort = env->GetObjectClass(jobjPort);
 
-  if((jfid = env->GetFieldID(clsPort, "monThread", "Lgnu/io/RXTXPort$MonitorThread;")) == NULL)
+  if((jfid = env->GetFieldID(clsPort, "monThread", "Ljavax.comm/RXTXPort$MonitorThread;")) == NULL)
   {
 		IF_DEBUG
     (

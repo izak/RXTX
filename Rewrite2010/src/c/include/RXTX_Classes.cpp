@@ -101,7 +101,7 @@ const int PortInfo::getType() const
 
 jclass PortInfo::getJavaClass(JNIEnv *env)
 {
-    jclass portInfoClass = env->FindClass("gnu/io/PortInfo");
+    jclass portInfoClass = env->FindClass("javax.comm/PortInfo");
     if (portInfoClass == NULL)
         throw JavaRuntimeException();
     return portInfoClass;

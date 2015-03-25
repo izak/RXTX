@@ -61,10 +61,10 @@
 
 extern "C" {
   /* Instead of these declarations, we could just include the auto-generated
-     gnu_io_CommPortIdentifier.h and gnu_io_RXTXVersion.h. */
-  JNIEXPORT jstring JNICALL Java_gnu_io_CommPortIdentifier_native_1psmisc_1report_1owner(
+     javax_comm_CommPortIdentifier.h and javax_comm_RXTXVersion.h. */
+  JNIEXPORT jstring JNICALL Java_javax_comm_CommPortIdentifier_native_1psmisc_1report_1owner(
     JNIEnv *, jobject, jstring);
-  JNIEXPORT jstring JNICALL Java_gnu_io_RXTXVersion_nativeGetVersion(
+  JNIEXPORT jstring JNICALL Java_javax_comm_RXTXVersion_nativeGetVersion(
     JNIEnv *, jclass);
 }
 
@@ -76,7 +76,7 @@ native_psmisc_report_owner
  * Signature: ()Ljava/lang/String;
  */
 JNIEXPORT jstring JNICALL
-Java_gnu_io_CommPortIdentifier_native_1psmisc_1report_1owner(JNIEnv *env,
+Java_javax_comm_CommPortIdentifier_native_1psmisc_1report_1owner(JNIEnv *env,
   jobject obj, jstring arg)
 {
   return env->NewStringUTF("Unknown Application");
@@ -97,7 +97,7 @@ nativeGetVersion
  * Method:    nativeGetVersion
  * Signature: ()Ljava/lang/String;
  */
-JNIEXPORT jstring JNICALL Java_gnu_io_RXTXVersion_nativeGetVersion(
+JNIEXPORT jstring JNICALL Java_javax_comm_RXTXVersion_nativeGetVersion(
   JNIEnv *env, jclass cls)
 {
   return env->NewStringUTF("RXTX-2.2pre2");
@@ -111,11 +111,11 @@ JNIEXPORT jstring JNICALL Java_gnu_io_RXTXVersion_nativeGetVersion(
    return:      JNI_TRUE if any such ports were registered otherwise JNI_FALSE
    exceptions:  none
    comments:
- * Class:     gnu_io_RXTXCommDriver
+ * Class:     javax_comm_RXTXCommDriver
  * Method:    registerKnownPorts
  * Signature: (I)Z
  */
-JNIEXPORT jboolean JNICALL Java_gnu_io_RXTXCommDriver_registerKnownPorts(JNIEnv *env, jobject jobj, jint portType)
+JNIEXPORT jboolean JNICALL Java_javax_comm_RXTXCommDriver_registerKnownPorts(JNIEnv *env, jobject jobj, jint portType)
 {
 	enum {PORT_TYPE_SERIAL = 1,
 		PORT_TYPE_PARALLEL,
@@ -155,11 +155,11 @@ JNIEXPORT jboolean JNICALL Java_gnu_io_RXTXCommDriver_registerKnownPorts(JNIEnv 
    return:      JNI_TRUE if it exists otherwise JNI_FALSE
    exceptions:  none
    comments:
- * Class:     gnu_io_RXTXCommDriver
+ * Class:     javax_comm_RXTXCommDriver
  * Method:    isPortPrefixValid
  * Signature: (Ljava/lang/String;)Z
  */
-JNIEXPORT jboolean JNICALL Java_gnu_io_RXTXCommDriver_isPortPrefixValid(JNIEnv *env, jobject jobj, jstring dev)
+JNIEXPORT jboolean JNICALL Java_javax_comm_RXTXCommDriver_isPortPrefixValid(JNIEnv *env, jobject jobj, jstring dev)
 {
 	jboolean retVal;
   const char *szDev = env->GetStringUTFChars(dev, NULL);
@@ -184,11 +184,11 @@ JNIEXPORT jboolean JNICALL Java_gnu_io_RXTXCommDriver_isPortPrefixValid(JNIEnv *
    comments:    From Wayne Roberts wroberts1@home.com
    		check tcget/setattr returns.
 		support for non serial ports Trent
- * Class:     gnu_io_RXTXCommDriver
+ * Class:     javax_comm_RXTXCommDriver
  * Method:    testRead
  * Signature: (Ljava/lang/String;I)Z
  */
-JNIEXPORT jboolean JNICALL Java_gnu_io_RXTXCommDriver_testRead(JNIEnv *env, jobject jobj, jstring dev, jint type)
+JNIEXPORT jboolean JNICALL Java_javax_comm_RXTXCommDriver_testRead(JNIEnv *env, jobject jobj, jstring dev, jint type)
 {
 	jboolean retVal;
 
@@ -242,11 +242,11 @@ JNIEXPORT jboolean JNICALL Java_gnu_io_RXTXCommDriver_testRead(JNIEnv *env, jobj
    return:      the directory containing the device files
    exceptions:  
    comments:    we need it only for Unix
- * Class:     gnu_io_RXTXCommDriver
+ * Class:     javax_comm_RXTXCommDriver
  * Method:    getDeviceDirectory
  * Signature: ()Ljava/lang/String;
  */
-JNIEXPORT jstring JNICALL Java_gnu_io_RXTXCommDriver_getDeviceDirectory(JNIEnv *env, jobject jobj)
+JNIEXPORT jstring JNICALL Java_javax_comm_RXTXCommDriver_getDeviceDirectory(JNIEnv *env, jobject jobj)
 {
   return env->NewStringUTF("");
 }

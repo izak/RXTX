@@ -1,10 +1,10 @@
-package gnu.io.installer;
+package javax.comm.installer;
 
 import java.io.File;
 import java.util.Enumeration;
 import java.util.prefs.*;
 
-import gnu.io.installer.util.*;
+import javax.comm.installer.util.*;
 
 
 public abstract class RXTXInstaller {
@@ -45,7 +45,7 @@ public abstract class RXTXInstaller {
     public static RXTXInstaller getInstance() {
         String osName = System.getProperty("os.name").toLowerCase();
         if(osName.startsWith("mac")){
-            return new gnu.io.installer.macosx.MACOSXRXTXInstaller();
+            return new javax.comm.installer.macosx.MACOSXRXTXInstaller();
         }
         return null;
     }

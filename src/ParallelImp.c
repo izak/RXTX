@@ -75,7 +75,7 @@
 #endif
 /* work around for libc5 */
 /*#include <typedefs_md.h>*/
-#include "gnu_io_LPRPort.h"
+#include "javax_comm_LPRPort.h"
 #endif /* dima */
 #include <time.h>
 #include <stdio.h>
@@ -123,7 +123,7 @@ extern int errno;
 
 #include "ParallelImp.h"
 
-#define LPRPort(foo) Java_gnu_io_LPRPort_ ## foo
+#define LPRPort(foo) Java_javax_comm_LPRPort_ ## foo
 /* #define DEBUG */
 
 /*----------------------------------------------------------

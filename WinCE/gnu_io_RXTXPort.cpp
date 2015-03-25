@@ -67,11 +67,11 @@ Initialize
    return:      none
    exceptions:  none
    comments:
- * Class:     gnu_io_RXTXPort
+ * Class:     javax_comm_RXTXPort
  * Method:    Initialize
  * Signature: ()V
  */
-JNIEXPORT void JNICALL Java_gnu_io_RXTXPort_Initialize(JNIEnv *env, jclass cls)
+JNIEXPORT void JNICALL Java_javax_comm_RXTXPort_Initialize(JNIEnv *env, jclass cls)
 {
 }
 
@@ -85,11 +85,11 @@ open
    comments:    Very often people complain about not being able to get past
                 this function and it turns out to be permissions on the
                 device file or bios has the device disabled.
- * Class:     gnu_io_RXTXPort
+ * Class:     javax_comm_RXTXPort
  * Method:    open
  * Signature: (Ljava/lang/String{ })I
  */
-JNIEXPORT jint JNICALL Java_gnu_io_RXTXPort_open(JNIEnv *env, jobject jobj, jstring name)
+JNIEXPORT jint JNICALL Java_javax_comm_RXTXPort_open(JNIEnv *env, jobject jobj, jstring name)
 {
   DCB PortDCB;
   COMMTIMEOUTS CommTimeouts;
@@ -209,11 +209,11 @@ JNIEXPORT jint JNICALL Java_gnu_io_RXTXPort_open(JNIEnv *env, jobject jobj, jstr
    perform:    set the serial port parameters
    return:     true on error
    exceptions: UnsupportedCommOperationException
- * Class:     gnu_io_RXTXPort
+ * Class:     javax_comm_RXTXPort
  * Method:    nativeSetSerialPortParams
  * Signature: (IIII)V
  */
-JNIEXPORT jboolean JNICALL Java_gnu_io_RXTXPort_nativeSetSerialPortParams(
+JNIEXPORT jboolean JNICALL Java_javax_comm_RXTXPort_nativeSetSerialPortParams(
   JNIEnv *env, jobject jobj, jint speed, jint dataBits, jint stopBits,
   jint parity)
 {
@@ -244,15 +244,15 @@ JNIEXPORT jboolean JNICALL Java_gnu_io_RXTXPort_nativeSetSerialPortParams(
   PortDCB.Parity = (BYTE)parity;        // 0-4=no,odd,even,mark,space
   switch(stopBits)
   {
-    case gnu_io_RXTXPort_STOPBITS_1:
+    case javax_comm_RXTXPort_STOPBITS_1:
       PortDCB.StopBits = ONESTOPBIT;
       break;
 
-    case gnu_io_RXTXPort_STOPBITS_2:
+    case javax_comm_RXTXPort_STOPBITS_2:
       PortDCB.StopBits = TWOSTOPBITS;
       break;
 
-    case gnu_io_RXTXPort_STOPBITS_1_5:
+    case javax_comm_RXTXPort_STOPBITS_1_5:
       PortDCB.StopBits = ONE5STOPBITS;
       break;
 
@@ -287,11 +287,11 @@ setflowcontrol
    exceptions:  UnsupportedCommOperationException
    comments:  there is no differentiation between input and output hardware
               flow control
- * Class:     gnu_io_RXTXPort
+ * Class:     javax_comm_RXTXPort
  * Method:    setflowcontrol
  * Signature: (I)V
  */
-JNIEXPORT void JNICALL Java_gnu_io_RXTXPort_setflowcontrol(JNIEnv *env, jobject jobj, jint flowcontrol)
+JNIEXPORT void JNICALL Java_javax_comm_RXTXPort_setflowcontrol(JNIEnv *env, jobject jobj, jint flowcontrol)
 {
   DCB PortDCB;
   LPCWSTR lpMsgBuf;
@@ -313,22 +313,22 @@ JNIEXPORT void JNICALL Java_gnu_io_RXTXPort_setflowcontrol(JNIEnv *env, jobject 
     return;
   }
 
-  if(flowcontrol & (gnu_io_RXTXPort_FLOWCONTROL_RTSCTS_IN | gnu_io_RXTXPort_FLOWCONTROL_RTSCTS_OUT))
+  if(flowcontrol & (javax_comm_RXTXPort_FLOWCONTROL_RTSCTS_IN | javax_comm_RXTXPort_FLOWCONTROL_RTSCTS_OUT))
     PortDCB.fRtsControl = RTS_CONTROL_HANDSHAKE;
   else
     PortDCB.fRtsControl = RTS_CONTROL_ENABLE;
 
-  if(flowcontrol & gnu_io_RXTXPort_FLOWCONTROL_RTSCTS_OUT)
+  if(flowcontrol & javax_comm_RXTXPort_FLOWCONTROL_RTSCTS_OUT)
     PortDCB.fOutxCtsFlow = TRUE;
   else
     PortDCB.fOutxCtsFlow = FALSE;
 
-  if(flowcontrol & gnu_io_RXTXPort_FLOWCONTROL_XONXOFF_IN)
+  if(flowcontrol & javax_comm_RXTXPort_FLOWCONTROL_XONXOFF_IN)
     PortDCB.fInX = TRUE;
   else
     PortDCB.fInX = FALSE;
 
-  if(flowcontrol & gnu_io_RXTXPort_FLOWCONTROL_XONXOFF_OUT)
+  if(flowcontrol & javax_comm_RXTXPort_FLOWCONTROL_XONXOFF_OUT)
     PortDCB.fOutX = TRUE;
   else
     PortDCB.fOutX = FALSE;
@@ -351,11 +351,11 @@ NativegetReceiveTimeout
    perform:    get termios.c_cc[VTIME]
    return:     VTIME
    comments:   see  NativeEnableReceiveTimeoutThreshold
- * Class:     gnu_io_RXTXPort
+ * Class:     javax_comm_RXTXPort
  * Method:    NativegetReceiveTimeout
  * Signature: ()I
  */
-JNIEXPORT jint JNICALL Java_gnu_io_RXTXPort_NativegetReceiveTimeout(JNIEnv *env, jobject jobj)
+JNIEXPORT jint JNICALL Java_javax_comm_RXTXPort_NativegetReceiveTimeout(JNIEnv *env, jobject jobj)
 {
   COMMTIMEOUTS CommTimeouts;
   LPCWSTR lpMsgBuf;
@@ -387,11 +387,11 @@ NativeisReceiveTimeoutEnabled
    perform:    determine if VTIME is none 0
    return:     JNI_TRUE if VTIME > 0 else JNI_FALSE
    comments:   see  NativeEnableReceiveTimeoutThreshold
- * Class:     gnu_io_RXTXPort
+ * Class:     javax_comm_RXTXPort
  * Method:    NativeisReceiveTimeoutEnabled
  * Signature: ()Z
  */
-JNIEXPORT jboolean JNICALL Java_gnu_io_RXTXPort_NativeisReceiveTimeoutEnabled(JNIEnv *env, jobject jobj)
+JNIEXPORT jboolean JNICALL Java_javax_comm_RXTXPort_NativeisReceiveTimeoutEnabled(JNIEnv *env, jobject jobj)
 {
   COMMTIMEOUTS CommTimeouts;
   LPCWSTR lpMsgBuf;
@@ -424,11 +424,11 @@ NativeEnableReceiveTimeoutThreshold
    exceptions:  IOException
    comments:    This is actually all handled in read with select in
                 canonical input mode.
- * Class:     gnu_io_RXTXPort
+ * Class:     javax_comm_RXTXPort
  * Method:    NativeEnableReceiveTimeoutThreshold
  * Signature: (III)V
  */
-JNIEXPORT void JNICALL Java_gnu_io_RXTXPort_NativeEnableReceiveTimeoutThreshold(JNIEnv *env, jobject jobj, jint time, jint threshold, jint InputBuffer)
+JNIEXPORT void JNICALL Java_javax_comm_RXTXPort_NativeEnableReceiveTimeoutThreshold(JNIEnv *env, jobject jobj, jint time, jint threshold, jint InputBuffer)
 {
   COMMTIMEOUTS CommTimeouts;
   LPCWSTR lpMsgBuf;
@@ -507,11 +507,11 @@ isDTR
                 false if TIOCM_DTR is not set
    exceptions:  none
    comments:    DTR stands for Data Terminal Ready
- * Class:     gnu_io_RXTXPort
+ * Class:     javax_comm_RXTXPort
  * Method:    isDTR
  * Signature: ()Z
  */
-JNIEXPORT jboolean JNICALL Java_gnu_io_RXTXPort_isDTR(JNIEnv *env, jobject jobj)
+JNIEXPORT jboolean JNICALL Java_javax_comm_RXTXPort_isDTR(JNIEnv *env, jobject jobj)
 {
   DCB PortDCB;
   HANDLE hPort = get_fd(env, jobj);
@@ -541,11 +541,11 @@ setDTR
    return:      none
    exceptions:  none
    comments:    DTR stands for Data Terminal Ready
- * Class:     gnu_io_RXTXPort
+ * Class:     javax_comm_RXTXPort
  * Method:    setDTR
  * Signature: (Z)V
  */
-JNIEXPORT void JNICALL Java_gnu_io_RXTXPort_setDTR(JNIEnv *env, jobject jobj, jboolean state)
+JNIEXPORT void JNICALL Java_javax_comm_RXTXPort_setDTR(JNIEnv *env, jobject jobj, jboolean state)
 {
   DCB PortDCB;
 
@@ -585,11 +585,11 @@ setRTS
    return:      none
    exceptions:  none
    comments:    tcsetattr with c_cflag CRTS_IFLOW
- * Class:     gnu_io_RXTXPort
+ * Class:     javax_comm_RXTXPort
  * Method:    setRTS
  * Signature: (Z)V
  */
-JNIEXPORT void JNICALL Java_gnu_io_RXTXPort_setRTS(JNIEnv *env, jobject jobj, jboolean state)
+JNIEXPORT void JNICALL Java_javax_comm_RXTXPort_setRTS(JNIEnv *env, jobject jobj, jboolean state)
 {
   HANDLE hPort = get_fd(env, jobj);
 
@@ -611,11 +611,11 @@ setDSR
    return:      none
    exceptions:  none
    comments:    tcsetattr with c_cflag CRTS_IFLOW
- * Class:     gnu_io_RXTXPort
+ * Class:     javax_comm_RXTXPort
  * Method:    setDSR
  * Signature: (Z)V
  */
-JNIEXPORT void JNICALL Java_gnu_io_RXTXPort_setDSR(JNIEnv *env, jobject jobj, jboolean state)
+JNIEXPORT void JNICALL Java_javax_comm_RXTXPort_setDSR(JNIEnv *env, jobject jobj, jboolean state)
 {
   DCB PortDCB;
 
@@ -653,11 +653,11 @@ isCTS
                 false if TIOCM_CTS is not set
    exceptions:  none
    comments:    CTS stands for Clear To Send.
- * Class:     gnu_io_RXTXPort
+ * Class:     javax_comm_RXTXPort
  * Method:    isCTS
  * Signature: ()Z
  */
-JNIEXPORT jboolean JNICALL Java_gnu_io_RXTXPort_isCTS(JNIEnv *env, jobject jobj)
+JNIEXPORT jboolean JNICALL Java_javax_comm_RXTXPort_isCTS(JNIEnv *env, jobject jobj)
 {
   DWORD ModemStat;
   HANDLE hPort = get_fd(env, jobj);
@@ -677,11 +677,11 @@ isDSR
                 false if TIOCM_DSR is not set
    exceptions:  none
    comments:    DSR stands for Data Set Ready
- * Class:     gnu_io_RXTXPort
+ * Class:     javax_comm_RXTXPort
  * Method:    isDSR
  * Signature: ()Z
  */
-JNIEXPORT jboolean JNICALL Java_gnu_io_RXTXPort_isDSR(JNIEnv *env, jobject jobj)
+JNIEXPORT jboolean JNICALL Java_javax_comm_RXTXPort_isDSR(JNIEnv *env, jobject jobj)
 {
   DWORD ModemStat;
   HANDLE hPort = get_fd(env, jobj);
@@ -704,11 +704,11 @@ isCD
                 The following comment has been made...
                 "well, it works, there might ofcourse be a bug, but making DCD
                 permanently on fixed it for me so I don't care"
- * Class:     gnu_io_RXTXPort
+ * Class:     javax_comm_RXTXPort
  * Method:    isCD
  * Signature: ()Z
  */
-JNIEXPORT jboolean JNICALL Java_gnu_io_RXTXPort_isCD(JNIEnv *env, jobject jobj)
+JNIEXPORT jboolean JNICALL Java_javax_comm_RXTXPort_isCD(JNIEnv *env, jobject jobj)
 {
   DWORD ModemStat;
   HANDLE hPort = get_fd(env, jobj);
@@ -728,11 +728,11 @@ isRI
                 false if TIOCM_RI is not set
    exceptions:  none
    comments:    RI stands for Ring Indicator
- * Class:     gnu_io_RXTXPort
+ * Class:     javax_comm_RXTXPort
  * Method:    isRI
  * Signature: ()Z
  */
-JNIEXPORT jboolean JNICALL Java_gnu_io_RXTXPort_isRI(JNIEnv *env, jobject jobj)
+JNIEXPORT jboolean JNICALL Java_javax_comm_RXTXPort_isRI(JNIEnv *env, jobject jobj)
 {
   DWORD ModemStat;
   HANDLE hPort = get_fd(env, jobj);
@@ -752,11 +752,11 @@ isRTS
                 false if TIOCM_RTS is not set
    exceptions:  none
    comments:    tcgetattr with c_cflag CRTS_IFLOW
- * Class:     gnu_io_RXTXPort
+ * Class:     javax_comm_RXTXPort
  * Method:    isRTS
  * Signature: ()Z
  */
-JNIEXPORT jboolean JNICALL Java_gnu_io_RXTXPort_isRTS(JNIEnv *env, jobject jobj)
+JNIEXPORT jboolean JNICALL Java_javax_comm_RXTXPort_isRTS(JNIEnv *env, jobject jobj)
 {
   DCB PortDCB;
   HANDLE hPort = get_fd(env, jobj);
@@ -795,11 +795,11 @@ sendBreak
    perform:    send break for actual time.  not less than 0.25 seconds.
    exceptions: none
    comments:   not very precise
- * Class:     gnu_io_RXTXPort
+ * Class:     javax_comm_RXTXPort
  * Method:    sendBreak
  * Signature: (I)V
  */
-JNIEXPORT void JNICALL Java_gnu_io_RXTXPort_sendBreak(JNIEnv *env, jobject jobj, jint duration)
+JNIEXPORT void JNICALL Java_javax_comm_RXTXPort_sendBreak(JNIEnv *env, jobject jobj, jint duration)
 {
   HANDLE hPort = get_fd(env, jobj);
 
@@ -815,11 +815,11 @@ writeByte
    perform:     write a single byte to the port
    return:      none
    exceptions:  IOException
- * Class:     gnu_io_RXTXPort
+ * Class:     javax_comm_RXTXPort
  * Method:    writeByte
  * Signature: (IZ)V
  */
-JNIEXPORT void JNICALL Java_gnu_io_RXTXPort_writeByte(JNIEnv *env, jobject jobj, jint b, jboolean i)
+JNIEXPORT void JNICALL Java_javax_comm_RXTXPort_writeByte(JNIEnv *env, jobject jobj, jint b, jboolean i)
 {
   DWORD dwNumBytesWritten;
   LPCWSTR lpMsgBuf;
@@ -851,11 +851,11 @@ writeArray
    perform:     write length bytes of jbarray
    return:      none
    exceptions:  IOException
- * Class:     gnu_io_RXTXPort
+ * Class:     javax_comm_RXTXPort
  * Method:    writeArray
  * Signature: ([BIIZ)V
  */
-JNIEXPORT void JNICALL Java_gnu_io_RXTXPort_writeArray(JNIEnv *env, jobject jobj, jbyteArray b, jint off, jint len, jboolean i)
+JNIEXPORT void JNICALL Java_javax_comm_RXTXPort_writeArray(JNIEnv *env, jobject jobj, jbyteArray b, jint off, jint len, jboolean i)
 {
   LPCWSTR lpMsgBuf;
 	DWORD dwNumBytesWritten;
@@ -900,11 +900,11 @@ nativeDrain
 
                 count logic added to avoid infinite loops when EINTR is
                 true...  Thread.yeild() was suggested.
- * Class:     gnu_io_RXTXPort
+ * Class:     javax_comm_RXTXPort
  * Method:    nativeDrain
  * Signature: ()V
  */
-JNIEXPORT jboolean JNICALL Java_gnu_io_RXTXPort_nativeDrain(JNIEnv *env, jobject jobj, jboolean i)
+JNIEXPORT jboolean JNICALL Java_javax_comm_RXTXPort_nativeDrain(JNIEnv *env, jobject jobj, jboolean i)
 {
   //COMSTAT Stat;
   //DWORD dwErrors;
@@ -947,11 +947,11 @@ nativeavailable
    return:      available bytes
                 -1 on error
    exceptions:  none /// should be IOException
- * Class:     gnu_io_RXTXPort
+ * Class:     javax_comm_RXTXPort
  * Method:    nativeavailable
  * Signature: ()I
  */
-JNIEXPORT jint JNICALL Java_gnu_io_RXTXPort_nativeavailable(JNIEnv *env, jobject jobj)
+JNIEXPORT jint JNICALL Java_javax_comm_RXTXPort_nativeavailable(JNIEnv *env, jobject jobj)
 {
   DWORD dwErrors;
   COMSTAT Stat;
@@ -987,11 +987,11 @@ readByte
    perform:     Read a single byte from the port
    return:      The byte read
    exceptions:  IOException
- * Class:     gnu_io_RXTXPort
+ * Class:     javax_comm_RXTXPort
  * Method:    readByte
  * Signature: ()I
  */
-JNIEXPORT jint JNICALL Java_gnu_io_RXTXPort_readByte(JNIEnv *env, jobject jobj)
+JNIEXPORT jint JNICALL Java_javax_comm_RXTXPort_readByte(JNIEnv *env, jobject jobj)
 {
   BYTE bb;
   DWORD dwNumBytesRead;
@@ -1021,11 +1021,11 @@ readArray
    exceptions:   IOException
    comments:     throws ArrayIndexOutOfBoundsException if asked to
                  read more than SSIZE_MAX bytes
- * Class:     gnu_io_RXTXPort
+ * Class:     javax_comm_RXTXPort
  * Method:    readArray
  * Signature: ([BII)I
  */
-JNIEXPORT jint JNICALL Java_gnu_io_RXTXPort_readArray(JNIEnv *env, jobject jobj, jbyteArray b, jint off, jint len)
+JNIEXPORT jint JNICALL Java_javax_comm_RXTXPort_readArray(JNIEnv *env, jobject jobj, jbyteArray b, jint off, jint len)
 {
   LPCWSTR lpMsgBuf;
 	DWORD dwNumBytesRead, dwTotalRead = 0;
@@ -1073,7 +1073,7 @@ nativeClearCommInput
    exceptions:   none
    comments:     This is an extension to commapi.
 */
-JNIEXPORT jboolean JNICALL Java_gnu_io_RXTXPort_nativeClearCommInput(
+JNIEXPORT jboolean JNICALL Java_javax_comm_RXTXPort_nativeClearCommInput(
   JNIEnv *env, jobject jobj)
 {
   throw_java_exceptionW(env, UNSUPPORTED_COMM_OPERATION,
@@ -1097,7 +1097,7 @@ readTerminatedArray
 
 		 This is an extension to commapi.
 */
-JNIEXPORT jint JNICALL Java_gnu_io_RXTXPort_readTerminatedArray(JNIEnv *env,
+JNIEXPORT jint JNICALL Java_javax_comm_RXTXPort_readTerminatedArray(JNIEnv *env,
   jobject jobj, jbyteArray jbarray, jint offset, jint length,
   jbyteArray jterminator)
 {
@@ -1114,11 +1114,11 @@ eventLoop
    return:      none
    exceptions:  none
    comments:	please keep this function clean.
- * Class:     gnu_io_RXTXPort
+ * Class:     javax_comm_RXTXPort
  * Method:    eventLoop
  * Signature: ()V
  */
-JNIEXPORT void JNICALL Java_gnu_io_RXTXPort_eventLoop(JNIEnv *env, jobject jobj)
+JNIEXPORT void JNICALL Java_javax_comm_RXTXPort_eventLoop(JNIEnv *env, jobject jobj)
 {
   jfieldID jfMonitorThreadLock, jfMonThreadisInterrupted;
   jmethodID jmSendEvent;
@@ -1236,11 +1236,11 @@ interruptEventLoop
    return:      nothing
    exceptions:  none
    comments:    real monitoring thread will stay until port is closed
- * Class:     gnu_io_RXTXPort
+ * Class:     javax_comm_RXTXPort
  * Method:    interruptEventLoop
  * Signature: ()V
  */
-JNIEXPORT void JNICALL Java_gnu_io_RXTXPort_interruptEventLoop(JNIEnv *env, jobject jobj)
+JNIEXPORT void JNICALL Java_javax_comm_RXTXPort_interruptEventLoop(JNIEnv *env, jobject jobj)
 {
   jfieldID jfid;
   //HANDLE hPort = get_fd(env, jobj);
@@ -1264,11 +1264,11 @@ JNIEXPORT void JNICALL Java_gnu_io_RXTXPort_interruptEventLoop(JNIEnv *env, jobj
    return:      none
    exceptions:  none
    comments:	all the logic used to be done in Java but its too noisy
- * Class:     gnu_io_RXTXPort
+ * Class:     javax_comm_RXTXPort
  * Method:    nativeSetEventFlag
  * Signature: (IIZ)V
  */
-JNIEXPORT void JNICALL Java_gnu_io_RXTXPort_nativeSetEventFlag(JNIEnv *env, jobject jobj, jint fd, jint event, jboolean flag)
+JNIEXPORT void JNICALL Java_javax_comm_RXTXPort_nativeSetEventFlag(JNIEnv *env, jobject jobj, jint fd, jint event, jboolean flag)
 {
   DWORD NewFlag;
   EventInfoStruct *EventInfo = get_eis(env, jobj);
@@ -1348,11 +1348,11 @@ nativeClose
    perform:     get the fd from the java end and close it
    return:      none
    exceptions:  none
- * Class:     gnu_io_RXTXPort
+ * Class:     javax_comm_RXTXPort
  * Method:    nativeClose
  * Signature: (Ljava/lang/String{ })V
  */
-JNIEXPORT void JNICALL Java_gnu_io_RXTXPort_nativeClose(JNIEnv *env, jobject jobj, jstring name)
+JNIEXPORT void JNICALL Java_javax_comm_RXTXPort_nativeClose(JNIEnv *env, jobject jobj, jstring name)
 {
   HANDLE hPort = get_fd(env, jobj);
 
@@ -1380,11 +1380,11 @@ nativeGetParityErrorChar
 
 		Use a direct call to the termios file until we find a
 		solution.
- * Class:     gnu_io_RXTXPort
+ * Class:     javax_comm_RXTXPort
  * Method:    nativeGetParityErrorChar
  * Signature: ()I
  */
-JNIEXPORT jbyte JNICALL Java_gnu_io_RXTXPort_nativeGetParityErrorChar(JNIEnv *env, jobject jobj)
+JNIEXPORT jbyte JNICALL Java_javax_comm_RXTXPort_nativeGetParityErrorChar(JNIEnv *env, jobject jobj)
 {
   DCB PortDCB;
   LPCWSTR lpMsgBuf;
@@ -1425,11 +1425,11 @@ nativeSetParityErrorChar
 
 		Use a direct call to the termios file until we find a
 		solution.
- * Class:     gnu_io_RXTXPort
+ * Class:     javax_comm_RXTXPort
  * Method:    nativeSetParityErrorChar
  * Signature: (B)Z
  */
-JNIEXPORT jboolean JNICALL Java_gnu_io_RXTXPort_nativeSetParityErrorChar(JNIEnv *env, jobject jobj, jbyte b)
+JNIEXPORT jboolean JNICALL Java_javax_comm_RXTXPort_nativeSetParityErrorChar(JNIEnv *env, jobject jobj, jbyte b)
 {
   DCB PortDCB;
   LPCWSTR lpMsgBuf;
@@ -1489,11 +1489,11 @@ nativeGetEndOfInputChar
    return:      the EndOfInputChar as an jbyte.  -1 on error
    exceptions:  UnsupportedCommOperationException if not implemented
    comments:
- * Class:     gnu_io_RXTXPort
+ * Class:     javax_comm_RXTXPort
  * Method:    nativeGetEndOfInputChar
  * Signature: ()I
  */
-JNIEXPORT jbyte JNICALL Java_gnu_io_RXTXPort_nativeGetEndOfInputChar(JNIEnv *env, jobject jobj)
+JNIEXPORT jbyte JNICALL Java_javax_comm_RXTXPort_nativeGetEndOfInputChar(JNIEnv *env, jobject jobj)
 {
   DCB PortDCB;
   LPCWSTR lpMsgBuf;
@@ -1536,11 +1536,11 @@ nativeSetEndOfInputChar
 
 		EofChar = val;
 		fBinary = false;  //winapi docs say always use true. ?
- * Class:     gnu_io_RXTXPort
+ * Class:     javax_comm_RXTXPort
  * Method:    nativeSetEndOfInputChar
  * Signature: (B)Z
  */
-JNIEXPORT jboolean JNICALL Java_gnu_io_RXTXPort_nativeSetEndOfInputChar(JNIEnv *env, jobject jobj, jbyte b)
+JNIEXPORT jboolean JNICALL Java_javax_comm_RXTXPort_nativeSetEndOfInputChar(JNIEnv *env, jobject jobj, jbyte b)
 {
   DCB PortDCB;
   LPCWSTR lpMsgBuf;
@@ -1593,110 +1593,110 @@ JNIEXPORT jboolean JNICALL Java_gnu_io_RXTXPort_nativeSetEndOfInputChar(JNIEnv *
 
 
 /*
- * Class:     gnu_io_RXTXPort
+ * Class:     javax_comm_RXTXPort
  * Method:    nativeSetUartType
  * Signature: (Ljava/lang/String{ }Z)Z
  */
-JNIEXPORT jboolean JNICALL Java_gnu_io_RXTXPort_nativeSetUartType(JNIEnv *env, jobject jobj, jstring type, jboolean test)
+JNIEXPORT jboolean JNICALL Java_javax_comm_RXTXPort_nativeSetUartType(JNIEnv *env, jobject jobj, jstring type, jboolean test)
 {
   throw_java_exceptionW(env, UNSUPPORTED_COMM_OPERATION, L"nativeSetUartType", L"Operation not implemented");
   return JNI_FALSE;
 }
 
 /*
- * Class:     gnu_io_RXTXPort
+ * Class:     javax_comm_RXTXPort
  * Method:    nativeGetUartType
  * Signature: ()Ljava/lang/String{ }
  */
-JNIEXPORT jstring JNICALL Java_gnu_io_RXTXPort_nativeGetUartType(JNIEnv *env, jobject jobj)
+JNIEXPORT jstring JNICALL Java_javax_comm_RXTXPort_nativeGetUartType(JNIEnv *env, jobject jobj)
 {
   throw_java_exceptionW(env, UNSUPPORTED_COMM_OPERATION, L"nativeSetUartType", L"Operation not implemented");
   return env->NewStringUTF("Unknown");
 }
 
 /*
- * Class:     gnu_io_RXTXPort
+ * Class:     javax_comm_RXTXPort
  * Method:    nativeSetBaudBase
  * Signature: (I)Z
  */
-JNIEXPORT jboolean JNICALL Java_gnu_io_RXTXPort_nativeSetBaudBase(JNIEnv *env, jobject jobj, jint baudBase)
+JNIEXPORT jboolean JNICALL Java_javax_comm_RXTXPort_nativeSetBaudBase(JNIEnv *env, jobject jobj, jint baudBase)
 {
   throw_java_exceptionW(env, UNSUPPORTED_COMM_OPERATION, L"nativeSetBaudBase", L"Operation not implemented");
   return JNI_FALSE;
 }
 
 /*
- * Class:     gnu_io_RXTXPort
+ * Class:     javax_comm_RXTXPort
  * Method:    nativeGetBaudBase
  * Signature: ()I
  */
-JNIEXPORT jint JNICALL Java_gnu_io_RXTXPort_nativeGetBaudBase(JNIEnv *env, jobject jobj)
+JNIEXPORT jint JNICALL Java_javax_comm_RXTXPort_nativeGetBaudBase(JNIEnv *env, jobject jobj)
 {
   throw_java_exceptionW(env, UNSUPPORTED_COMM_OPERATION, L"nativeGetBaudBase", L"Operation not implemented");
   return -1;
 }
 
 /*
- * Class:     gnu_io_RXTXPort
+ * Class:     javax_comm_RXTXPort
  * Method:    nativeSetDivisor
  * Signature: (I)Z
  */
-JNIEXPORT jboolean JNICALL Java_gnu_io_RXTXPort_nativeSetDivisor(JNIEnv *env, jobject jobj, jint divisor)
+JNIEXPORT jboolean JNICALL Java_javax_comm_RXTXPort_nativeSetDivisor(JNIEnv *env, jobject jobj, jint divisor)
 {
   throw_java_exceptionW(env, UNSUPPORTED_COMM_OPERATION, L"nativeSetDivisor", L"Operation not implemented");
   return JNI_FALSE;
 }
 
 /*
- * Class:     gnu_io_RXTXPort
+ * Class:     javax_comm_RXTXPort
  * Method:    nativeGetDivisor
  * Signature: ()I
  */
-JNIEXPORT jint JNICALL Java_gnu_io_RXTXPort_nativeGetDivisor(JNIEnv *env, jobject jobj)
+JNIEXPORT jint JNICALL Java_javax_comm_RXTXPort_nativeGetDivisor(JNIEnv *env, jobject jobj)
 {
   throw_java_exceptionW(env, UNSUPPORTED_COMM_OPERATION, L"nativeGetDivisor", L"Operation not implemented");
   return -1;
 }
 
 /*
- * Class:     gnu_io_RXTXPort
+ * Class:     javax_comm_RXTXPort
  * Method:    nativeSetLowLatency
  * Signature: ()Z
  */
-JNIEXPORT jboolean JNICALL Java_gnu_io_RXTXPort_nativeSetLowLatency(JNIEnv *env, jobject jobj)
+JNIEXPORT jboolean JNICALL Java_javax_comm_RXTXPort_nativeSetLowLatency(JNIEnv *env, jobject jobj)
 {
   throw_java_exceptionW(env, UNSUPPORTED_COMM_OPERATION, L"nativeSetLowLatency", L"Operation not implemented");
   return JNI_FALSE;
 }
 
 /*
- * Class:     gnu_io_RXTXPort
+ * Class:     javax_comm_RXTXPort
  * Method:    nativeGetLowLatency
  * Signature: ()Z
  */
-JNIEXPORT jboolean JNICALL Java_gnu_io_RXTXPort_nativeGetLowLatency(JNIEnv *env, jobject jobj)
+JNIEXPORT jboolean JNICALL Java_javax_comm_RXTXPort_nativeGetLowLatency(JNIEnv *env, jobject jobj)
 {
   throw_java_exceptionW(env, UNSUPPORTED_COMM_OPERATION, L"nativeGetLowLatency", L"Operation not implemented");
   return JNI_FALSE;
 }
 
 /*
- * Class:     gnu_io_RXTXPort
+ * Class:     javax_comm_RXTXPort
  * Method:    nativeSetCallOutHangup
  * Signature: (Z)Z
  */
-JNIEXPORT jboolean JNICALL Java_gnu_io_RXTXPort_nativeSetCallOutHangup(JNIEnv *env, jobject jobj, jboolean noHup)
+JNIEXPORT jboolean JNICALL Java_javax_comm_RXTXPort_nativeSetCallOutHangup(JNIEnv *env, jobject jobj, jboolean noHup)
 {
   throw_java_exceptionW(env, UNSUPPORTED_COMM_OPERATION, L"nativeSetCallOutHangup", L"Operation not implemented");
   return JNI_FALSE;
 }
 
 /*
- * Class:     gnu_io_RXTXPort
+ * Class:     javax_comm_RXTXPort
  * Method:    nativeGetCallOutHangup
  * Signature: ()Z
  */
-JNIEXPORT jboolean JNICALL Java_gnu_io_RXTXPort_nativeGetCallOutHangup(JNIEnv *env, jobject jobj)
+JNIEXPORT jboolean JNICALL Java_javax_comm_RXTXPort_nativeGetCallOutHangup(JNIEnv *env, jobject jobj)
 {
   throw_java_exceptionW(env, UNSUPPORTED_COMM_OPERATION, L"nativeGetCallOutHangup", L"Operation not implemented");
   return JNI_FALSE;

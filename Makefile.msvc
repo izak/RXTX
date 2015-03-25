@@ -95,15 +95,15 @@ init.obj: config.h
 fixup.obj: config.h
 	$(CC) $(CFLAGS) -c $(SRC)\fixup.c
 
-fuserImp.obj: $(SRC)\fuserImp.c config.h gnu_io_CommPortIdentifier.h
+fuserImp.obj: $(SRC)\fuserImp.c config.h javax_comm_CommPortIdentifier.h
 	$(CC) $(CFLAGS) -c $(SRC)\fuserImp.c
 
 termios.obj: $(SRC)\termios.c $(SRC)\win32termios.h config.h
 	$(CC) $(CFLAGS) -c $(SRC)\termios.c
-SerialImp.obj:  $(SRC)\SerialImp.c $(SRC)\SerialImp.h $(SRC)\win32termios.h config.h gnu_io_RXTXPort.h
+SerialImp.obj:  $(SRC)\SerialImp.c $(SRC)\SerialImp.h $(SRC)\win32termios.h config.h javax_comm_RXTXPort.h
 	$(CC) $(CFLAGS) -c $(SRC)\SerialImp.c
 
-ParallelImp.obj: $(SRC)\ParallelImp.c $(SRC)\ParallelImp.h $(SRC)\win32termios.h config.h gnu_io_LPRPort.h
+ParallelImp.obj: $(SRC)\ParallelImp.c $(SRC)\ParallelImp.h $(SRC)\win32termios.h config.h javax_comm_LPRPort.h
 	$(CC) $(CFLAGS) -c $(SRC)\ParallelImp.c
 
 rxtxSerial.dll: $(OBJS)
@@ -113,12 +113,12 @@ rxtxParallel.dll: $(PARALLEL_OBJS)
 	link -dll -out:$@ $** $(LINK_FLAGS)
 
 
-gnu_io_RXTXPort.h gnu_io_CommPortIdentifier.h gnu_io_LPRPort.h gnu_io_RXTXVersion.h: RXTXcomm.jar
-	$(JAVAH) -jni gnu.io.RXTXPort gnu.io.CommPortIdentifier gnu.io.LPRPort gnu.io.RXTXVersion
+javax_comm_RXTXPort.h javax_comm_CommPortIdentifier.h javax_comm_LPRPort.h javax_comm_RXTXVersion.h: RXTXcomm.jar
+	$(JAVAH) -jni javax.comm.RXTXPort javax.comm.CommPortIdentifier javax.comm.LPRPort javax.comm.RXTXVersion
 
 RXTXcomm.jar:
-	$(JAVAC) -d . ..\src\gnu\io\*.java
-	$(JAR) -cf RXTXcomm.jar gnu
+	$(JAVAC) -d . ..\src\javax.comm\*.java
+	$(JAR) -cf RXTXcomm.jar javax
 
 config.h: Makefile
 	echo #define HAVE_FCNTL_H >> config.h
@@ -130,13 +130,13 @@ config.h: Makefile
 	echo #undef HAVE_TERMIOS_H >> config.h
 	echo #undef HAVE_SYS_TIME_H >> config.h
 
-testcp\stamp: RXTXcomm.jar ..\tests\gnu\io\rxtx\tests\*.java
+testcp\stamp: RXTXcomm.jar ..\tests\javax.comm\rxtx\tests\*.java
 	-mkdir testcp
-	$(JAVAC) -classpath RXTXcomm.jar;$(JUNIT_JAR) -d testcp ..\tests\gnu\io\rxtx\tests\*.java
+	$(JAVAC) -classpath RXTXcomm.jar;$(JUNIT_JAR) -d testcp ..\tests\javax.comm\rxtx\tests\*.java
 	echo > testcp\stamp
 
 tests: all testcp\stamp
-	$(JAVA) -classpath RXTXcomm.jar;testcp;$(JUNIT_JAR) gnu.io.rxtx.tests.RXTXTestSuite
+	$(JAVA) -classpath RXTXcomm.jar;testcp;$(JUNIT_JAR) javax.comm.rxtx.tests.RXTXTestSuite
 
 clean:
 	-rmdir /s /q gnu

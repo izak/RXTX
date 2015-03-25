@@ -55,7 +55,7 @@
 |   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 |   All trademarks belong to their respective owners.
 --------------------------------------------------------------------------*/
-/* gnu.io.SerialPort constants */
+/* javax.comm.SerialPort constants */
 #ifdef WIN32
 #include "win32termios.h"
 #endif /* WIN32 */
@@ -77,7 +77,7 @@
 #define FLOWCONTROL_XONXOFF_IN	4
 #define FLOWCONTROL_XONXOFF_OUT	8
 
-/* gnu.io.SerialPortEvent constants */
+/* javax.comm.SerialPortEvent constants */
 #define SPE_DATA_AVAILABLE       1
 #define SPE_OUTPUT_BUFFER_EMPTY  2
 #define SPE_CTS                  3
@@ -206,7 +206,7 @@ Jonathan Schilling <jls@caldera.com> writes:
 This is complicated because as I said in my previous mail, there are
 two kinds of SCO operating systems.
 
-The one that most people want gnu.io for, including the guy who
+The one that most people want javax.comm for, including the guy who
 asked the mailing list about SCO support a few days ago, is Open Server
 (a/k/a "SCO UNIX"), which is SVR3-based.  This uses old-style uucp locks, 
 of the form LCK..tty0a.  That's what I implemented in the RXTX port I did,
@@ -221,11 +221,11 @@ SVR4 locks, of the form LK.123.123.123.  These OSes are a lot like
 Solaris (UnixWare/Open UNIX come from AT&T SVR4 which had a joint
 heritage with Sun way back when).  I saw that you added support
 for this form of lock by RXTX 1.4-10 ... but it gets messy because,
-as I said before, we use the same binary gnu.io files for both
+as I said before, we use the same binary javax.comm files for both
 UnixWare/Open UNIX and OpenServer.  Thus we can't #ifdef one or the
 other; it would have to be a runtime test.  Your code and your macros
 aren't set up for doing this (understandably!).  So I didn't implement
-these; the gnu.io locks won't fully work on UnixWare/Open UNIX
+these; the javax.comm locks won't fully work on UnixWare/Open UNIX
 as a result, which I mentioned in the Release Notes.
 
 
@@ -404,12 +404,12 @@ printf("%8li sec : %8li usec\n", enow.tv_sec - snow.tv_sec, enow.tv_sec - snow.t
 #endif /* UUCP */
 
 /* java exception class names */
-/* define UNSUPPORTED_COMM_OPERATION "gnu/io/UnsupportedCommOperationException" */
+/* define UNSUPPORTED_COMM_OPERATION "javax.comm/UnsupportedCommOperationException" */
 #define UNSUPPORTED_COMM_OPERATION "UnsupportedCommOperationException"
 #define ARRAY_INDEX_OUT_OF_BOUNDS "java/lang/ArrayIndexOutOfBoundsException"
 #define OUT_OF_MEMORY "java/lang/OutOfMemoryError"
 #define IO_EXCEPTION "java/io/IOException"
-#define PORT_IN_USE_EXCEPTION "gnu/io/PortInUseException"
+#define PORT_IN_USE_EXCEPTION "javax.comm/PortInUseException"
 
 /* some popular releases of Slackware do not have SSIZE_MAX */
 

@@ -55,10 +55,10 @@
 |   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 |   All trademarks belong to their respective owners.
 --------------------------------------------------------------------------*/
-package gnu.io.rxtx.tests;
+package javax.comm.rxtx.tests;
 
-import gnu.io.CommPortIdentifier;
-import gnu.io.NoSuchPortException;
+import javax.comm.CommPortIdentifier;
+import javax.comm.NoSuchPortException;
 
 import java.util.ArrayList;
 import java.util.Enumeration;

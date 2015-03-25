@@ -18,6 +18,6 @@
    <security>
       <all-permissions/>
    </security>
-   <application-desc main-class="gnu.io.installer.RXTXInstaller">
+   <application-desc main-class="javax.comm.installer.RXTXInstaller">
    </application-desc>
 </jnlp> 

@@ -55,7 +55,7 @@
 |   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 |   All trademarks belong to their respective owners.
 --------------------------------------------------------------------------*/
-package gnu.io;
+package javax.comm;
 
 import java.io.FileDescriptor;
 import java.io.IOException;
@@ -81,9 +81,9 @@ import java.util.ArrayList;
  * <p>
  * An application uses the static method {@link #getPortIdentifiers()} to generate a list
  * of available ports. It then chooses a port from this list and calls
- * {@link #open(String, int)} to create a {@link gnu.io.CommPort} object. Finally, it
+ * {@link #open(String, int)} to create a {@link javax.comm.CommPort} object. Finally, it
  * casts the <code>CommPort</code> object to a physical communications device class - like
- * {@link gnu.io.SerialPort} or {@link gnu.io.ParallelPort}.
+ * {@link javax.comm.SerialPort} or {@link javax.comm.ParallelPort}.
  * </p>
  * 
  * <dl>
@@ -350,7 +350,7 @@ public class CommPortIdentifier {
 
     /**
      * Clears ownership information and sends the
-     * {@link gnu.io.CommPortOwnershipListener#PORT_UNOWNED} notification
+     * {@link javax.comm.CommPortOwnershipListener#PORT_UNOWNED} notification
      * to all port ownership listeners.
      */
     protected synchronized void portClosed() {

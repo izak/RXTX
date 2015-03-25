@@ -54,7 +54,7 @@
                 <attribute name="Manifest-Version" value="1.0" />
                 <attribute name="Implementation-Title" value="RXTX Start" />
                 <attribute name="Implementation-Vendor" value="The RXTX Project" />
-                <attribute name="Main-Class" value="gnu.io.Start" />
+                <attribute name="Main-Class" value="javax.comm.Start" />
                 <attribute name="Class-Path" value="RXTXcomm.jar RXTXnative.dll" />
             </manifest>
         </jar>
@@ -62,7 +62,7 @@
     -->
 
     <target name="jni" description="Create the JNI C headers" depends="compile">
-        <javah class="gnu.io.Dispatcher"
+        <javah class="javax.comm.Dispatcher"
         	classpath="${main.classes.dir}" destdir="${c.include.dir}">
        	</javah>
     </target>

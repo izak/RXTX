@@ -56,7 +56,7 @@
 |   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 |   All trademarks belong to their respective owners.
 --------------------------------------------------------------------------*/
-package gnu.io;
+package javax.comm;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -67,7 +67,7 @@ import java.util.Properties;
 /**
  * RXTX settings utility class.
  * <p>
- * Settings are stored in a <code>gnu.io.rxtx.properties</code> file. The file can be
+ * Settings are stored in a <code>javax.comm.rxtx.properties</code> file. The file can be
  * located anywhere on the classpath. Applications can include the file in their jar file.
  * </p>
  * 
@@ -179,7 +179,7 @@ public final class Settings {
         String extensionDirs = System.getProperty("java.ext.dirs");
         String[] dirArray = extensionDirs.split(System.getProperty("path.separator"));
         for (int i = 0; i < dirArray.length; i++) {
-            String fileName = dirArray[i] + System.getProperty("file.separator") + "gnu.io.rxtx.properties";
+            String fileName = dirArray[i] + System.getProperty("file.separator") + "javax.comm.rxtx.properties";
             File file = new File(fileName);
             if (file.exists()) {
                 fileLocation = fileName;
@@ -193,13 +193,13 @@ public final class Settings {
             } else {
                 // New style: properties anywhere in classpath
                 ClassLoader loader = Thread.currentThread().getContextClassLoader();
-                inputStream = loader.getResourceAsStream("gnu.io.rxtx.properties");
+                inputStream = loader.getResourceAsStream("javax.comm.rxtx.properties");
             }
             if (inputStream != null) {
                 props.load(inputStream);
             }
         } catch (IOException e) {
-            Log.log(e, "I/O error while reading gnu.io.rxtx.properties file: ", source);
+            Log.log(e, "I/O error while reading javax.comm.rxtx.properties file: ", source);
         } finally {
             if (inputStream != null) {
                 try {

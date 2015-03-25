@@ -1,4 +1,4 @@
-package gnu.io.installer.util;
+package javax.comm.installer.util;
 
 import java.io.File;
 import java.io.InputStream;

@@ -92,7 +92,7 @@ LINK32=link.exe
 # PROP Default_Filter "cpp;c;cxx;rc;def;r;odl;idl;hpj;bat"
 # Begin Source File
 
-SOURCE=.\gnu_io_RXTXCommDriver.cpp
+SOURCE=.\javax_comm_RXTXCommDriver.cpp
 
 !IF  "$(CFG)" == "rxtxSerial - Win32 Release"
 
@@ -107,7 +107,7 @@ SOURCE=.\gnu_io_RXTXCommDriver.cpp
 # End Source File
 # Begin Source File
 
-SOURCE=.\gnu_io_RXTXPort.cpp
+SOURCE=.\javax_comm_RXTXPort.cpp
 
 !IF  "$(CFG)" == "rxtxSerial - Win32 Release"
 
@@ -171,11 +171,11 @@ SOURCE=.\StdAfx.cpp
 # PROP Default_Filter "h;hpp;hxx;hm;inl"
 # Begin Source File
 
-SOURCE=.\gnu_io_RXTXCommDriver.h
+SOURCE=.\javax_comm_RXTXCommDriver.h
 # End Source File
 # Begin Source File
 
-SOURCE=.\gnu_io_RXTXPort.h
+SOURCE=.\javax_comm_RXTXPort.h
 # End Source File
 # Begin Source File
 

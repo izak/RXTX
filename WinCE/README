@@ -35,7 +35,7 @@ This port has been upgraded to version RXTX-2.2pre2.
 
 Recognized macros:
 - DEBUG - print debugging info (mostly on errors);
-- JAVAXCOMM_FRONTEND - throw "javax.comm" exceptions (instead of "gnu.io").
+- JAVAXCOMM_FRONTEND - throw "javax.comm" exceptions (instead of "javax.comm").
 
 Tested with compilers:
 - MS VC++ v15.00 for ARM; and

@@ -56,14 +56,14 @@
 |   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 |   All trademarks belong to their respective owners.
 --------------------------------------------------------------------------*/
-package gnu.io;
+package javax.comm;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
  * A simple logger. Messages are sent to the console only. Logging can be
- * disabled by setting the <code>gnu.io.logging.disabled</code> property
+ * disabled by setting the <code>javax.comm.logging.disabled</code> property
  * to true.
  * <dl>
  * <dt><b>Thread-safe:</b></dt>
@@ -73,7 +73,7 @@ import java.util.Date;
  * @author <a href="http://www.rxtx.org">The RXTX Project</a>
  */
 public final class Log {
-    private static boolean enabled = !Settings.getBoolean("gnu.io.logging.disabled");
+    private static boolean enabled = !Settings.getBoolean("javax.comm.logging.disabled");
 
     private static String buildMessage(String message, String source) {
         StringBuffer sb = new StringBuffer();

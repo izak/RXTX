@@ -92,10 +92,10 @@ public:
     // Returns the port type
     const int getType() const;
 
-    // Returns the gnu.io.PortInfo Java class
+    // Returns the javax.comm.PortInfo Java class
     static jclass getJavaClass(JNIEnv *env);
 
-    // Returns the gnu.io.PortInfo Java class constructor
+    // Returns the javax.comm.PortInfo Java class constructor
     static jmethodID getJavaConstructor(JNIEnv *env);
 
     // Returns the port type for the supplied port name

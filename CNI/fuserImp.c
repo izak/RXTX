@@ -2,7 +2,7 @@
 #if defined(__MWERKS__)//dima
 #include "CommPortIdentifier.h"
 #else//dima
-#include "gnu/io/CommPortIdentifier.h"
+#include "javax.comm/CommPortIdentifier.h"
 #endif//dima
 
 /* Yikes... how do we do this? */

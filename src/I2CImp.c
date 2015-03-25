@@ -59,7 +59,7 @@
 #include "I2C.h" /* dima */
 #else /* dima */
 #include "config.h"
-#include "gnu_io_I2C.h"
+#include "javax_comm_I2C.h"
 #endif /* dima */
 #include <time.h>
 #include <unistd.h>
@@ -107,7 +107,7 @@ I2CPort.Initialize
    perform:     Initialize the native library
    return:      none
 ----------------------------------------------------------*/
-JNIEXPORT void JNICALL Java_gnu_io_I2CPort_Initialize( 
+JNIEXPORT void JNICALL Java_javax_comm_I2CPort_Initialize( 
 	JNIEnv *env,
 	jclass jclazz 
 	)
@@ -156,7 +156,7 @@ I2CPort.open
                 this function and it turns out to be permissions on the 
                 device file or bios has the device disabled.
 ----------------------------------------------------------*/ 
-JNIEXPORT jint JNICALL Java_gnu_io_I2CPort_open( 
+JNIEXPORT jint JNICALL Java_javax_comm_I2CPort_open( 
 	JNIEnv *env, 
 	jobject jobj,
 	jstring jstr 
@@ -208,7 +208,7 @@ I2CPort.nativeClose
    return:      none
    exceptions:  none
 ----------------------------------------------------------*/ 
-JNIEXPORT void JNICALL Java_gnu_io_I2CPort_nativeClose( JNIEnv *env,
+JNIEXPORT void JNICALL Java_javax_comm_I2CPort_nativeClose( JNIEnv *env,
 	jobject jobj )
 {
 	int result;
@@ -228,7 +228,7 @@ JNIEXPORT void JNICALL Java_gnu_io_I2CPort_nativeClose( JNIEnv *env,
    return:     void
    exceptions: UnsupportedCommOperationException
 ----------------------------------------------------------*/ 
-JNIEXPORT void JNICALL Java_gnu_io_I2CPort_nativeSetI2CPortParams(
+JNIEXPORT void JNICALL Java_javax_comm_I2CPort_nativeSetI2CPortParams(
 	JNIEnv *env, jobject jobj, jint speed, jint dataBits, jint stopBits,
 	jint parity )
 {
@@ -300,7 +300,7 @@ int translate_speed( JNIEnv *env, jint speed )
 /*----------------------------------------------------------
  translate_data_bits
 
-   accept:     gnu.io.I2CPort.DATABITS_* constant
+   accept:     javax.comm.I2CPort.DATABITS_* constant
    perform:    set proper termios c_cflag bits
    return:     1 if successful
 					0 if an exception is thrown
@@ -333,7 +333,7 @@ int translate_data_bits( JNIEnv *env, int *cflag, jint dataBits )
 /*----------------------------------------------------------
  translate_stop_bits
 
-   accept:     gnu.io.I2CPort.STOPBITS_* constant
+   accept:     javax.comm.I2CPort.STOPBITS_* constant
    perform:    set proper termios c_cflag bits
    return:     1 if successful
 					0 if an exception is thrown
@@ -360,7 +360,7 @@ int translate_stop_bits( JNIEnv *env, int *cflag, jint stopBits )
 /*----------------------------------------------------------
  translate_parity
 
-   accept:     gnu.io.I2CPort.PARITY_* constant
+   accept:     javax.comm.I2CPort.PARITY_* constant
    perform:    set proper termios c_cflag bits
    return:     1 if successful
                0 if an exception is thrown
@@ -411,7 +411,7 @@ I2CPort.writeByte
    return:      none
    exceptions:  IOException
 ----------------------------------------------------------*/ 
-JNIEXPORT void JNICALL Java_gnu_io_I2CPort_writeByte( JNIEnv *env,
+JNIEXPORT void JNICALL Java_javax_comm_I2CPort_writeByte( JNIEnv *env,
 	jobject jobj, jint ji ) 
 {
 	unsigned char byte = (unsigned char)ji;
@@ -438,7 +438,7 @@ I2CPort.writeArray
    return:      none
    exceptions:  IOException
 ----------------------------------------------------------*/ 
-JNIEXPORT void JNICALL Java_gnu_io_I2CPort_writeArray( JNIEnv *env,
+JNIEXPORT void JNICALL Java_javax_comm_I2CPort_writeArray( JNIEnv *env,
 	jobject jobj, jbyteArray jbarray, jint offset, jint count )
 {
 	int fd = get_java_var( env, jobj,"fd","I" );
@@ -474,7 +474,7 @@ I2CPort.drain
                 count logic added to avoid infinite loops when EINTR is
                 true...  Thread.yeild() was suggested.
 ----------------------------------------------------------*/
-JNIEXPORT void JNICALL Java_gnu_io_I2CPort_drain( JNIEnv *env,
+JNIEXPORT void JNICALL Java_javax_comm_I2CPort_drain( JNIEnv *env,
 	jobject jobj )
 {
 	int fd = get_java_var( env, jobj,"fd","I" );
@@ -497,7 +497,7 @@ I2CPort.sendBreak
    exceptions: none
    comments:   not very precise
 ----------------------------------------------------------*/ 
-JNIEXPORT void JNICALL Java_gnu_io_I2CPort_sendBreak( JNIEnv *env,
+JNIEXPORT void JNICALL Java_javax_comm_I2CPort_sendBreak( JNIEnv *env,
 	jobject jobj, jint duration )
 {
 	int fd = get_java_var( env, jobj,"fd","I" );
@@ -513,7 +513,7 @@ I2CPort.NativegetReceiveTimeout
    return:     VTIME 
    comments:   see  NativeEnableReceiveTimeoutThreshold
 ----------------------------------------------------------*/ 
-JNIEXPORT jint JNICALL Java_gnu_io_I2CPort_NativegetReceiveTimeout(
+JNIEXPORT jint JNICALL Java_javax_comm_I2CPort_NativegetReceiveTimeout(
 	JNIEnv *env, 
 	jobject jobj
 	)
@@ -536,7 +536,7 @@ I2CPort.NativeisReceiveTimeoutEnabled
    return:     JNI_TRUE if VTIME > 0 else JNI_FALSE 
    comments:   see  NativeEnableReceiveTimeoutThreshold
 ----------------------------------------------------------*/ 
-JNIEXPORT jboolean JNICALL Java_gnu_io_I2CPort_NativeisReceiveTimeoutEnabled(
+JNIEXPORT jboolean JNICALL Java_javax_comm_I2CPort_NativeisReceiveTimeoutEnabled(
 	JNIEnv *env, 
 	jobject jobj
 	)
@@ -561,7 +561,7 @@ I2CPort.isDSR
    exceptions:  none
    comments:    DSR stands for Data Set Ready
 ----------------------------------------------------------*/
-JNIEXPORT jboolean JNICALL Java_gnu_io_I2CPort_isDSR( JNIEnv *env,
+JNIEXPORT jboolean JNICALL Java_javax_comm_I2CPort_isDSR( JNIEnv *env,
 	jobject jobj ) 
 {
 	unsigned int result = 0;
@@ -586,7 +586,7 @@ I2CPort.isCD
                 permanently on fixed it for me so I don't care"
 
 ----------------------------------------------------------*/
-JNIEXPORT jboolean JNICALL Java_gnu_io_I2CPort_isCD( JNIEnv *env,
+JNIEXPORT jboolean JNICALL Java_javax_comm_I2CPort_isCD( JNIEnv *env,
 	jobject jobj )
 {
 	unsigned int result = 0;
@@ -607,7 +607,7 @@ I2CPort.isCTS
    exceptions:  none
    comments:    CTS stands for Clear To Send.
 ----------------------------------------------------------*/
-JNIEXPORT jboolean JNICALL Java_gnu_io_I2CPort_isCTS( JNIEnv *env,
+JNIEXPORT jboolean JNICALL Java_javax_comm_I2CPort_isCTS( JNIEnv *env,
 	jobject jobj ) 
 {
 	unsigned int result = 0;
@@ -628,7 +628,7 @@ I2CPort.isRI
    exceptions:  none
    comments:    RI stands for Ring Indicator
 ----------------------------------------------------------*/
-JNIEXPORT jboolean JNICALL Java_gnu_io_I2CPort_isRI( JNIEnv *env,
+JNIEXPORT jboolean JNICALL Java_javax_comm_I2CPort_isRI( JNIEnv *env,
 	jobject jobj )
 {
 	unsigned int result = 0;
@@ -649,7 +649,7 @@ I2CPort.isRTS
    exceptions:  none
    comments:    tcgetattr with c_cflag CRTS_IFLOW
 ----------------------------------------------------------*/
-JNIEXPORT jboolean JNICALL Java_gnu_io_I2CPort_isRTS( JNIEnv *env,
+JNIEXPORT jboolean JNICALL Java_javax_comm_I2CPort_isRTS( JNIEnv *env,
 	jobject jobj )
 {
 	unsigned int result = 0;
@@ -671,7 +671,7 @@ I2CPort.setRTS
    exceptions:  none
    comments:    tcsetattr with c_cflag CRTS_IFLOW
 ----------------------------------------------------------*/
-JNIEXPORT void JNICALL Java_gnu_io_I2CPort_setRTS( JNIEnv *env,
+JNIEXPORT void JNICALL Java_javax_comm_I2CPort_setRTS( JNIEnv *env,
 	jobject jobj, jboolean state ) 
 {
 	unsigned int result = 0;
@@ -695,7 +695,7 @@ I2CPort.setDSR
    exceptions:  none
    comments:    tcsetattr with c_cflag CRTS_IFLOW
 ----------------------------------------------------------*/
-JNIEXPORT void JNICALL Java_gnu_io_I2CPort_setDSR( JNIEnv *env,
+JNIEXPORT void JNICALL Java_javax_comm_I2CPort_setDSR( JNIEnv *env,
 	jobject jobj, jboolean state ) 
 {
 	unsigned int result = 0;
@@ -718,7 +718,7 @@ I2CPort.isDTR
    exceptions:  none
    comments:    DTR stands for Data Terminal Ready
 ----------------------------------------------------------*/
-JNIEXPORT jboolean JNICALL Java_gnu_io_I2CPort_isDTR( JNIEnv *env,
+JNIEXPORT jboolean JNICALL Java_javax_comm_I2CPort_isDTR( JNIEnv *env,
 	jobject jobj )
 {
 	unsigned int result = 0;
@@ -739,7 +739,7 @@ I2CPort.setDTR
    exceptions:  none
    comments:    DTR stands for Data Terminal Ready
 ----------------------------------------------------------*/
-JNIEXPORT void JNICALL Java_gnu_io_I2CPort_setDTR( JNIEnv *env,
+JNIEXPORT void JNICALL Java_javax_comm_I2CPort_setDTR( JNIEnv *env,
 	jobject jobj, jboolean state )
 {
 	unsigned int result = 0;
@@ -816,7 +816,7 @@ NativeEnableReceiveTimeoutThreshold
                 canonical input mode.
 ----------------------------------------------------------*/ 
  
-JNIEXPORT void JNICALL Java_gnu_io_I2CPort_NativeEnableReceiveTimeoutThreshold(JNIEnv *env, jobject jobj, jint vtime, jint threshold, jint buffer)
+JNIEXPORT void JNICALL Java_javax_comm_I2CPort_NativeEnableReceiveTimeoutThreshold(JNIEnv *env, jobject jobj, jint vtime, jint threshold, jint buffer)
 {
 	int fd = get_java_var( env, jobj,"fd","I" );
 	struct termios ttyset;
@@ -840,7 +840,7 @@ I2CPort.readByte
    return:      The byte read
    exceptions:  IOException
 ----------------------------------------------------------*/ 
-JNIEXPORT jint JNICALL Java_gnu_io_I2CPort_readByte( JNIEnv *env,
+JNIEXPORT jint JNICALL Java_javax_comm_I2CPort_readByte( JNIEnv *env,
 	jobject jobj )
 { 
 	int bytes;
@@ -869,7 +869,7 @@ I2CPort.readArray
    comments:     throws ArrayIndexOutOfBoundsException if asked to
                  read more than SSIZE_MAX bytes
 ----------------------------------------------------------*/ 
-JNIEXPORT jint JNICALL Java_gnu_io_I2CPort_readArray( JNIEnv *env,
+JNIEXPORT jint JNICALL Java_javax_comm_I2CPort_readArray( JNIEnv *env,
 	jobject jobj, jbyteArray jbarray, jint offset, jint length )
 {  
 	int bytes;
@@ -914,7 +914,7 @@ I2CPort.nativeavailable
                 -1 on error
    exceptions:  none
 ----------------------------------------------------------*/ 
-JNIEXPORT jint JNICALL Java_gnu_io_I2CPort_nativeavailable( JNIEnv *env,
+JNIEXPORT jint JNICALL Java_javax_comm_I2CPort_nativeavailable( JNIEnv *env,
 	jobject jobj )
 {
 	int fd = get_java_var( env, jobj,"fd","I" );
@@ -944,7 +944,7 @@ I2CPort.setflowcontrol
    comments:  there is no differentiation between input and output hardware
               flow control
 ----------------------------------------------------------*/
-JNIEXPORT void JNICALL Java_gnu_io_I2CPort_setflowcontrol( JNIEnv *env,
+JNIEXPORT void JNICALL Java_javax_comm_I2CPort_setflowcontrol( JNIEnv *env,
 	jobject jobj, jint flowmode )
 {
 	struct termios ttyset;
@@ -983,7 +983,7 @@ I2CPort.eventLoop
    exceptions:  none
    comments:    FIXME This is probably wrong on bsd.
 ----------------------------------------------------------*/ 
-JNIEXPORT void JNICALL Java_gnu_io_I2CPort_eventLoop( JNIEnv *env,
+JNIEXPORT void JNICALL Java_javax_comm_I2CPort_eventLoop( JNIEnv *env,
 	jobject jobj )
 {
 	int fd, ret, change;
@@ -1201,7 +1201,7 @@ void throw_java_exception( JNIEnv *env, char *exc, char *foo, char *msg )
 	(*env)->DeleteLocalRef( env, clazz );
 }
 
-JNIEXPORT jboolean  JNICALL Java_gnu_io_RXTXCommDriver_IsDeviceGood(JNIEnv *env,
+JNIEXPORT jboolean  JNICALL Java_javax_comm_RXTXCommDriver_IsDeviceGood(JNIEnv *env,
 	jobject jobj, jstring tty_name){
 
 	jboolean result;
@@ -1279,26 +1279,26 @@ JNIEXPORT jboolean  JNICALL Java_gnu_io_RXTXCommDriver_IsDeviceGood(JNIEnv *env,
 	(*env)->ReleaseStringUTFChars(env, tty_name, name);
 	return(result);
 }
-JNIEXPORT void JNICALL Java_gnu_io_I2CPort_setInputBufferSize(JNIEnv *env, jobject jobj,  jint size )
+JNIEXPORT void JNICALL Java_javax_comm_I2CPort_setInputBufferSize(JNIEnv *env, jobject jobj,  jint size )
 {
 #ifdef DEBUG
 	fprintf(stderr,"setInputBufferSize is not implemented\n");
 #endif
 }
-JNIEXPORT jint JNICALL Java_gnu_io_I2CPort_getInputBufferSize(JNIEnv *env, jobject jobj)
+JNIEXPORT jint JNICALL Java_javax_comm_I2CPort_getInputBufferSize(JNIEnv *env, jobject jobj)
 {
 #ifdef DEBUG
 	fprintf(stderr,"getInputBufferSize is not implemented\n");
 #endif
 	return(1);
 }
-JNIEXPORT void JNICALL Java_gnu_io_I2CPort_setOutputBufferSize(JNIEnv *env, jobject jobj, jint size )
+JNIEXPORT void JNICALL Java_javax_comm_I2CPort_setOutputBufferSize(JNIEnv *env, jobject jobj, jint size )
 {
 #ifdef DEBUG
 	fprintf(stderr,"setOutputBufferSize is not implemented\n");
 #endif
 }
-JNIEXPORT jint JNICALL Java_gnu_io_I2CPort_getOutputBufferSize(JNIEnv *env, jobject jobj)
+JNIEXPORT jint JNICALL Java_javax_comm_I2CPort_getOutputBufferSize(JNIEnv *env, jobject jobj)
 {
 #ifdef DEBUG
 	fprintf(stderr,"getOutputBufferSize is not implemented\n");

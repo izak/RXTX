@@ -70,8 +70,8 @@
 
 
 #include <jni.h>
-#include "gnu_io_RXTXPort.h"
-#include "gnu_io_RXTXCommDriver.h"
+#include "javax_comm_RXTXPort.h"
+#include "javax_comm_RXTXCommDriver.h"
 
 // Insert your headers here
 #define WIN32_LEAN_AND_MEAN		// Exclude rarely-used stuff from Windows headers

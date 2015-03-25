@@ -63,11 +63,11 @@
     #define NULL 0
 #endif
 
-/* gnu.io.CommPortIdentifier constants */
+/* javax.comm.CommPortIdentifier constants */
 #define RXTX_PORT_SERIAL   1
 #define RXTX_PORT_PARALLEL 2
 
-/* gnu.io.ParallelPort constants */
+/* javax.comm.ParallelPort constants */
 #define RXTX_PARALLEL_MODE_ANY        0
 #define RXTX_PARALLEL_MODE_SPP        1
 #define RXTX_PARALLEL_MODE_PS2        2
@@ -75,7 +75,7 @@
 #define RXTX_PARALLEL_MODE_ECP        4
 #define RXTX_PARALLEL_MODE_NIBBLE    5
 
-/* gnu.io.SerialPort constants */
+/* javax.comm.SerialPort constants */
 #define RXTX_SERIAL_DATABITS_5                5
 #define RXTX_SERIAL_DATABITS_6                6
 #define RXTX_SERIAL_DATABITS_7                7

@@ -106,7 +106,7 @@ public:
 class NoSuchPortException: public exception
 {
 public:
-    // Returns the gnu.io.NoSuchPortException Java class
+    // Returns the javax.comm.NoSuchPortException Java class
     jclass getJavaClass(JNIEnv *env);
 };
 
@@ -116,7 +116,7 @@ public:
 class UnsupportedCommOperationException: public exception
 {
 public:
-    // Returns the gnu.io.UnsupportedCommOperationException Java class
+    // Returns the javax.comm.UnsupportedCommOperationException Java class
     jclass getJavaClass(JNIEnv *env);
 };
 

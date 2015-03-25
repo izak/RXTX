@@ -67,7 +67,7 @@
 		  the ports and the removal of the eventListener.
 
 */
-import gnu.io.*;
+import javax.comm.*;
 import java.util.*;
 
 

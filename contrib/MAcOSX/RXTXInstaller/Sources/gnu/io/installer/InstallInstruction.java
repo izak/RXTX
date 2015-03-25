@@ -1,4 +1,4 @@
-package gnu.io.installer;
+package javax.comm.installer;
 
 import java.util.Hashtable;
 import java.util.Enumeration;

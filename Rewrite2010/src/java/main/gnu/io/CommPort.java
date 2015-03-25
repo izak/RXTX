@@ -55,7 +55,7 @@
 |   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 |   All trademarks belong to their respective owners.
 --------------------------------------------------------------------------*/
-package gnu.io;
+package javax.comm;
 
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -65,15 +65,15 @@ import java.io.IOException;
  * A communications port. <code>CommPort</code> is an abstract class that describes a
  * communications port made available by the underlying system. It includes high-level
  * methods for controlling I/O that are common to different kinds of communications
- * ports. {@link gnu.io.SerialPort} and {@link gnu.io.ParallelPort} are subclasses of
+ * ports. {@link javax.comm.SerialPort} and {@link javax.comm.ParallelPort} are subclasses of
  * <code>CommPort</code> that include additional methods for low-level control of
  * physical communications ports.
  * 
  * <p>
  * There are no public constructors for <code>CommPort</code>. Instead, an application
- * should use the static method {@link gnu.io.CommPortIdentifier#getPortIdentifiers()}
+ * should use the static method {@link javax.comm.CommPortIdentifier#getPortIdentifiers()}
  * to generate a list of available ports. It then chooses a port from this list and
- * calls {@link gnu.io.CommPortIdentifier#open(String, int)} to create a
+ * calls {@link javax.comm.CommPortIdentifier#open(String, int)} to create a
  * <code>CommPort</code> object. Finally, it casts the <code>CommPort</code> object
  * to a physical communications device class like <code>SerialPort</code> or
  * <code>ParallelPort</code>.

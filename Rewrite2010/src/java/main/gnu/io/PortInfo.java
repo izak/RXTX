@@ -61,7 +61,7 @@
 /* Joseph Goldstone <joseph@lp.com> reorganized to support registered ports,
  * known ports, and scanned ports, July 2001 */
 
-package gnu.io;
+package javax.comm;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -73,16 +73,16 @@ import java.util.List;
  * ports. RXTX supports two methods of determining available ports: a user-specified list
  * of ports in a property, and automatic port scanning.
  * <p>
- * Serial ports can be specified in the <code>gnu.io.rxtx.SerialPorts</code> or
- * <code>gnu.io.SerialPorts</code> property. The property value is a list of port names
+ * Serial ports can be specified in the <code>javax.comm.rxtx.SerialPorts</code> or
+ * <code>javax.comm.SerialPorts</code> property. The property value is a list of port names
  * separated by a colon [:]. Parallel ports can be specified in the
- * <code>gnu.io.rxtx.ParallelPorts</code> or <code>gnu.io.ParallelPorts</code> property.
+ * <code>javax.comm.rxtx.ParallelPorts</code> or <code>javax.comm.ParallelPorts</code> property.
  * The property value is a list of port names separated by a colon [:]. If ports are
  * specified in a property, then automatic port scanning is disabled.
  * </p>
  * <p>
  * This class contains a port scanning thread that scans for port additions/deletions. The
- * port scanning interval can be set with the <code>gnu.io.port.scanning.interval</code>
+ * port scanning interval can be set with the <code>javax.comm.port.scanning.interval</code>
  * property (in milliseconds). The minimum value is 1000 (one second) and the default is
  * 2000 (two seconds).
  * </p>
@@ -136,14 +136,14 @@ public final class PortInfo {
     private static List getSpecifiedPorts() {
         List ports = null;
         String portString = null;
-        if ((portString = Settings.getString("gnu.io.rxtx.SerialPorts")) == null) {
-            portString = Settings.getString("gnu.io.SerialPorts");
+        if ((portString = Settings.getString("javax.comm.rxtx.SerialPorts")) == null) {
+            portString = Settings.getString("javax.comm.SerialPorts");
             if (portString != null && portString.length() > 0) {
                 ports = Arrays.asList(portString.split(":"));
             }
         }
-        if ((portString = Settings.getString("gnu.io.rxtx.ParallelPorts")) == null) {
-            portString = Settings.getString("gnu.io.ParallelPorts");
+        if ((portString = Settings.getString("javax.comm.rxtx.ParallelPorts")) == null) {
+            portString = Settings.getString("javax.comm.ParallelPorts");
             if (portString != null && portString.length() > 0) {
                 if (ports == null) {
                     ports = Arrays.asList(portString.split(":"));
@@ -204,7 +204,7 @@ public final class PortInfo {
 
         private PortScanner() {
             super("Port Scanner");
-            long scanningInterval = Settings.getLong("gnu.io.port.scanning.interval", 2000);
+            long scanningInterval = Settings.getLong("javax.comm.port.scanning.interval", 2000);
             this.scanningInterval = scanningInterval < 1000 ? 1000 : scanningInterval;
         }
 

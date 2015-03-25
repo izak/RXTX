@@ -61,7 +61,7 @@
 /* Joseph Goldstone <joseph@lp.com> reorganized to support registered ports,
  * known ports, and scanned ports, July 2001 */
 
-package gnu.io;
+package javax.comm;
 
 import java.util.*;
 import java.io.*;
@@ -367,20 +367,20 @@ public class RXTXCommDriver implements CommDriver
 	}
 
    /*
-    * Register ports specified in the file "gnu.io.rxtx.properties"
+    * Register ports specified in the file "javax.comm.rxtx.properties"
     * Key system properties:
-    *                   gnu.io.rxtx.SerialPorts
-    * 			gnu.io.rxtx.ParallelPorts
+    *                   javax.comm.rxtx.SerialPorts
+    * 			javax.comm.rxtx.ParallelPorts
     *
     * Tested only with sun jdk1.3
-    * The file gnu.io.rxtx.properties must reside in the java extension dir
+    * The file javax.comm.rxtx.properties must reside in the java extension dir
     *
-    * Example: /usr/local/java/jre/lib/ext/gnu.io.rxtx.properties
+    * Example: /usr/local/java/jre/lib/ext/javax.comm.rxtx.properties
     *
     * The file contains the following key properties:
     *
-    *  gnu.io.rxtx.SerialPorts=/dev/ttyS0:/dev/ttyS1:
-    *  gnu.io.rxtx.ParallelPorts=/dev/lp0:
+    *  javax.comm.rxtx.SerialPorts=/dev/ttyS0:/dev/ttyS1:
+    *  javax.comm.rxtx.ParallelPorts=/dev/lp0:
     *
     */
 	private boolean registerSpecifiedPorts(int PortType)
@@ -391,13 +391,13 @@ public class RXTXCommDriver implements CommDriver
 		    {
 
 		     String ext_dir=System.getProperty("java.ext.dirs")+System.getProperty("file.separator");
-		     FileInputStream rxtx_prop=new FileInputStream(ext_dir+"gnu.io.rxtx.properties");
+		     FileInputStream rxtx_prop=new FileInputStream(ext_dir+"javax.comm.rxtx.properties");
 		     Properties p=new Properties(System.getProperties());
 		     p.load(rxtx_prop);
 		     System.setProperties(p);
 		    }catch(Exception e){
 			if (debug){
-			    System.out.println("The file: gnu.io.rxtx.properties doesn't exists.");
+			    System.out.println("The file: javax.comm.rxtx.properties doesn't exists.");
 			    System.out.println(e.toString());
 			    }//end if
 			}//end catch
@@ -409,13 +409,13 @@ public class RXTXCommDriver implements CommDriver
 
 		switch (PortType) {
 			case CommPortIdentifier.PORT_SERIAL:
-				if ((val = System.getProperty("gnu.io.rxtx.SerialPorts")) == null)
-				val = System.getProperty("gnu.io.SerialPorts");
+				if ((val = System.getProperty("javax.comm.rxtx.SerialPorts")) == null)
+				val = System.getProperty("javax.comm.SerialPorts");
 				break;
 
 			case CommPortIdentifier.PORT_PARALLEL:
-				if ((val = System.getProperty("gnu.io.rxtx.ParallelPorts")) == null)
-				val = System.getProperty("gnu.io.ParallelPorts");
+				if ((val = System.getProperty("javax.comm.rxtx.ParallelPorts")) == null)
+				val = System.getProperty("javax.comm.ParallelPorts");
 				break;
 			default:
 				if (debug)

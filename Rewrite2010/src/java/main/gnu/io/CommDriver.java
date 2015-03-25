@@ -55,7 +55,7 @@
 |   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 |   All trademarks belong to their respective owners.
 --------------------------------------------------------------------------*/
-package gnu.io;
+package javax.comm;
 
 /**
  * Part of the loadable device driver interface. <code>CommDriver</code> should not be
@@ -71,13 +71,13 @@ package gnu.io;
  * Not only are application-level programs allowed to use this interface, RXTX
  * <i><b>encourages</b></i> its use. Application developers can implement custom port
  * types by writing their own implementation of this interface, and then passing it as an
- * argument to {@link gnu.io.CommPortIdentifier#addPortName(String, int, CommDriver)}.
+ * argument to {@link javax.comm.CommPortIdentifier#addPortName(String, int, CommDriver)}.
  * Example:
  * </p>
  * <blockquote>
  * <pre>
- * import gnu.io.CommDriver;
- * import gnu.io.CommPortIdentifier;
+ * import javax.comm.CommDriver;
+ * import javax.comm.CommPortIdentifier;
  * 
  * public class AcmeCommDriver implements CommDriver {
  * 
@@ -106,7 +106,7 @@ public interface CommDriver {
 
     /**
      * Returns an object that extends <code>CommPort</code> - like
-     * {@link gnu.io.SerialPort} or {@link gnu.io.ParallelPort}.
+     * {@link javax.comm.SerialPort} or {@link javax.comm.ParallelPort}.
      * <p>
      * <hr>
      * <p>

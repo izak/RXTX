@@ -107,8 +107,8 @@
 #define UNSUPPORTED_COMM_OPERATION "javax/comm/UnsupportedCommOperationException"
 #define PORT_IN_USE_EXCEPTION "javax/comm/PortInUseException"
 #else
-#define UNSUPPORTED_COMM_OPERATION "gnu/io/UnsupportedCommOperationException"
-#define PORT_IN_USE_EXCEPTION "gnu/io/PortInUseException"
+#define UNSUPPORTED_COMM_OPERATION "javax.comm/UnsupportedCommOperationException"
+#define PORT_IN_USE_EXCEPTION "javax.comm/PortInUseException"
 #endif
 
 typedef struct

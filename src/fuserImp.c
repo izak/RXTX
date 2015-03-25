@@ -1,10 +1,10 @@
 #if defined(__MWERKS__) /* dima */
 #include "CommPortIdentifier.h"
 #else /* dima */
-#include "gnu_io_CommPortIdentifier.h"
+#include "javax_comm_CommPortIdentifier.h"
 #endif /* dima */
 #ifndef __linux__
-JNIEXPORT jstring JNICALL Java_gnu_io_CommPortIdentifier_native_1psmisc_1report_1owner (JNIEnv *env, jobject obj, jstring arg)
+JNIEXPORT jstring JNICALL Java_javax_comm_CommPortIdentifier_native_1psmisc_1report_1owner (JNIEnv *env, jobject obj, jstring arg)
 {
 	return (*env)->NewStringUTF(env, "Unknown Application");
 	/* return("Unknown Application\n"); */
@@ -300,7 +300,7 @@ static void enter_item(const char *name,int flags,int sig_number,dev_t dev, ino_
 }
 
 
-JNIEXPORT jstring JNICALL Java_gnu_io_CommPortIdentifier_native_1psmisc_1report_1owner (JNIEnv *env, jobject obj, jstring arg)
+JNIEXPORT jstring JNICALL Java_javax_comm_CommPortIdentifier_native_1psmisc_1report_1owner (JNIEnv *env, jobject obj, jstring arg)
 {
 	char returnstring[256];
 	const char *str = (*env)->GetStringUTFChars(env, arg, 0);

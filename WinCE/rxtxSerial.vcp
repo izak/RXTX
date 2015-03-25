@@ -177,15 +177,15 @@ LINK32=link.exe
 # PROP Default_Filter "cpp;c;cxx;rc;def;r;odl;idl;hpj;bat"
 # Begin Source File
 
-SOURCE=.\gnu_io_RXTXCommDriver.cpp
+SOURCE=.\javax_comm_RXTXCommDriver.cpp
 
 !IF  "$(CFG)" == "rxtxSerial - Win32 (WCE ARM) Release"
 
 DEP_CPP_GNU_I=\
 	"..\..\..\JBuilder6\jdk1.3.1\include\jni.h"\
 	"..\..\..\JBuilder6\jdk1.3.1\include\win32\jni_md.h"\
-	".\gnu_io_RXTXCommDriver.h"\
-	".\gnu_io_RXTXPort.h"\
+	".\javax_comm_RXTXCommDriver.h"\
+	".\javax_comm_RXTXPort.h"\
 	".\rxtxHelpers.h"\
 	".\StdAfx.h"\
 	
@@ -195,8 +195,8 @@ DEP_CPP_GNU_I=\
 DEP_CPP_GNU_I=\
 	"..\..\..\JBuilder6\jdk1.3.1\include\jni.h"\
 	"..\..\..\JBuilder6\jdk1.3.1\include\win32\jni_md.h"\
-	".\gnu_io_RXTXCommDriver.h"\
-	".\gnu_io_RXTXPort.h"\
+	".\javax_comm_RXTXCommDriver.h"\
+	".\javax_comm_RXTXPort.h"\
 	".\rxtxHelpers.h"\
 	".\StdAfx.h"\
 	
@@ -206,8 +206,8 @@ DEP_CPP_GNU_I=\
 DEP_CPP_GNU_I=\
 	"..\..\..\JBuilder6\jdk1.3.1\include\jni.h"\
 	"..\..\..\JBuilder6\jdk1.3.1\include\win32\jni_md.h"\
-	".\gnu_io_RXTXCommDriver.h"\
-	".\gnu_io_RXTXPort.h"\
+	".\javax_comm_RXTXCommDriver.h"\
+	".\javax_comm_RXTXPort.h"\
 	".\StdAfx.h"\
 	
 NODEP_CPP_GNU_I=\
@@ -219,8 +219,8 @@ NODEP_CPP_GNU_I=\
 DEP_CPP_GNU_I=\
 	"..\..\..\JBuilder6\jdk1.3.1\include\jni.h"\
 	"..\..\..\JBuilder6\jdk1.3.1\include\win32\jni_md.h"\
-	".\gnu_io_RXTXCommDriver.h"\
-	".\gnu_io_RXTXPort.h"\
+	".\javax_comm_RXTXCommDriver.h"\
+	".\javax_comm_RXTXPort.h"\
 	".\StdAfx.h"\
 	
 
@@ -229,15 +229,15 @@ DEP_CPP_GNU_I=\
 # End Source File
 # Begin Source File
 
-SOURCE=.\gnu_io_RXTXPort.cpp
+SOURCE=.\javax_comm_RXTXPort.cpp
 
 !IF  "$(CFG)" == "rxtxSerial - Win32 (WCE ARM) Release"
 
 DEP_CPP_GNU_IO=\
 	"..\..\..\JBuilder6\jdk1.3.1\include\jni.h"\
 	"..\..\..\JBuilder6\jdk1.3.1\include\win32\jni_md.h"\
-	".\gnu_io_RXTXCommDriver.h"\
-	".\gnu_io_RXTXPort.h"\
+	".\javax_comm_RXTXCommDriver.h"\
+	".\javax_comm_RXTXPort.h"\
 	".\rxtxHelpers.h"\
 	".\StdAfx.h"\
 	
@@ -247,8 +247,8 @@ DEP_CPP_GNU_IO=\
 DEP_CPP_GNU_IO=\
 	"..\..\..\JBuilder6\jdk1.3.1\include\jni.h"\
 	"..\..\..\JBuilder6\jdk1.3.1\include\win32\jni_md.h"\
-	".\gnu_io_RXTXCommDriver.h"\
-	".\gnu_io_RXTXPort.h"\
+	".\javax_comm_RXTXCommDriver.h"\
+	".\javax_comm_RXTXPort.h"\
 	".\rxtxHelpers.h"\
 	".\StdAfx.h"\
 	
@@ -258,8 +258,8 @@ DEP_CPP_GNU_IO=\
 DEP_CPP_GNU_IO=\
 	"..\..\..\JBuilder6\jdk1.3.1\include\jni.h"\
 	"..\..\..\JBuilder6\jdk1.3.1\include\win32\jni_md.h"\
-	".\gnu_io_RXTXCommDriver.h"\
-	".\gnu_io_RXTXPort.h"\
+	".\javax_comm_RXTXCommDriver.h"\
+	".\javax_comm_RXTXPort.h"\
 	".\StdAfx.h"\
 	
 
@@ -268,8 +268,8 @@ DEP_CPP_GNU_IO=\
 DEP_CPP_GNU_IO=\
 	"..\..\..\JBuilder6\jdk1.3.1\include\jni.h"\
 	"..\..\..\JBuilder6\jdk1.3.1\include\win32\jni_md.h"\
-	".\gnu_io_RXTXCommDriver.h"\
-	".\gnu_io_RXTXPort.h"\
+	".\javax_comm_RXTXCommDriver.h"\
+	".\javax_comm_RXTXPort.h"\
 	".\StdAfx.h"\
 	
 
@@ -285,8 +285,8 @@ SOURCE=.\rxtxHelpers.cpp
 DEP_CPP_RXTXH=\
 	"..\..\..\JBuilder6\jdk1.3.1\include\jni.h"\
 	"..\..\..\JBuilder6\jdk1.3.1\include\win32\jni_md.h"\
-	".\gnu_io_RXTXCommDriver.h"\
-	".\gnu_io_RXTXPort.h"\
+	".\javax_comm_RXTXCommDriver.h"\
+	".\javax_comm_RXTXPort.h"\
 	".\rxtxHelpers.h"\
 	".\StdAfx.h"\
 	
@@ -296,8 +296,8 @@ DEP_CPP_RXTXH=\
 DEP_CPP_RXTXH=\
 	"..\..\..\JBuilder6\jdk1.3.1\include\jni.h"\
 	"..\..\..\JBuilder6\jdk1.3.1\include\win32\jni_md.h"\
-	".\gnu_io_RXTXCommDriver.h"\
-	".\gnu_io_RXTXPort.h"\
+	".\javax_comm_RXTXCommDriver.h"\
+	".\javax_comm_RXTXPort.h"\
 	".\rxtxHelpers.h"\
 	".\StdAfx.h"\
 	
@@ -307,8 +307,8 @@ DEP_CPP_RXTXH=\
 DEP_CPP_RXTXH=\
 	"..\..\..\JBuilder6\jdk1.3.1\include\jni.h"\
 	"..\..\..\JBuilder6\jdk1.3.1\include\win32\jni_md.h"\
-	".\gnu_io_RXTXCommDriver.h"\
-	".\gnu_io_RXTXPort.h"\
+	".\javax_comm_RXTXCommDriver.h"\
+	".\javax_comm_RXTXPort.h"\
 	".\rxtxHelpers.h"\
 	".\StdAfx.h"\
 	
@@ -318,8 +318,8 @@ DEP_CPP_RXTXH=\
 DEP_CPP_RXTXH=\
 	"..\..\..\JBuilder6\jdk1.3.1\include\jni.h"\
 	"..\..\..\JBuilder6\jdk1.3.1\include\win32\jni_md.h"\
-	".\gnu_io_RXTXCommDriver.h"\
-	".\gnu_io_RXTXPort.h"\
+	".\javax_comm_RXTXCommDriver.h"\
+	".\javax_comm_RXTXPort.h"\
 	".\rxtxHelpers.h"\
 	".\StdAfx.h"\
 	
@@ -336,8 +336,8 @@ SOURCE=.\rxtxSerial.cpp
 DEP_CPP_RXTXS=\
 	"..\..\..\JBuilder6\jdk1.3.1\include\jni.h"\
 	"..\..\..\JBuilder6\jdk1.3.1\include\win32\jni_md.h"\
-	".\gnu_io_RXTXCommDriver.h"\
-	".\gnu_io_RXTXPort.h"\
+	".\javax_comm_RXTXCommDriver.h"\
+	".\javax_comm_RXTXPort.h"\
 	".\StdAfx.h"\
 	
 
@@ -346,8 +346,8 @@ DEP_CPP_RXTXS=\
 DEP_CPP_RXTXS=\
 	"..\..\..\JBuilder6\jdk1.3.1\include\jni.h"\
 	"..\..\..\JBuilder6\jdk1.3.1\include\win32\jni_md.h"\
-	".\gnu_io_RXTXCommDriver.h"\
-	".\gnu_io_RXTXPort.h"\
+	".\javax_comm_RXTXCommDriver.h"\
+	".\javax_comm_RXTXPort.h"\
 	".\StdAfx.h"\
 	
 
@@ -375,8 +375,8 @@ SOURCE=.\StdAfx.cpp
 DEP_CPP_STDAF=\
 	"..\..\..\JBuilder6\jdk1.3.1\include\jni.h"\
 	"..\..\..\JBuilder6\jdk1.3.1\include\win32\jni_md.h"\
-	".\gnu_io_RXTXCommDriver.h"\
-	".\gnu_io_RXTXPort.h"\
+	".\javax_comm_RXTXCommDriver.h"\
+	".\javax_comm_RXTXPort.h"\
 	".\StdAfx.h"\
 	
 # ADD CPP /Yc"stdafx.h"
@@ -386,8 +386,8 @@ DEP_CPP_STDAF=\
 DEP_CPP_STDAF=\
 	"..\..\..\JBuilder6\jdk1.3.1\include\jni.h"\
 	"..\..\..\JBuilder6\jdk1.3.1\include\win32\jni_md.h"\
-	".\gnu_io_RXTXCommDriver.h"\
-	".\gnu_io_RXTXPort.h"\
+	".\javax_comm_RXTXCommDriver.h"\
+	".\javax_comm_RXTXPort.h"\
 	".\StdAfx.h"\
 	
 # ADD CPP /Yc"stdafx.h"
@@ -415,11 +415,11 @@ DEP_CPP_STDAF=\
 # PROP Default_Filter "h;hpp;hxx;hm;inl"
 # Begin Source File
 
-SOURCE=.\gnu_io_RXTXCommDriver.h
+SOURCE=.\javax_comm_RXTXCommDriver.h
 # End Source File
 # Begin Source File
 
-SOURCE=.\gnu_io_RXTXPort.h
+SOURCE=.\javax_comm_RXTXPort.h
 # End Source File
 # Begin Source File
 

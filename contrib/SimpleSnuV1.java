@@ -12,7 +12,7 @@
 
 import java.io.*;
 import java.util.*;
-import gnu.io.*;
+import javax.comm.*;
 
 public class SimpleSnuV1 implements Runnable, SerialPortEventListener {
 

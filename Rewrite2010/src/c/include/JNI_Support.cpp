@@ -101,7 +101,7 @@ void log(JNIEnv *env, const char *message,  const char *source, int lineNumber)
 {
     if (logClass == NULL)
     {
-        logClass = env->FindClass("gnu/io/Log");
+        logClass = env->FindClass("javax.comm/Log");
         if (logClass == NULL)
             throw JavaRuntimeException();
         logMethod = env->GetStaticMethodID(logClass, "log", "(Ljava/lang/String;Ljava/lang/String;)V");

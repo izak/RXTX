@@ -25,7 +25,7 @@ make
 rm -rf $RPM_BUILD_ROOT
 mkdir -p $RPM_BUILD_ROOT$JAVA_HOME/jre/lib/ext $RPM_BUILD_ROOT$JAVA_HOME/jre/lib/i386
 make RXTX_PATH=$RPM_BUILD_ROOT$JAVA_HOME/jre/lib/i386/ JHOME=$RPM_BUILD_ROOT$JAVA_HOME/jre/lib/ext install
-echo "Driver=gnu.io.RXTXCommDriver" > $RPM_BUILD_ROOT$JAVA_HOME/jre/lib/ext/gnu.io.rxtx.properties
+echo "Driver=javax.comm.RXTXCommDriver" > $RPM_BUILD_ROOT$JAVA_HOME/jre/lib/ext/javax.comm.rxtx.properties
 
 find $RPM_BUILD_ROOT/usr -xtype f -print | \
     sed "s@^$RPM_BUILD_ROOT@@g" > INSTALLED_FILES

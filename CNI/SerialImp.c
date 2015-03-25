@@ -55,9 +55,9 @@
 |   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 |   All trademarks belong to their respective owners.
 --------------------------------------------------------------------------*/
-#include "gnu/io/RXTXPort.h" /* dima */
-#include "gnu/io/RXTXCommDriver.h" /* dima */
-#include "gnu/io/PortInUseException.h"
+#include "javax.comm/RXTXPort.h" /* dima */
+#include "javax.comm/RXTXCommDriver.h" /* dima */
+#include "javax.comm/PortInUseException.h"
 #if defined(__MWERKS__) /* dima */
 #else  /* dima */
 #include "config.h"
@@ -153,7 +153,7 @@ extern int errno;
 #include <java/io/PrintStream.h>
 #include <java/lang/String.h>
 #include <java/io/IOException.h>
-#include <gnu/io/UnsupportedCommOperationException.h>
+#include <javax.comm/UnsupportedCommOperationException.h>
 #include <java/lang/ArrayIndexOutOfBoundsException.h>
 //#define TRENT_IS_HERE_DEBUGGING_ENUMERATION
 
@@ -877,7 +877,7 @@ int translate_speed(
 /*----------------------------------------------------------
  translate_data_bits
 
-   accept:     gnu.io.SerialPort.DATABITS_* constant
+   accept:     javax.comm.SerialPort.DATABITS_* constant
    perform:    set proper termios c_cflag bits
    return:     1 on error
    exceptions: UnsupportedCommOperationException
@@ -918,7 +918,7 @@ int translate_data_bits(
 /*----------------------------------------------------------
  translate_stop_bits
 
-   accept:     gnu.io.SerialPort.STOPBITS_* constant
+   accept:     javax.comm.SerialPort.STOPBITS_* constant
    perform:    set proper termios c_cflag bits
    return:     1 on error
    exceptions: UnsupportedCommOperationException

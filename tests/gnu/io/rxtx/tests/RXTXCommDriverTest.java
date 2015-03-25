@@ -55,9 +55,9 @@
 |   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 |   All trademarks belong to their respective owners.
 --------------------------------------------------------------------------*/
-package gnu.io.rxtx.tests;
+package javax.comm.rxtx.tests;
 
-import gnu.io.CommPortIdentifier;
+import javax.comm.CommPortIdentifier;
 
 import java.util.ArrayList;
 import java.util.Enumeration;
@@ -81,13 +81,13 @@ public class RXTXCommDriverTest extends TestCase {
 
 	public void setUp() {
 		fPathSep = System.getProperty("path.separator", ":");
-		fOldPropSerial = System.getProperty("gnu.io.rxtx.SerialPorts");
-		fOldPropParallel = System.getProperty("gnu.io.rxtx.ParallelPorts");
+		fOldPropSerial = System.getProperty("javax.comm.rxtx.SerialPorts");
+		fOldPropParallel = System.getProperty("javax.comm.rxtx.ParallelPorts");
 	}
 
 	public void tearDown() {
-		System.setProperty("gnu.io.rxtx.SerialPorts", fOldPropSerial == null ? "" : fOldPropSerial);
-		System.setProperty("gnu.io.rxtx.ParallelPorts", fOldPropParallel == null ? "" : fOldPropParallel);
+		System.setProperty("javax.comm.rxtx.SerialPorts", fOldPropSerial == null ? "" : fOldPropSerial);
+		System.setProperty("javax.comm.rxtx.ParallelPorts", fOldPropParallel == null ? "" : fOldPropParallel);
 	}
 
 	/**
@@ -111,7 +111,7 @@ public class RXTXCommDriverTest extends TestCase {
 			buf.append(serialPorts.get(i));
 			buf.append(fPathSep);
 		}
-		System.setProperty("gnu.io.rxtx.SerialPorts", buf.toString());
+		System.setProperty("javax.comm.rxtx.SerialPorts", buf.toString());
 		e = CommPortIdentifier.getPortIdentifiers();
 		int nNew = 0;
 		while (e.hasMoreElements()) {

@@ -224,7 +224,7 @@ the usual
 The code works fine on Windows with the win32com.dll driver for
 Javacomm API. But on Linux the same code fails when trying to load
 the RXTXCommDriver (native driver for javacomm on linux). Seems
-like it might be a bug in gnu.io.RXTXCommDriver, either that or
+like it might be a bug in javax.comm.RXTXCommDriver, either that or
 RMISecurityManager is not behaving the same way on Linux.
 
 Any Ideas?
@@ -272,7 +272,7 @@ the
 &gt;    trying to load the serial drivers:
 &gt;
 &gt;      caught java.lang.IllegalArgumentException: name can't be null
-&gt;      while loading driver gnu.io.RXTXCommDriver
+&gt;      while loading driver javax.comm.RXTXCommDriver
 &gt;
 &gt; It appears that the RMI security manager is somehow messing with the
 &gt; loading of the native serial port driver (RXTX for linux). I assume
@@ -368,7 +368,7 @@ To participate in the community, please visit:
 &gt; The code works fine on Windows with the win32com.dll driver for
 &gt; Javacomm API. But on Linux the same code fails when trying to load
 &gt; the RXTXCommDriver (native driver for javacomm on linux). Seems
-&gt; like it might be a bug in gnu.io.RXTXCommDriver, either that or
+&gt; like it might be a bug in javax.comm.RXTXCommDriver, either that or
 &gt; RMISecurityManager is not behaving the same way on Linux.
 &gt;
 &gt; Any Ideas?

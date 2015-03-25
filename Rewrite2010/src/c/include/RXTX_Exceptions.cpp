@@ -90,7 +90,7 @@ jclass IOException::getJavaClass(JNIEnv *env)
 
 jclass NoSuchPortException::getJavaClass(JNIEnv *env)
 {
-    jclass exceptionClass = env->FindClass("gnu/io/NoSuchPortException");
+    jclass exceptionClass = env->FindClass("javax.comm/NoSuchPortException");
     if (exceptionClass == NULL)
         throw JavaRuntimeException();
     return exceptionClass;
@@ -98,7 +98,7 @@ jclass NoSuchPortException::getJavaClass(JNIEnv *env)
 
 jclass UnsupportedCommOperationException::getJavaClass(JNIEnv *env)
 {
-    jclass exceptionClass = env->FindClass("gnu/io/UnsupportedCommOperationException");
+    jclass exceptionClass = env->FindClass("javax.comm/UnsupportedCommOperationException");
     if (exceptionClass == NULL)
         throw JavaRuntimeException();
     return exceptionClass;
