@@ -1,3 +1,9 @@
+# Important
+
+This is a copy of the rxtx repo in the arduino project. I ported it back to the
+javax.comm namespace because legacy software of which we do not have the source
+code needs it to be that way.
+
 # RXTX 2.2
 
 Latest update with upstream: **2012-01-08**
